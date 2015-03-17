@@ -1,7 +1,8 @@
-----------------------------------SOM EM LOOP AO INICIAR----------------------------------display.setStatusBar (display.HiddenStatusBar)
+----------------------------------SOM EM LOOP AO INICIAR----------------------------------
+display.setStatusBar (display.HiddenStatusBar)
 ambianceSound = audio.loadStream("song_ambiance_forest.mp3")
 
-ambianceSoundChannel = audio.play( ambianceSound, {channel = 1, loops = -1} )
+ambianceSoundChannel = audio.play( ambianceSound, {channel = 1, loops = -1} ) 
 
 ---------------------------------------- BACKGROUND ----------------------------------------
 LAR = display.contentWidth 	-- Largura da tela
@@ -10,7 +11,7 @@ local bgCeu = display.newImageRect ("img_bg_ceu.png", LAR, ALT)
 	bgCeu.x = LAR/2
 	bgCeu.y = ALT/2
 	
-    ---------- Nuvens em loop ----------
+    ----------- Nuvens em loop ----------
     rolagem = 0.4 -- Velocidade da rolagem
 
     local bgNuvem = display.newImageRect ("img_bg_nuvem.png", LAR, ALT)
