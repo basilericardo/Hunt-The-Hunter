@@ -10,7 +10,10 @@ application =
 		height = 480,
 		scale = "zoomStrech",
 		fps = 30,
-		imageSuffix = {			["@2x"] = 2		},
+		imageSuffix = 
+		{
+			["@2x"] = 2
+		},
 		xAlign = "center",
 		yAlign = "center"
 	}

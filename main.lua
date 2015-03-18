@@ -1,7 +1,6 @@
 ----------------------------------SOM EM LOOP AO INICIAR----------------------------------
 display.setStatusBar (display.HiddenStatusBar)
-ambianceSound = audio.loadStream("song_ambiance_forest.mp3")
-
+ambianceSound = audio.loadStream("song_ambiance_forest.mp3")
 ambianceSoundChannel = audio.play( ambianceSound, {channel = 1, loops = -1} ) 
 
 ---------------------------------------- BACKGROUND ----------------------------------------

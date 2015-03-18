@@ -1,7 +1,10 @@
-settings = {
-	orientation = {
+settings = 
+{
+	orientation = 
+	{
 		default = "landscapeRight",
-		supported = {
+		supported = 
+		{
 			"landscapeLeft"
 		}
 	},
