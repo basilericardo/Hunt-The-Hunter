@@ -1,19 +1,17 @@
 ------------------------------------------------------------------------------------------------------------
 -- GLOBAL
 ------------------------------------------------------------------------------------------------------------
+display.setStatusBar(display.HiddenStatusBar)
+local hit = audio.loadSound('song_hit.mp3')
+local ambianceSound = audio.loadStream('song_ambiance_forest.mp3')
 
-------------------------------------------------------------------------------------------------------------
--- SOM EM LOOP AO INICIAR
-------------------------------------------------------------------------------------------------------------
-display.setStatusBar (display.HiddenStatusBar)
-ambianceSound = audio.loadStream("song_ambiance_forest.mp3")
-
-ambianceSoundChannel = audio.play(ambianceSound, {channel = 1, loops = -1}) 
 ------------------------------------------------------------------------------------------------------------
 -- BACKGROUND
 ------------------------------------------------------------------------------------------------------------
 LAR = display.contentWidth 	-- Largura da tela
 ALT = display.contentHeight	-- Altura da tela
+
+ambianceSoundChannel = audio.play(ambianceSound, {channel = 1, loops = -1})
 
 local imgBgCeu = display.newImageRect ("img_bg_ceu.png", LAR, ALT)
 	imgBgCeu.x = LAR/2
@@ -62,13 +60,18 @@ imgHunter.y = 600
 local imgHunter2 = display.newImage( "img_person_vilao_2.png" )
 imgHunter2.y = 600
 
+local imgAnimalCat = display.newImage( "img_animal_cat.png" )
+imgAnimalCat.y = 600
+
 local bgArbusto = display.newImageRect ("img_bg_arbustos.png", LAR, (ALT * 0.70))
 	bgArbusto.x = LAR/2
 	bgArbusto.y = ALT
 
-local pontuacao = display.newText('0', 470, 10, native.systemFont, 12)
+local scoraName = display.newText('Score:', 440, 10, native.systemFont, 12)
+local scoreCount = display.newText('0', 470, 10, native.systemFont, 12)
+
 ------------------------------------------------------------------------------------------------------------
--- TRANSIÇÃO [VILÃO 1]
+-- TRANSIÇÃO [VILÕES]
 ------------------------------------------------------------------------------------------------------------
 
 function transitionDown()
@@ -82,12 +85,10 @@ function transitionUp()
 end
 
 function imgHunter:tap(event)
+	audio.play(hit)
 	imgHunter.alpha = 0;
-	pontuacao.text = tostring(tonumber(pontuacao.text ) + 10 )	
+	scoreCount.text = tostring(tonumber(scoreCount.text ) + 10 )	
 end
-------------------------------------------------------------------------------------------------------------
--- TRANSIÇÃO [VILÃO 2]
-------------------------------------------------------------------------------------------------------------
 
 function transitionDown2()
    transition.to(imgHunter2, {time = 3000, x = imgHunter2.x, y = 600, onComplete = transitionUp2})
@@ -100,14 +101,37 @@ function transitionUp2()
 end
 
 function imgHunter2:tap(event)
+	audio.play(hit)
 	imgHunter2.alpha = 0;
-	pontuacao.text = tostring(tonumber(pontuacao.text ) + 10 )	
+	scoreCount.text = tostring(tonumber(scoreCount.text ) + 10 )	
 end
 
 ------------------------------------------------------------------------------------------------------------
--- GLOBAL
+-- TRANSIÇÃO [ANIMAIS]
+------------------------------------------------------------------------------------------------------------
+
+function transitionDownAnimalCat()
+   transition.to(imgAnimalCat, {time = 4000, x = imgAnimalCat.x, y = 600, onComplete = transitionUpAnimalCat})
+end
+
+function transitionUpAnimalCat()
+	imgAnimalCat.alpha = 1;
+	imgAnimalCat.x = math.random (20, 450)
+    transition.to(imgAnimalCat, {time = 2000, x = imgAnimalCat.x, y = 220, onComplete = transitionDownAnimalCat})
+end
+
+function imgAnimalCat:tap(event)
+	audio.play(hit)
+	imgAnimalCat.alpha = 0;
+	scoreCount.text = tostring(tonumber(scoreCount.text ) - 30 )	
+end
+
+------------------------------------------------------------------------------------------------------------
+-- MAIN
 ------------------------------------------------------------------------------------------------------------
 transitionUp()
 transitionUp2()
+transitionUpAnimalCat()
 imgHunter:addEventListener("tap", imgHunter)
 imgHunter2:addEventListener("tap", imgHunter2)
+imgAnimalCat:addEventListener("tap", imgAnimalCat)
