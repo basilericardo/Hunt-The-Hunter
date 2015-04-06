@@ -153,7 +153,7 @@ function animalOneDown()
 end
 
 function imgAnimalOne:tap(event)
-	audio.play(hitCat)
+	audio.play(hit)	audio.play(hitCat)
 	imgAnimalOne.alpha = 0;
 	controleVelocidade()	life = (life - 1)	if life == 0 then		print ( "GAME OVER!" )	end	
 end
