@@ -9,10 +9,6 @@
 		local storyboard = require( "storyboard" )
 		local scene = storyboard.newScene()
 
-	-- ARQUIVOS DE ÁUDIO
-
-		local ambianceSound = audio.loadStream('Multimidia/Menu/song_menu.mp3')
-
 	-- CONFIGURAÇÕES DA TELA
 
 		LAR = display.contentWidth 	-- ALTURA
@@ -45,15 +41,13 @@
 		-- CENA "MENU"
 			
 			function startMenu()
-				 storyboard.gotoScene("menu")
+				storyboard.gotoScene("menu")
 			end
 
 	-- FUNÇÃO DE CHAMADA DE CENA AO CLICAR NO BOTÃO		
 
 		function scene:enterScene( event )
 			local group = self.view
-
-			ambianceSoundChannel = audio.play(ambianceSound, {channel = 2, loops = -1})
 			returnButton:addEventListener("tap", startMenu)
 		end
 
@@ -61,9 +55,7 @@
 		
 		function scene:exitScene( event )
 			local group = self.view
-
 			returnButton:removeEventListener("tap", startMenu)
-			audio.stop( )
 		end
 
 -------------------------------------------------------------------------------------------------------------------------------

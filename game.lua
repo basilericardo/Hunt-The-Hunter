@@ -112,8 +112,8 @@
 
 	-- PONTUAÇÃO
 
-		local scoreName = display.newText('Score:', 440, 10, native.systemFont, 12)
-		local scoreCount = display.newText('0', 470, 10, native.systemFont, 12)
+		local scoreName = display.newText('Score:', 20, 10, native.systemFont, 12)
+		local scoreCount = display.newText('0', 55, 10, native.systemFont, 12)
 
 -------------------------------------------------------------------------------------------------------------------------------
 -- TRANSIÇÃO DE OBJETOS (VILÕES E ANIMAIS) ->

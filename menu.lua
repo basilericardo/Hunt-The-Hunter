@@ -83,7 +83,8 @@
 		-- CENA "GAME"
 			
 			function startGame()
-				 storyboard.gotoScene("game")
+				audio.stop()
+				storyboard.gotoScene("game")
 			end
 
 		-- CENA "INFO"
@@ -102,7 +103,6 @@
 
 		function scene:enterScene( event )
 			local group = self.view
-
 			storyboard.removeScene("instru")
 			storyboard.removeScene("info")
 			ambianceSoundChannel = audio.play(ambianceSound, {channel = 1, loops = -1})
@@ -115,11 +115,9 @@
 		
 		function scene:exitScene( event )
 			local group = self.view
-
 			playButton:removeEventListener("tap", startGame)
 			infoButton:removeEventListener("tap", startInfo)
 			instruButton:removeEventListener("tap", startInstru)
-			audio.stop( )
 		end
 
 -------------------------------------------------------------------------------------------------------------------------------
