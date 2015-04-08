@@ -9,28 +9,28 @@
 
 	-- CHAMADA DO STORYBOARD
 
-		local storyboard = require( "storyboard" )
-		local scene = storyboard.newScene()
+		local storyboard = require("storyboard");
+		local scene = storyboard.newScene();
 
 	-- ARQUIVOS DE ÁUDIO
 
-		local hit = audio.loadSound('Multimidia/Game/song_hit_all.mp3')
+		local hit = audio.loadSound('Multimidia/Game/song_hit_all.mp3');
 
-		local hitCat = audio.loadSound('Multimidia/Game/song_hit_cat.mp3')
+		local hitCat = audio.loadSound('Multimidia/Game/song_hit_cat.mp3');
 
-		local ambianceSound = audio.loadStream('Multimidia/Game/song_game.mp3')
-		ambianceSoundChannel = audio.play(ambianceSound, {channel = 4, loops = -1})
+		local ambianceSound = audio.loadStream('Multimidia/Game/song_game.mp3');
+		ambianceSoundChannel = audio.play(ambianceSound, {channel = 4, loops = -1});
 		
 	-- CONFIGURAÇÕES DA TELA
 
-		LAR = display.contentWidth 	-- ALTURA
-		ALT = display.contentHeight	-- LARGURA
+		LAR = display.contentWidth; 	-- ALTURA
+		ALT = display.contentHeight;	-- LARGURA
 
-	-- VARIÁVEIS
+	-- VARIÁVEIS DE CONTROLE DE JOGABILIDADE
 
-		local int controlePonto = 0 -- CONTROLE DE PONTUAÇÃO PARA UTILIZAÇÃO NA FUNÇÃO "controleVelocidade()"
+		local int controlePonto = 0; 	-- CONTROLE DE PONTUAÇÃO PARA UTILIZAÇÃO NA FUNÇÃO "controleVelocidade()"
 		
-		local int controleLife = 5 -- CONTROLE DE VIDA
+		local int controleLife = 5; 	-- CONTROLE DE VIDA
 
 -------------------------------------------------------------------------------------------------------------------------------
 -- BACKGROUND ->
@@ -43,39 +43,39 @@
 
 	-- CÉU (1/5)
 
-		local imgBgCeu = display.newImageRect ("Multimidia/Game/img_bg_ceu.png", LAR, ALT)
-			imgBgCeu.x = LAR/2
-			imgBgCeu.y = ALT/2
+		local imgBgCeu = display.newImageRect("Multimidia/Game/img_bg_ceu.png", LAR, ALT);
+			imgBgCeu.x = LAR/2;
+			imgBgCeu.y = ALT/2;
 
 	-- NUVENS (2/5)
 
-		rolagem = 0.4 -- Velocidade da rolagem
+		rolagem = 0.4; -- Velocidade da rolagem
 
-		local imgBgNuvem = display.newImageRect ("Multimidia/Game/img_bg_nuvem.png", LAR, ALT)
-			imgBgNuvem.x = LAR/2
-			imgBgNuvem.y = ALT/2
+		local imgBgNuvem = display.newImageRect("Multimidia/Game/img_bg_nuvem.png", LAR, ALT);
+			imgBgNuvem.x = LAR/2;
+			imgBgNuvem.y = ALT/2;
 
-		local imgBgNuvem2 = display.newImageRect ("Multimidia/Game/img_bg_nuvem.png", LAR, ALT)
-			imgBgNuvem2.x = imgBgNuvem.x + (LAR - 0.2)
-			imgBgNuvem2.y = ALT/2
+		local imgBgNuvem2 = display.newImageRect("Multimidia/Game/img_bg_nuvem.png", LAR, ALT);
+			imgBgNuvem2.x = (imgBgNuvem.x + (LAR - 0.2));
+			imgBgNuvem2.y = ALT/2;
 
-		local imgBgNuvem3 = display.newImageRect ("Multimidia/Game/img_bg_nuvem.png", LAR, ALT)
-			imgBgNuvem3.x = imgBgNuvem2.x + (LAR - 0.3)
-			imgBgNuvem3.y = ALT/2
+		local imgBgNuvem3 = display.newImageRect("Multimidia/Game/img_bg_nuvem.png", LAR, ALT);
+			imgBgNuvem3.x = (imgBgNuvem2.x + (LAR - 0.3));
+			imgBgNuvem3.y = ALT/2;
 
-		local function imgBgNuvemRolagem (event)
-			imgBgNuvem.x = imgBgNuvem.x - rolagem
-			imgBgNuvem2.x = imgBgNuvem2.x - rolagem
-			imgBgNuvem3.x = imgBgNuvem3.x - rolagem	
+		local function imgBgNuvemRolagem(event)
+			imgBgNuvem.x = (imgBgNuvem.x - rolagem);
+			imgBgNuvem2.x = (imgBgNuvem2.x - rolagem);
+			imgBgNuvem3.x = (imgBgNuvem3.x - rolagem);	
 
 			if (imgBgNuvem.x + imgBgNuvem.contentWidth) < 0 then
-				imgBgNuvem:translate(LAR * 3, 0)
+				imgBgNuvem:translate(LAR * 3, 0);
 			end
 			if (imgBgNuvem2.x + imgBgNuvem2.contentWidth) < 0 then
-				imgBgNuvem2:translate(LAR * 3, 0)
+				imgBgNuvem2:translate(LAR * 3, 0);
 			end
 			if (imgBgNuvem3.x + imgBgNuvem3.contentWidth) < 0 then
-				imgBgNuvem3:translate(LAR * 3, 0)
+				imgBgNuvem3:translate(LAR * 3, 0);
 			end		
 		end
 
@@ -83,37 +83,37 @@
 
 	-- TERRA, ÁRVORES (3/5)
 
-		local imgBgTerra = display.newImageRect ("Multimidia/Game/img_bg_terra.png", LAR, ALT)
-			imgBgTerra.x = LAR/2
-			imgBgTerra.y = ALT/2
+		local imgBgTerra = display.newImageRect("Multimidia/Game/img_bg_terra.png", LAR, ALT);
+			imgBgTerra.x = LAR/2;
+			imgBgTerra.y = ALT/2;
 
 	-- PERSONAGENS (4/5)
 
-		local imgHunterOne = display.newImage( "Multimidia/Game/img_person_vilao.png" )
-			imgHunterOne.y = 600
+		local imgHunterOne = display.newImage("Multimidia/Game/img_person_vilao.png");
+			imgHunterOne.y = 600;
 
-		local imgHunterTwo = display.newImage( "Multimidia/Game/img_person_vilao_2.png" )
-			imgHunterTwo.y = 600
+		local imgHunterTwo = display.newImage("Multimidia/Game/img_person_vilao_2.png");
+			imgHunterTwo.y = 600;
 
-		local imgHunterLider = display.newImage( "Multimidia/Game/img_person_vilao_lider.png" )
-			imgHunterLider.y = 600
+		local imgHunterLider = display.newImage("Multimidia/Game/img_person_vilao_lider.png");
+			imgHunterLider.y = 600;
 
-		local imgAnimalOne = display.newImage( "Multimidia/Game/img_animal_one.png" )
-			imgAnimalOne.y = 600
+		local imgAnimalOne = display.newImage("Multimidia/Game/img_animal_one.png");
+			imgAnimalOne.y = 600;
 
-		local imgAnimalTwo = display.newImage( "Multimidia/Game/img_animal_two.png" )
-			imgAnimalTwo.y = 600
+		local imgAnimalTwo = display.newImage("Multimidia/Game/img_animal_two.png");
+			imgAnimalTwo.y = 600;
 
 	-- ARBUSTO (5/5)
 
-		local bgArbusto = display.newImageRect ("Multimidia/Game/img_bg_arbustos.png", LAR, (ALT * 0.70))
-			bgArbusto.x = LAR/2
-			bgArbusto.y = ALT
+		local bgArbusto = display.newImageRect("Multimidia/Game/img_bg_arbustos.png", LAR, (ALT * 0.70));
+			bgArbusto.x = LAR/2;
+			bgArbusto.y = ALT;
 
 	-- PONTUAÇÃO
 
-		local scoreName = display.newText('Score:', 20, 10, native.systemFont, 12)
-		local scoreCount = display.newText('0', 55, 10, native.systemFont, 12)
+		local scoreName = display.newText('Score:', 20, 10, native.systemFont, 12);
+		local scoreCount = display.newText('0', 55, 10, native.systemFont, 12);
 
 -------------------------------------------------------------------------------------------------------------------------------
 -- TRANSIÇÃO DE OBJETOS (VILÕES E ANIMAIS) ->
@@ -138,67 +138,70 @@
 		function vilaoOneUp()
 			imgHunterOne.alpha = 1;
 
-			imgHunterOne.x = math.random (20, 215)
-			transition.to(imgHunterOne, {time = timeVilaoOneUp, x = imgHunterOne.x, y = 220, onComplete = vilaoOneDown})
+			imgHunterOne.x = math.random(20, 215);
+
+			transition.to(imgHunterOne, {time = timeVilaoOneUp, x = imgHunterOne.x, y = 220, onComplete = vilaoOneDown});
 		end
 
 		function vilaoOneDown()
-			transition.to(imgHunterOne, {time = timeVilaoOneDown, x = imgHunterOne.x, y = 600, onComplete = vilaoOneUp})
+			transition.to(imgHunterOne, {time = timeVilaoOneDown, x = imgHunterOne.x, y = 600, onComplete = vilaoOneUp});
 		end
 
 		function vilaoTwoUp()
 			imgHunterTwo.alpha = 1;
 
-			imgHunterTwo.x = math.random (270, 450)
-			transition.to(imgHunterTwo, {time = timeVilaoTwoUp, x = imgHunterTwo.x, y = 220, onComplete = vilaoTwoDown})
+			imgHunterTwo.x = math.random(270, 450);
+
+			transition.to(imgHunterTwo, {time = timeVilaoTwoUp, x = imgHunterTwo.x, y = 220, onComplete = vilaoTwoDown});
 		end
 
 		function vilaoTwoDown()
-			transition.to(imgHunterTwo, {time = timeVilaoTwoDown, x = imgHunterTwo.x, y = 600, onComplete = vilaoTwoUp})
+			transition.to(imgHunterTwo, {time = timeVilaoTwoDown, x = imgHunterTwo.x, y = 600, onComplete = vilaoTwoUp});
 		end
 
 		function vilaoLiderUp()
 			imgHunterLider.alpha = 1;
 
-			imgHunterLider.x = math.random (20, 450)
-			transition.to(imgHunterLider, {time = timeVilaoLiderUp, x = imgHunterLider.x, y = 220, onComplete = vilaoLiderDown})
+			imgHunterLider.x = math.random(20, 450);
+
+			transition.to(imgHunterLider, {time = timeVilaoLiderUp, x = imgHunterLider.x, y = 220, onComplete = vilaoLiderDown});
 		end
 
 		function vilaoLiderDown()
-			transition.to(imgHunterLider, {time = timeVilaoLiderDown, x = imgHunterLider.x, y = 600, onComplete = vilaoLiderUp})
+			transition.to(imgHunterLider, {time = timeVilaoLiderDown, x = imgHunterLider.x, y = 600, onComplete = vilaoLiderUp});
 		end
 
 		function imgHunterOne:tap(event)
-			audio.play(hit)
+			audio.play(hit);
 
 			imgHunterOne.alpha = 0;
 
-			scoreCount.text = tostring(tonumber(scoreCount.text ) + 50 )
-			controlePonto = tonumber(scoreCount.text )
+			scoreCount.text = tostring(tonumber(scoreCount.text) + 50);
+			controlePonto = tonumber(scoreCount.text);
 
-			controleVelocidade()
+			controleVelocidade();
 		end
 
 		function imgHunterTwo:tap(event)
-			audio.play(hit)
+			audio.play(hit);
 
 			imgHunterTwo.alpha = 0;
 
-			scoreCount.text = tostring(tonumber(scoreCount.text ) + 50 )
-			controlePonto = tonumber(scoreCount.text )
+			scoreCount.text = tostring(tonumber(scoreCount.text) + 50);
+			controlePonto = tonumber(scoreCount.text);
 
-			controleVelocidade()
+			controleVelocidade();
 		end
 
 		function imgHunterLider:tap(event)
-			audio.play(hit)
+			audio.play(hit);
 
 			imgHunterLider.alpha = 0;
 
-			scoreCount.text = tostring(tonumber(scoreCount.text ) + 100 )
-			controlePonto = tonumber(scoreCount.text )
+			scoreCount.text = tostring(tonumber(scoreCount.text) + 100);
+			controlePonto = tonumber(scoreCount.text);
 
-			controleVelocidade()
+			controleVelocidade();
 		end
 
 	-- ANIMAIS
@@ -206,23 +209,25 @@
 		function animalOneUp()
 			imgAnimalOne.alpha = 1;
 
-			imgAnimalOne.x = math.random (20, 450)
-			transition.to(imgAnimalOne, {time = timeAnimalOneUp, x = imgAnimalOne.x, y = 220, onComplete = animalOneDown})
+			imgAnimalOne.x = math.random (20, 450);
+
+			transition.to(imgAnimalOne, {time = timeAnimalOneUp, x = imgAnimalOne.x, y = 220, onComplete = animalOneDown});
 		end
 
 		function animalOneDown()
-			transition.to(imgAnimalOne, {time = timeAnimalOneDown, x = imgAnimalOne.x, y = 600, onComplete = animalOneUp})
+			transition.to(imgAnimalOne, {time = timeAnimalOneDown, x = imgAnimalOne.x, y = 600, onComplete = animalOneUp});
 		end
 
 		function imgAnimalOne:tap(event)
-			audio.play(hit)
-			audio.play(hitCat)
+			audio.play(hit);
+			audio.play(hitCat);
 
 			imgAnimalOne.alpha = 0;
 
-			controleLife = (controleLife - 1)
+			controleLife = (controleLife - 1);
+
 			if controleLife == 0 then
-				print ( "GAME OVER!" )
+				print("GAME OVER!");
 			end
 			
 		end
@@ -230,23 +235,25 @@
 		function animalTwoUp()
 			imgAnimalTwo.alpha = 1;
 
-			imgAnimalTwo.x = math.random (20, 450)
-			transition.to(imgAnimalTwo, {time = timeAnimalTwoUp, x = imgAnimalTwo.x, y = 220, onComplete = animalTwoDown})
+			imgAnimalTwo.x = math.random(20, 450);
+
+			transition.to(imgAnimalTwo, {time = timeAnimalTwoUp, x = imgAnimalTwo.x, y = 220, onComplete = animalTwoDown});
 		end
 
 		function animalTwoDown()
-			transition.to(imgAnimalTwo, {time = timeAnimalTwoDown, x = imgAnimalTwo.x, y = 600, onComplete = animalTwoUp})
+			transition.to(imgAnimalTwo, {time = timeAnimalTwoDown, x = imgAnimalTwo.x, y = 600, onComplete = animalTwoUp});
 		end
 
 		function imgAnimalTwo:tap(event)
-			audio.play(hit)
-			audio.play(hitCat)
+			audio.play(hit);
+			audio.play(hitCat);
 
 			imgAnimalTwo.alpha = 0;
 
-			controleLife = (controleLife - 1)
+			controleLife = (controleLife - 1);
+
 			if controleLife == 0 then
-				print ( "GAME OVER!" )
+				print ("GAME OVER!");
 			end
 			
 		end
@@ -464,13 +471,13 @@
 -------------------------------------------------------------------------------------------------------------------------------
 	
 	-- PERSONAGENS
-		vilaoOneUp()
-		vilaoTwoUp()
-		animalOneUp()
+		vilaoOneUp();
+		vilaoTwoUp();
+		animalOneUp();
 	
 	-- ATIVA EVENTOS
-		imgHunterOne:addEventListener("tap", imgHunterOne)
-		imgHunterTwo:addEventListener("tap", imgHunterTwo)
-		imgAnimalOne:addEventListener("tap", imgAnimalOne)
+		imgHunterOne:addEventListener("tap", imgHunterOne);
+		imgHunterTwo:addEventListener("tap", imgHunterTwo);
+		imgAnimalOne:addEventListener("tap", imgAnimalOne);
 
-	return scene
+	return scene;

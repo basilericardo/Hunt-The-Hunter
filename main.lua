@@ -1,4 +1,4 @@
-display.setStatusBar(display.HiddenStatusBar) -- DESABILITA A BARRA DE STATUS
+display.setStatusBar(display.HiddenStatusBar); -- DESABILITA A BARRA DE STATUS
 
-local storyboard = require "storyboard"
-storyboard.gotoScene("menu")
+local storyboard = require "storyboard";
+storyboard.gotoScene("menu");
