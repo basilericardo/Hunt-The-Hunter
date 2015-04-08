@@ -19,14 +19,12 @@
 		local hitCat = audio.loadSound('Multimidia/Game/song_hit_cat.mp3')
 
 		local ambianceSound = audio.loadStream('Multimidia/Game/song_game.mp3')
-		ambianceSoundChannel = audio.play(ambianceSound, {channel = 1, loops = -1})
+		ambianceSoundChannel = audio.play(ambianceSound, {channel = 4, loops = -1})
 		
 	-- CONFIGURAÇÕES DA TELA
 
 		LAR = display.contentWidth 	-- ALTURA
 		ALT = display.contentHeight	-- LARGURA
-
-		display.setStatusBar(display.HiddenStatusBar) -- DESABILITA A BARRA DE STATUS
 
 	-- VARIÁVEIS
 
@@ -102,6 +100,11 @@
 
 		local imgAnimalOne = display.newImage( "Multimidia/Game/img_animal_one.png" )
 			imgAnimalOne.y = 600
+
+		local imgAnimalTwo = display.newImage( "Multimidia/Game/img_animal_two.png" )
+			imgAnimalTwo.y = 600
+
+	-- ARBUSTO (5/5)
 
 		local bgArbusto = display.newImageRect ("Multimidia/Game/img_bg_arbustos.png", LAR, (ALT * 0.70))
 			bgArbusto.x = LAR/2
@@ -224,6 +227,30 @@
 			
 		end
 
+		function animalTwoUp()
+			imgAnimalTwo.alpha = 1;
+
+			imgAnimalTwo.x = math.random (20, 450)
+			transition.to(imgAnimalTwo, {time = timeAnimalTwoUp, x = imgAnimalTwo.x, y = 220, onComplete = animalTwoDown})
+		end
+
+		function animalTwoDown()
+			transition.to(imgAnimalTwo, {time = timeAnimalTwoDown, x = imgAnimalTwo.x, y = 600, onComplete = animalTwoUp})
+		end
+
+		function imgAnimalTwo:tap(event)
+			audio.play(hit)
+			audio.play(hitCat)
+
+			imgAnimalTwo.alpha = 0;
+
+			controleLife = (controleLife - 1)
+			if controleLife == 0 then
+				print ( "GAME OVER!" )
+			end
+			
+		end
+
 	-- CONTROLE DA VELOCIDADE DE TRANSIÇÃO
 
 		local int timeVilaoOneUp = 4500;
@@ -234,6 +261,8 @@
 		local int timeVilaoLiderDown = 1500;
 		local int timeAnimalOneUp = 3500;
 		local int timeAnimalOneDown = 4500;
+		local int timeAnimalTwoUp = 1800;
+		local int timeAnimalTwoDown = 2500;
 
 		function controleVelocidade()
 			if controlePonto > 0 and controlePonto < 50 then
@@ -306,6 +335,11 @@
 				timeVilaoTwoDown 		= 3500 - 1100;
 				timeAnimalOneUp 		= 4000 - 1100;
 				timeAnimalOneDown 		= 4500 - 1100;
+
+				if controlePonto == 650 then
+					animalTwoUp();
+					imgAnimalTwo:addEventListener("tap", imgAnimalTwo);
+				end
 			end
 
 			if controlePonto > 700 and controlePonto < 800 then

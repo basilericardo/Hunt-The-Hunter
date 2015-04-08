@@ -17,7 +17,6 @@
 
 		LAR = display.contentWidth 	-- ALTURA
 		ALT = display.contentHeight	-- LARGURA
-		display.setStatusBar(display.HiddenStatusBar) -- DESABILITA A BARRA DE STATUS
 
 	-- FUNÇÃO RESPONSÁVEL POR CRIAR A CENA, CONTENDO TODOS OS OBJETOS DO MENU.
 		function scene:createScene( event )
@@ -104,6 +103,8 @@
 		function scene:enterScene( event )
 			local group = self.view
 
+			storyboard.removeScene("instru")
+			storyboard.removeScene("info")
 			ambianceSoundChannel = audio.play(ambianceSound, {channel = 1, loops = -1})
 			playButton:addEventListener("tap", startGame)
 			infoButton:addEventListener("tap", startInfo)
@@ -118,7 +119,6 @@
 			playButton:removeEventListener("tap", startGame)
 			infoButton:removeEventListener("tap", startInfo)
 			instruButton:removeEventListener("tap", startInstru)
-			
 			audio.stop( )
 		end
 

@@ -17,7 +17,6 @@
 
 		LAR = display.contentWidth 	-- ALTURA
 		ALT = display.contentHeight	-- LARGURA
-		display.setStatusBar(display.HiddenStatusBar) -- DESABILITA A BARRA DE STATUS
 
 	-- FUNÇÃO RESPONSÁVEL POR CRIAR A CENA, CONTENDO TODOS OS OBJETOS DO MENU.
 		function scene:createScene( event )
@@ -54,7 +53,7 @@
 		function scene:enterScene( event )
 			local group = self.view
 
-			ambianceSoundChannel = audio.play(ambianceSound, {channel = 1, loops = -1})
+			ambianceSoundChannel = audio.play(ambianceSound, {channel = 3, loops = -1})
 			returnButton:addEventListener("tap", startMenu)
 		end
 
@@ -64,7 +63,6 @@
 			local group = self.view
 
 			returnButton:removeEventListener("tap", startMenu)
-			
 			audio.stop( )
 		end
 
