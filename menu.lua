@@ -117,6 +117,7 @@
 
 			storyboard.removeScene("instru");
 			storyboard.removeScene("info");
+			storyboard.removeScene("gameover");
 
 			playButton:addEventListener("tap", startGame);
 			infoButton:addEventListener("tap", startInfo);
@@ -143,6 +144,6 @@
 
 		scene:addEventListener("createScene", scene);
 		scene:addEventListener("enterScene", scene);
-		scene:addEventListener( "exitScene", scene);
+		scene:addEventListener("exitScene", scene);
 
 	return scene;

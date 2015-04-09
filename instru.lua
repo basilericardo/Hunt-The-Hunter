@@ -48,6 +48,7 @@
 
 		function scene:enterScene(event)
 			local group = self.view;
+
 			returnButton:addEventListener("tap", startMenu);
 		end
 
@@ -55,6 +56,7 @@
 		
 		function scene:exitScene(event)
 			local group = self.view;
+			
 			returnButton:removeEventListener("tap", startMenu);
 		end
 
