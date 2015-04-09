@@ -1,15 +1,15 @@
 -------------------------------------------------------------------------------------------------------------------------------
 -- GERAL ->
 --
--- ARQUIVO RESPONSÁVEL PELA FUNCIONALIDADE DO MENU E DE TODOS OS OBJETOS E FUNÇÕES NECESSÁRIAS.
+-- ARQUIVO RESPONSÁVEL PELA FUNCIONALIDADE DO JOGO.
 -------------------------------------------------------------------------------------------------------------------------------
 
-	-- CHAMADA DO STORYBOARD
+	-- CHAMADA DO STORYBOARD:
 
 		local storyboard = require("storyboard");
 		local scene = storyboard.newScene();
 
-	-- ARQUIVOS DE ÁUDIO
+	-- ARQUIVOS DE ÁUDIO:
 
 		local hit = audio.loadSound('Multimidia/Game/song_hit_all.mp3');
 
@@ -17,17 +17,17 @@
 
 		local ambianceSound = audio.loadStream('Multimidia/Game/song_game.mp3');
 		
-	-- CONFIGURAÇÕES DA TELA
+	-- CONFIGURAÇÕES DA TELA:
 
 		LAR = display.contentWidth; 	-- ALTURA
 		ALT = display.contentHeight;	-- LARGURA
 
-	-- VARIÁVEIS DE CONTROLE DE JOGABILIDADE
+	-- VARIÁVEIS DE CONTROLE DE JOGABILIDADE:
 
 		local int controlePonto = 0; 	-- CONTROLE DE PONTUAÇÃO PARA UTILIZAÇÃO NA FUNÇÃO "controleVelocidade()"
 		local int controleLife = 1; 	-- CONTROLE DE VIDA
 
-	-- FUNÇÃO RESPONSÁVEL POR CRIAR A CENA, CONTENDO TODOS OS OBJETOS DO JOGO.
+	-- FUNÇÃO RESPONSÁVEL POR CRIAR OS OBJETOS DA CENA:
 		function scene:createScene(event)
 			local group = self.view;
 
@@ -38,15 +38,15 @@
 			-- (1. Céu), (2. Nuvem), (3.Terra/Árvores), (4. Personagens), (5. Arbustos).
 			-------------------------------------------------------------------------------------------------------------------------------
 
-				-- CÉU (1/5)
+				-- CÉU (1/5):
 
 					local imgBgCeu = display.newImageRect("Multimidia/Game/img_bg_ceu.png", LAR, ALT);
 						imgBgCeu.x = LAR/2;
 						imgBgCeu.y = ALT/2;
 
-						group:insert(imgBgCeu);
+					group:insert(imgBgCeu);
 
-				-- NUVENS (2/5)
+				-- NUVENS (2/5):
 
 					rolagem = 0.4; -- Velocidade da rolagem
 
@@ -54,19 +54,19 @@
 						imgBgNuvem.x = LAR/2;
 						imgBgNuvem.y = ALT/2;
 
-						group:insert(imgBgNuvem);
+					group:insert(imgBgNuvem);
 
 					local imgBgNuvem2 = display.newImageRect("Multimidia/Game/img_bg_nuvem.png", LAR, ALT);
 						imgBgNuvem2.x = (imgBgNuvem.x + (LAR - 0.2));
 						imgBgNuvem2.y = ALT/2;
 
-						group:insert(imgBgNuvem2);
+					group:insert(imgBgNuvem2);
 
 					local imgBgNuvem3 = display.newImageRect("Multimidia/Game/img_bg_nuvem.png", LAR, ALT);
 						imgBgNuvem3.x = (imgBgNuvem2.x + (LAR - 0.3));
 						imgBgNuvem3.y = ALT/2;
 
-						group:insert(imgBgNuvem3);
+					group:insert(imgBgNuvem3);
 
 					local function imgBgNuvemRolagem(event)
 						imgBgNuvem.x = (imgBgNuvem.x - rolagem);
@@ -84,63 +84,65 @@
 						end		
 					end
 
-					Runtime:addEventListener("enterFrame", imgBgNuvemRolagem)		
+					Runtime:addEventListener("enterFrame", imgBgNuvemRolagem)	
 
-				-- TERRA, ÁRVORES (3/5)
+				-- TERRA, ÁRVORES (3/5):
 
 					local imgBgTerra = display.newImageRect("Multimidia/Game/img_bg_terra.png", LAR, ALT);
 						imgBgTerra.x = LAR/2;
 						imgBgTerra.y = ALT/2;
 
-						group:insert(imgBgTerra);
+					group:insert(imgBgTerra);
 
-				-- PERSONAGENS (4/5)imgHunterOne
+				-- PERSONAGENS (4/5):
 
 					local imgHunterOne = display.newImage("Multimidia/Game/img_person_vilao.png");
 						imgHunterOne.y = 600;
 
-						group:insert(imgHunterOne);
+					group:insert(imgHunterOne);
 
 					local imgHunterTwo = display.newImage("Multimidia/Game/img_person_vilao_2.png");
 						imgHunterTwo.y = 600;
 
-						group:insert(imgHunterTwo);
+					group:insert(imgHunterTwo);
 
 					local imgHunterLider = display.newImage("Multimidia/Game/img_person_vilao_lider.png");
 						imgHunterLider.y = 600;
 
-						group:insert(imgHunterLider);
+					group:insert(imgHunterLider);
 
 					local imgAnimalOne = display.newImage("Multimidia/Game/img_animal_one.png");
 						imgAnimalOne.y = 600;
 
-						group:insert(imgAnimalOne);
+					group:insert(imgAnimalOne);
 
 					local imgAnimalTwo = display.newImage("Multimidia/Game/img_animal_two.png");
 						imgAnimalTwo.y = 600;
 
-						group:insert(imgAnimalTwo);
+					group:insert(imgAnimalTwo);
 
-				-- ARBUSTO (5/5)
+				-- ARBUSTO (5/5):
 
 					local bgArbusto = display.newImageRect("Multimidia/Game/img_bg_arbustos.png", LAR, (ALT * 0.70));
 						bgArbusto.x = LAR/2;
 						bgArbusto.y = ALT;
 
-						group:insert(bgArbusto);
+					group:insert(bgArbusto);
 
-				-- PONTUAÇÃO
+				-- PONTUAÇÃO:
 
 					local scoreName = display.newText('Score:', 20, 10, native.systemFont, 12);
-						group:insert(scoreName);
+					
+					group:insert(scoreName);
 
 					local scoreCount = display.newText('0', 55, 10, native.systemFont, 12);
-						group:insert(scoreCount);
-
-			-- FUNÇÕES ->
+						
+					group:insert(scoreCount);
 
 			-------------------------------------------------------------------------------------------------------------------------------
-			-- TRANSIÇÃO DE OBJETOS (VILÕES E ANIMAIS) E CONTROLE DE JOGABILIDADE ->
+			-- FUNÇÕES:
+			--
+			-- TRANSIÇÃO DE OBJETOS (VILÕES E ANIMAIS) E CONTROLE DE JOGABILIDADE
 			--
 			-- xxxUP() 				- Habilita a visualização do objeto, randomiza a posição X, utiliza o valor de tempo
 			--							da transição definido de acordo com o score atual, quando percorrido o Y, chama "xxxDOWN()";
@@ -157,7 +159,7 @@
 			-- controleVelocidade()	- Verifica a pontuação atual e atualiza as variáveis de tempo de transição.
 			-------------------------------------------------------------------------------------------------------------------------------
 
-				-- VILÕES
+				-- VILÕES:
 
 					function vilaoOneUp()
 						imgHunterOne.alpha = 1;
@@ -234,7 +236,7 @@
 						controleVelocidade();
 					end
 
-				-- ANIMAIS
+				-- ANIMAIS:
 
 					function animalOneUp()
 						imgAnimalOne.alpha = 1;
@@ -262,16 +264,17 @@
 							imgHunterLider:removeEventListener("tap", imgHunterLider);
 							imgAnimalOne:removeEventListener("tap", imgAnimalOne);
 							imgAnimalTwo:removeEventListener("tap", imgAnimalTwo);
-							Runtime:removeEventListener("enterFrame", imgBgNuvemRolagem);
-							transition.cancel(imgHunterOne)
-							transition.cancel(imgHunterTwo)
-							transition.cancel(imgHunterLider)
-							transition.cancel(imgAnimalOne)
-							transition.cancel(imgAnimalTwo)
+							
+							transition.cancel(imgHunterOne);
+							transition.cancel(imgHunterTwo);
+							transition.cancel(imgHunterLider);
+							transition.cancel(imgAnimalOne);
+							transition.cancel(imgAnimalTwo);
 
+							Runtime:removeEventListener("enterFrame", imgBgNuvemRolagem);
+							
 							storyboard.gotoScene("gameover");
 						end
-						
 					end
 
 					function animalTwoUp()
@@ -300,19 +303,20 @@
 							imgHunterLider:removeEventListener("tap", imgHunterLider);
 							imgAnimalOne:removeEventListener("tap", imgAnimalOne);
 							imgAnimalTwo:removeEventListener("tap", imgAnimalTwo);
+							
+							transition.cancel(imgHunterOne);
+							transition.cancel(imgHunterTwo);
+							transition.cancel(imgHunterLider);
+							transition.cancel(imgAnimalOne);
+							transition.cancel(imgAnimalTwo);
+
 							Runtime:removeEventListener("enterFrame", imgBgNuvemRolagem);
-							transition.cancel(imgHunterOne)
-							transition.cancel(imgHunterTwo)
-							transition.cancel(imgHunterLider)
-							transition.cancel(imgAnimalOne)
-							transition.cancel(imgAnimalTwo)
 
 							storyboard.gotoScene("gameover");
-						end
-						
+						end						
 					end
 
-				-- CONTROLE DA VELOCIDADE DE TRANSIÇÃO
+				-- CONTROLE DA VELOCIDADE DE TRANSIÇÃO:
 
 					function controleVelocidade()
 						if controlePonto > 0 and controlePonto < 50 then
@@ -507,7 +511,7 @@
 
 					end
 
-			-- CHAMADA DOS EVENTOS DE TOQUE NOS PERSONAGENS
+			-- CHAMADA DOS EVENTOS:
 
 				imgHunterOne:addEventListener("tap", imgHunterOne);
 				imgHunterTwo:addEventListener("tap", imgHunterTwo);
@@ -515,10 +519,14 @@
 		
 		end
 
-	-- FUNÇÃO QUE É CHAMADA AO ENTRAR NA CENA
+		scene:addEventListener("createScene", scene);
+
+	-- FUNÇÃO QUE É CHAMADA AO ENTRAR NA CENA:
 
 		function scene:enterScene(event)
 			local group = self.view;
+
+			storyboard.removeScene("menu");
 
 			local int timeVilaoOneUp = 4500;
 			local int timeVilaoOneDown = 4500;
@@ -539,7 +547,9 @@
 
 		end
 
-	-- FUNÇÃO QUE REMOVE OS OBJETOS AO SAIR DA CENA ATUAL
+		scene:addEventListener("enterScene", scene);
+
+	-- FUNÇÃO QUE REMOVE OS OBJETOS AO SAIR DA CENA:
 		
 		function scene:exitScene(event)
 			local group = self.view;
@@ -547,16 +557,6 @@
 			audio.stop();
 		end
 
--------------------------------------------------------------------------------------------------------------------------------
--- MAIN ->
---
--- Chama as funções responsáveis pelo funcionamento do jogo.
--------------------------------------------------------------------------------------------------------------------------------
-	
-	-- ATIVA OS EVENTOS
-
-		scene:addEventListener("createScene", scene);
-		scene:addEventListener("enterScene", scene);
 		scene:addEventListener("exitScene", scene);
 
 	return scene;

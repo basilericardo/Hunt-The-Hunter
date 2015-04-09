@@ -4,33 +4,33 @@
 -- ARQUIVO RESPONSÁVEL PELA FUNCIONALIDADE DO MENU E DE TODOS OS OBJETOS E FUNÇÕES NECESSÁRIAS.
 -------------------------------------------------------------------------------------------------------------------------------
 
-	-- CHAMADA DO STORYBOARD
+	-- CHAMADA DO STORYBOARD:
 
 		local storyboard = require("storyboard");
 		local scene = storyboard.newScene();
 
-	-- ARQUIVOS DE ÁUDIO
+	-- ARQUIVOS DE ÁUDIO:
 
 		local ambianceSound = audio.loadStream('Multimidia/Menu/song_menu.mp3');
 		
-	-- CONFIGURAÇÕES DA TELA
+	-- CONFIGURAÇÕES DA TELA:
 
 		LAR = display.contentWidth; 	-- ALTURA
 		ALT = display.contentHeight;	-- LARGURA
 
-	-- FUNÇÃO RESPONSÁVEL POR CRIAR A CENA, CONTENDO TODOS OS OBJETOS DO MENU.
+	-- FUNÇÃO RESPONSÁVEL POR CRIAR OS OBJETOS DA CENA:
 		function scene:createScene(event)
 			local group = self.view;
 
-			-- CÉU
+			-- BACKGROUND:
 				
-				local imgBgCeu = display.newImageRect("Multimidia/Menu/img_bg_ceu.png", LAR, ALT);
-					imgBgCeu.x = LAR/2;
-					imgBgCeu.y = ALT/2;
+				local imgBackground = display.newImageRect("Multimidia/Menu/img_bg_ceu.png", LAR, ALT);
+					imgBackground.x = LAR/2;
+					imgBackground.y = ALT/2;
 
-					group:insert(imgBgCeu);
+				group:insert(imgBackground);
 				
-			-- LOGO
+			-- LOGO:
 
 		    	local imgLogo = display.newImageRect("Multimidia/Menu/img_logo.png", LAR, ALT);
 		    		imgLogo.x = LAR/2;
@@ -39,7 +39,7 @@
 		    		imgLogo.xScale = 0.4;
 		    		imgLogo.yScale = 0.6;
 
-		    		group:insert(imgLogo);
+		    	group:insert(imgLogo);
 
 		    		function mostrarNomeJogoUp()
 						transition.to(imgLogo, {time = 1000, alpha = 1, x = LAR/2, y = (ALT/2 - 40), xScale = 0.3, yScale = 0.5, onComplete = moveNomeJogoDown});
@@ -52,7 +52,7 @@
 
 				mostrarNomeJogoUp();		
 
-		    -- BOTÃO JOGAR
+		    -- BOTÃO JOGAR:
 
 			    playButton = display.newImage("Multimidia/Menu/img_play_button.png");
 				    playButton.xScale = 0.7;
@@ -61,9 +61,9 @@
 				    playButton.x = LAR/2;
 				    playButton.y = (ALT/2 + 120);
 
-				    group:insert(playButton);
+				group:insert(playButton);
 
-			-- BOTÃO INFORMAÇÕES
+			-- BOTÃO INFORMAÇÕES:
 
 			    infoButton = display.newImage("Multimidia/Menu/img_info_button.png");
 				    infoButton.xScale = 0.7;
@@ -72,9 +72,9 @@
 				    infoButton.x = (LAR/2 - 100);
 				    infoButton.y = (ALT/2 + 120);
 
-				    group:insert(infoButton);
+				group:insert(infoButton);
 
-			-- BOTÃO INSTRUÇÕES
+			-- BOTÃO INSTRUÇÕES:
 
 			    instruButton = display.newImage("Multimidia/Menu/img_instru_button.png");
 				    instruButton.xScale = 0.7;
@@ -83,32 +83,56 @@
 				    instruButton.x = (LAR/2 + 100);
 				    instruButton.y = (ALT/2 + 120);
 
-				    group:insert(instruButton);
+			    group:insert(instruButton);
 
 		end
 
-	-- FUNÇÕES DE CHAMADA DE CENAS PARA OS BOTÕES	
+		scene:addEventListener("createScene", scene);
 
-		-- "GAME"
+	-- FUNÇÕES DE CHAMADA DE CENAS PARA OS BOTÕES:
+
+		-- CENA GAME:
 			
 			function startGame()
 				audio.stop();
+
+				display.remove(imgBackground);
+				display.remove(imgLogo);
+				transition.cancel(imgLogo);
+				display.remove(playButton);
+				display.remove(infoButton);
+				display.remove(instruButton);
+				
 				storyboard.gotoScene("game");
 			end
 
-		-- "INFO"
+		-- CENA INFO:
 
 			function startInfo()
+				display.remove(imgBackground);
+				display.remove(imgLogo);
+				transition.cancel(imgLogo);
+				display.remove(playButton);
+				display.remove(infoButton);
+				display.remove(instruButton);
+
 				storyboard.gotoScene("info");
 			end
 
-		-- "INSTRU"
+		-- CENA INSTRUÇÕES:
 
 			function startInstru()
+				display.remove(imgBackground);
+				display.remove(imgLogo);
+				transition.cancel(imgLogo);
+				display.remove(playButton);
+				display.remove(infoButton);
+				display.remove(instruButton);
+
 				storyboard.gotoScene("instru");
 			end
 		
-	-- FUNÇÃO QUE É CHAMADA AO ENTRAR NA CENA
+	-- FUNÇÃO QUE É CHAMADA AO ENTRAR NA CENA:
 
 		function scene:enterScene(event)
 			local group = self.view;
@@ -124,7 +148,9 @@
 			instruButton:addEventListener("tap", startInstru);
 		end
 
-	-- FUNÇÃO QUE REMOVE OS OBJETOS AO SAIR DA CENA ATUAL
+		scene:addEventListener("enterScene", scene);
+
+	-- FUNÇÃO QUE REMOVE OS OBJETOS AO SAIR DA CENA:
 		
 		function scene:exitScene(event)
 			local group = self.view;
@@ -134,16 +160,6 @@
 			instruButton:removeEventListener("tap", startInstru);
 		end
 
--------------------------------------------------------------------------------------------------------------------------------
--- MAIN ->
---
--- Chama os eventos responsáveis pelo funcionamento da cena.
--------------------------------------------------------------------------------------------------------------------------------
-
-	-- ATIVA OS EVENTOS
-
-		scene:addEventListener("createScene", scene);
-		scene:addEventListener("enterScene", scene);
 		scene:addEventListener("exitScene", scene);
 
 	return scene;
