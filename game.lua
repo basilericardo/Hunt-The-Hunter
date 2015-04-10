@@ -25,7 +25,7 @@
 	-- VARIÁVEIS DE CONTROLE DE JOGABILIDADE:
 
 		local int controlePonto = 0; 	-- CONTROLE DE PONTUAÇÃO PARA UTILIZAÇÃO NA FUNÇÃO "controleVelocidade()"
-		local int controleLife = 1; 	-- CONTROLE DE VIDA
+		local int controleLife = 3; 	-- CONTROLE DE VIDA
 
 	-- FUNÇÃO RESPONSÁVEL POR CRIAR OS OBJETOS DA CENA:
 		function scene:createScene(event)
