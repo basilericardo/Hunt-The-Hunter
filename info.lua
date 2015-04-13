@@ -20,7 +20,7 @@
 
 			-- BACKGROUND:
 				
-				local imgBackground = display.newImageRect("Multimidia/Menu/Infos/img_bg_ceu.png", LAR, ALT);
+				local imgBackground = display.newImageRect("Multimidia/Menu/Infos/img_bg.png", LAR, ALT);
 					imgBackground.x = LAR/2;
 					imgBackground.y = ALT/2;
 

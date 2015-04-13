@@ -24,7 +24,7 @@
 
 			-- BACKGROUND:
 				
-				local imgBackground = display.newImageRect("Multimidia/Menu/img_bg_ceu.png", LAR, ALT);
+				local imgBackground = display.newImageRect("Multimidia/Menu/img_bg_menu.png", LAR, ALT);
 					imgBackground.x = LAR/2;
 					imgBackground.y = ALT/2;
 
@@ -52,16 +52,27 @@
 
 				mostrarNomeJogoUp();		
 
-		    -- BOTÃO JOGAR:
+		    -- BOTÃO HISTORIA:
 
-			    playButton = display.newImage("Multimidia/Menu/img_play_button.png");
-				    playButton.xScale = 0.7;
-				    playButton.yScale = 0.8;
+			    historyButton = display.newImage("Multimidia/Menu/img_history_button.png");
+				    historyButton.xScale = 0.7;
+				    historyButton.yScale = 0.8;
 
-				    playButton.x = LAR/2;
-				    playButton.y = (ALT/2 + 120);
+				    historyButton.x = (LAR/2 - 150);
+				    historyButton.y = (ALT/2 + 120);
 
-				group:insert(playButton);
+			    group:insert(historyButton);
+
+		    -- BOTÃO INSTRUÇÕES:
+
+			    instruButton = display.newImage("Multimidia/Menu/img_instru_button.png");
+				    instruButton.xScale = 0.7;
+				    instruButton.yScale = 0.8;
+
+				    instruButton.x = (LAR/2 - 50);
+				    instruButton.y = (ALT/2 + 120);
+
+			    group:insert(instruButton);
 
 			-- BOTÃO INFORMAÇÕES:
 
@@ -69,21 +80,21 @@
 				    infoButton.xScale = 0.7;
 				    infoButton.yScale = 0.8;
 
-				    infoButton.x = (LAR/2 - 100);
+				    infoButton.x = (LAR/2 + 50);
 				    infoButton.y = (ALT/2 + 120);
 
 				group:insert(infoButton);
 
-			-- BOTÃO INSTRUÇÕES:
+			-- BOTÃO JOGAR:
 
-			    instruButton = display.newImage("Multimidia/Menu/img_instru_button.png");
-				    instruButton.xScale = 0.7;
-				    instruButton.yScale = 0.8;
+			    playButton = display.newImage("Multimidia/Menu/img_play_button.png");
+				    playButton.xScale = 0.7;
+				    playButton.yScale = 0.8;
 
-				    instruButton.x = (LAR/2 + 100);
-				    instruButton.y = (ALT/2 + 120);
+				    playButton.x = (LAR/2 + 150);
+				    playButton.y = (ALT/2 + 120);
 
-			    group:insert(instruButton);
+				group:insert(playButton);
 
 		end
 
@@ -131,6 +142,19 @@
 
 				storyboard.gotoScene("instru");
 			end
+
+		-- CENA HISTÓRIA:
+
+			function startHistoria()
+				display.remove(imgBackground);
+				display.remove(imgLogo);
+				transition.cancel(imgLogo);
+				display.remove(playButton);
+				display.remove(infoButton);
+				display.remove(instruButton);
+
+				storyboard.gotoScene("historia");
+			end
 		
 	-- FUNÇÃO QUE É CHAMADA AO ENTRAR NA CENA:
 
@@ -141,11 +165,13 @@
 
 			storyboard.removeScene("instru");
 			storyboard.removeScene("info");
+			storyboard.removeScene("historia");
 			storyboard.removeScene("gameover");
 
 			playButton:addEventListener("tap", startGame);
 			infoButton:addEventListener("tap", startInfo);
 			instruButton:addEventListener("tap", startInstru);
+			historyButton:addEventListener("tap", startHistoria);
 		end
 
 		scene:addEventListener("enterScene", scene);
@@ -158,6 +184,7 @@
 			playButton:removeEventListener("tap", startGame);
 			infoButton:removeEventListener("tap", startInfo);
 			instruButton:removeEventListener("tap", startInstru);
+			historyButton:removeEventListener("tap", startHistoria);
 		end
 
 		scene:addEventListener("exitScene", scene);

@@ -35,10 +35,10 @@
 			-- BACKGROUND ->
 			--
 			-- Composto de 5 camadas, na qual a ordem é: 
-			-- (1. Céu), (2. Nuvem), (3.Terra/Árvores), (4. Personagens), (5. Arbustos).
+			-- (1. Céu), (2. Nuvem), (3.Terra/Árvores), (4. Barrra de Status), (5. Personagens), (6. Arbustos).
 			-------------------------------------------------------------------------------------------------------------------------------
 
-				-- CÉU (1/5):
+				-- CÉU (1/6):
 
 					local imgBgCeu = display.newImageRect("Multimidia/Game/img_bg_ceu.png", LAR, ALT);
 						imgBgCeu.x = LAR/2;
@@ -46,7 +46,7 @@
 
 					group:insert(imgBgCeu);
 
-				-- NUVENS (2/5):
+				-- NUVENS (2/6):
 
 					rolagem = 0.4; -- Velocidade da rolagem
 
@@ -86,7 +86,7 @@
 
 					Runtime:addEventListener("enterFrame", imgBgNuvemRolagem)	
 
-				-- TERRA, ÁRVORES (3/5):
+				-- TERRA, ÁRVORES (3/6):
 
 					local imgBgTerra = display.newImageRect("Multimidia/Game/img_bg_terra.png", LAR, ALT);
 						imgBgTerra.x = LAR/2;
@@ -94,7 +94,14 @@
 
 					group:insert(imgBgTerra);
 
-				-- PERSONAGENS (4/5):
+				-- BARRA DE STATUS (4/6):
+
+					local imgBgStatusBar = display.newImage("Multimidia/Game/img_status_bar.png", LAR, ALT);
+						imgBgStatusBar.y = 0
+
+					group:insert(imgBgStatusBar);
+
+				-- PERSONAGENS (5/6):
 
 					local imgHunterOne = display.newImage("Multimidia/Game/img_person_vilao.png");
 						imgHunterOne.y = 600;
@@ -121,7 +128,7 @@
 
 					group:insert(imgAnimalTwo);
 
-				-- ARBUSTO (5/5):
+				-- ARBUSTO (6/6):
 
 					local bgArbusto = display.newImageRect("Multimidia/Game/img_bg_arbustos.png", LAR, (ALT * 0.70));
 						bgArbusto.x = LAR/2;
@@ -129,13 +136,14 @@
 
 					group:insert(bgArbusto);
 
+
 				-- PONTUAÇÃO:
 
-					local scoreName = display.newText('Score:', 20, 10, native.systemFont, 12);
+					local scoreName = display.newText('Score:', 20, 9, native.systemFont, 12);
 					
 					group:insert(scoreName);
 
-					local scoreCount = display.newText('0', 55, 10, native.systemFont, 12);
+					local scoreCount = display.newText('0', 55, 9, native.systemFont, 12);
 						
 					group:insert(scoreCount);
 
@@ -204,7 +212,7 @@
 
 						scoreCount.text = tostring(tonumber(scoreCount.text) + 50);
 						controlePonto = tonumber(scoreCount.text);
-						pontos = tonumber(scoreCount.text);
+						scoreFinal = tonumber(scoreCount.text);
 						hunterHunted = (hunterHunted + 1);
 
 						controleVelocidade();
@@ -217,7 +225,7 @@
 
 						scoreCount.text = tostring(tonumber(scoreCount.text) + 50);
 						controlePonto = tonumber(scoreCount.text);
-						pontos = tonumber(scoreCount.text);
+						scoreFinal = tonumber(scoreCount.text);
 						hunterHunted = (hunterHunted + 1);
 
 						controleVelocidade();
@@ -230,7 +238,7 @@
 
 						scoreCount.text = tostring(tonumber(scoreCount.text) + 100);
 						controlePonto = tonumber(scoreCount.text);
-						pontos = tonumber(scoreCount.text);
+						scoreFinal = tonumber(scoreCount.text);
 						masterHunterHunted = (masterHunterHunted + 1);
 
 						controleVelocidade();
@@ -263,8 +271,7 @@
 							imgHunterTwo:removeEventListener("tap", imgHunterTwo);
 							imgHunterLider:removeEventListener("tap", imgHunterLider);
 							imgAnimalOne:removeEventListener("tap", imgAnimalOne);
-							imgAnimalTwo:removeEventListener("tap", imgAnimalTwo);
-							
+														
 							transition.cancel(imgHunterOne);
 							transition.cancel(imgHunterTwo);
 							transition.cancel(imgHunterLider);
@@ -303,7 +310,7 @@
 							imgHunterLider:removeEventListener("tap", imgHunterLider);
 							imgAnimalOne:removeEventListener("tap", imgAnimalOne);
 							imgAnimalTwo:removeEventListener("tap", imgAnimalTwo);
-							
+														
 							transition.cancel(imgHunterOne);
 							transition.cancel(imgHunterTwo);
 							transition.cancel(imgHunterLider);

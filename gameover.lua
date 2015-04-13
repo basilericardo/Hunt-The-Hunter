@@ -24,7 +24,7 @@
 
             -- BACKGROUND:
                 
-                local imgBackground = display.newImageRect("Multimidia/Menu/Infos/img_bg_ceu.png", LAR, ALT);
+                local imgBackground = display.newImageRect("Multimidia/Menu/Gameover/img_bg.png", LAR, ALT);
                     imgBackground.x = LAR/2;
                     imgBackground.y = ALT/2;
 
@@ -32,7 +32,7 @@
       
             -- BOTÃO VOLTAR:
 
-                returnButton = display.newImage("Multimidia/Menu/Infos/img_return_button.png");
+                returnButton = display.newImage("Multimidia/Menu/Gameover/img_menu_button.png");
                     returnButton.xScale = 0.7;
                     returnButton.yScale = 0.8;
 
@@ -40,6 +40,20 @@
                     returnButton.y = (ALT/2 + 120);
 
                 group:insert(returnButton);
+
+            -- RESULTADO:
+
+                local pontuacaoFinal = display.newText(scoreFinal, 350, 90, native.systemFont, 20);
+                    
+                group:insert(pontuacaoFinal);
+
+                local cacadoresCacados = display.newText(hunterHunted, 350, 130, native.systemFont, 20);
+
+                group:insert(cacadoresCacados);
+                
+                local lideresCacados = display.newText(masterHunterHunted, 350, 170, native. systemFont, 20);
+                
+                group:insert(lideresCacados);
 
         end
 

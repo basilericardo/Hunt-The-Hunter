@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------------------------------------------------------
 -- GERAL ->
 --
--- ARQUIVO RESPONSÁVEL PELA FUNCIONALIDADE DO MENU-INSTRUÇÕES E DE TODOS OS OBJETOS E FUNÇÕES NECESSÁRIAS.
+-- ARQUIVO RESPONSÁVEL PELA FUNCIONALIDADE DO MENU-HISTÓRIA E DE TODOS OS OBJETOS E FUNÇÕES NECESSÁRIAS.
 -------------------------------------------------------------------------------------------------------------------------------
 
 	-- CHAMADA DO STORYBOARD:
@@ -20,15 +20,26 @@
 
 			-- BACKGROUND:
 				
-				local imgBackground = display.newImageRect("Multimidia/Menu/Instruções/img_bg.png", LAR, ALT);
+				local imgBackground = display.newImageRect("Multimidia/Menu/Historia/img_bg.png", LAR, ALT);
 					imgBackground.x = LAR/2;
 					imgBackground.y = ALT/2;
 
 				group:insert(imgBackground);
+
+			-- TEXTO DESCRITIVO
+
+				local descricao = display.newImage("Multimidia/Menu/Historia/img_descricao.png");
+					descricao.xScale = 0.2;
+					descricao.yScale = 0.3;
+
+					descricao.x = LAR/2;
+					descricao.y = ALT/2;
+
+				group:insert(descricao);
 				
 		    -- BOTÃO VOLTAR:
 
-			    returnButton = display.newImage("Multimidia/Menu/Instruções/img_return_button.png");
+			    returnButton = display.newImage("Multimidia/Menu/Historia/img_return_button.png");
 				    returnButton.xScale = 0.7;
 				    returnButton.yScale = 0.8;
 
@@ -48,6 +59,7 @@
 			function returnMenu()
 				display.remove(imgBackground);
 				display.remove(returnButton);
+				display.remove(descricao);
 
 				storyboard.gotoScene("menu");
 			end
