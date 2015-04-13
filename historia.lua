@@ -26,7 +26,18 @@
 
 				group:insert(imgBackground);
 
-			-- TEXTO DESCRITIVO
+			-- TÍTULO:
+
+				local imgTitle = display.newImage("Multimidia/Menu/Historia/img_history_title.png");
+					imgTitle.xScale = 0.2;
+					imgTitle.yScale = 0.2;
+
+					imgTitle.x = LAR/2;
+					imgTitle.y = 30;
+
+				group:insert(imgTitle);
+
+			-- TEXTO DESCRITIVO:
 
 				local descricao = display.newImage("Multimidia/Menu/Historia/img_descricao.png");
 					descricao.xScale = 0.2;
@@ -58,9 +69,10 @@
 			
 			function returnMenu()
 				display.remove(imgBackground);
-				display.remove(returnButton);
+				display.remove(imgTitle);
 				display.remove(descricao);
-
+				display.remove(returnButton);
+				
 				storyboard.gotoScene("menu");
 			end
 

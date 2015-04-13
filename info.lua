@@ -25,7 +25,21 @@
 					imgBackground.y = ALT/2;
 
 				group:insert(imgBackground);
-				
+
+			-- TÍTULO:
+
+				local imgTitle = display.newImage("Multimidia/Menu/Infos/img_info_title.png");
+					imgTitle.xScale = 0.2;
+					imgTitle.yScale = 0.2;
+
+					imgTitle.x = LAR/2;
+					imgTitle.y = 30;
+
+				group:insert(imgTitle);
+
+			-- TEXTO DESCRITIVO:
+
+
 		    -- BOTÃO VOLTAR:
 
 			    returnButton = display.newImage("Multimidia/Menu/Infos/img_return_button.png");
@@ -47,8 +61,9 @@
 			
 			function returnMenu()
 				display.remove(imgBackground);
+				display.remove(imgTitle);
 				display.remove(returnButton);
-
+				
 				storyboard.gotoScene("menu");
 			end
 

@@ -25,7 +25,7 @@
 	-- VARIÁVEIS DE CONTROLE DE JOGABILIDADE:
 
 		local int controlePonto = 0; 	-- CONTROLE DE PONTUAÇÃO PARA UTILIZAÇÃO NA FUNÇÃO "controleVelocidade()"
-		local int controleLife = 3; 	-- CONTROLE DE VIDA
+		local int controleLife = 1; 	-- CONTROLE DE VIDA
 
 	-- FUNÇÃO RESPONSÁVEL POR CRIAR OS OBJETOS DA CENA:
 		function scene:createScene(event)
@@ -35,7 +35,7 @@
 			-- BACKGROUND ->
 			--
 			-- Composto de 5 camadas, na qual a ordem é: 
-			-- (1. Céu), (2. Nuvem), (3.Terra/Árvores), (4. Barrra de Status), (5. Personagens), (6. Arbustos).
+			-- (1. Céu), (2. Nuvem), (3.Terra/Árvores), (4. Barra de Status), (5. Personagens), (6. Arbustos).
 			-------------------------------------------------------------------------------------------------------------------------------
 
 				-- CÉU (1/6):
@@ -135,7 +135,6 @@
 						bgArbusto.y = ALT;
 
 					group:insert(bgArbusto);
-
 
 				-- PONTUAÇÃO:
 
@@ -249,7 +248,7 @@
 					function animalOneUp()
 						imgAnimalOne.alpha = 1;
 
-						imgAnimalOne.x = math.random (20, 450);
+						imgAnimalOne.x = math.random(20, 450);
 
 						transition.to(imgAnimalOne, {time = timeAnimalOneUp, x = imgAnimalOne.x, y = 220, onComplete = animalOneDown});
 					end
@@ -534,6 +533,7 @@
 			local group = self.view;
 
 			storyboard.removeScene("menu");
+			storyboard.removeScene("gameover");
 
 			local int timeVilaoOneUp = 4500;
 			local int timeVilaoOneDown = 4500;
