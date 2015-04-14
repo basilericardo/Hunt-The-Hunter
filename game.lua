@@ -41,6 +41,12 @@
 		-- CAÇADORES LIDER PRESOS:
 			masterHunterHunted = 0;
 
+		-- IDENTIFICADOR DE EXISTÊNCIA DO LÍDER:
+			liderExists = 0;
+
+		-- IDENTIFICADOR DE EXISTÊNCIA DO SEGUNDO ANIMAL:
+			animalTwoExist = 0;
+
 	-- FUNÇÃO RESPONSÁVEL POR CRIAR OS OBJETOS DA CENA:
 		function scene:createScene(event)
 			local group = self.view;
@@ -179,6 +185,22 @@
 						lifeThree.yScale = 0.1;
 
 					group:insert(lifeThree);
+
+				-- BOTÃO DE PAUSE E RESUME:
+
+					local resumeButton = display.newImage("Multimidia/Game/img_resume_button.png", 450, 10);
+						resumeButton.xScale = 0.1;
+						resumeButton.yScale = 0.1;
+
+						resumeButton.alpha = 0;
+
+					group:insert(resumeButton);
+
+					local pauseButton = display.newImage("Multimidia/Game/img_pause_button.png", 450, 10);
+						pauseButton.xScale = 0.1;
+						pauseButton.yScale = 0.1;
+
+					group:insert(pauseButton);					
 
 			-------------------------------------------------------------------------------------------------------------------------------
 			-- FUNÇÕES:
@@ -552,6 +574,7 @@
 							timeAnimalOneDown 		= 4500 - 1100;
 
 							if controlePonto == 630 then
+								animalTwoExist = 1;
 								animalTwoUp();
 								imgAnimalTwo:addEventListener("tap", imgAnimalTwo);
 							end
@@ -575,6 +598,7 @@
 							timeAnimalOneDown 		= 4500 - 1300;
 
 							if controlePonto == 840 then
+								liderExists = 1;
 								vilaoLiderUp();
 								imgHunterLider:addEventListener("tap", imgHunterLider);
 							end
@@ -672,11 +696,57 @@
 
 					end
 
+			-- FUNÇÕES PARA PAUSE/RESUME DO JOGO:
+
+				function pauseGame()
+					pauseButton.alpha = 0;
+					resumeButton.alpha = 1;
+
+					audio.pause(ambianceSoundChannel);
+					transition.pause();
+
+					imgHunterOne:removeEventListener("tap", imgHunterOne);
+					imgHunterTwo:removeEventListener("tap", imgHunterTwo);
+					imgAnimalOne:removeEventListener("tap", imgAnimalOne);
+
+					if animalTwoExist == 1 then
+						imgAnimalTwo:removeEventListener("tap", imgAnimalTwo);
+					end
+
+					if liderExists == 1 then
+						imgHunterLider:removeEventListener("tap", imgHunterLider);
+					end
+
+				end
+
+				function resumeGame()
+					resumeButton.alpha = 0;
+					pauseButton.alpha = 1;
+
+					audio.resume(ambianceSoundChannel);
+					transition.resume();
+
+					imgHunterOne:addEventListener("tap", imgHunterOne);
+					imgHunterTwo:addEventListener("tap", imgHunterTwo);
+					imgAnimalOne:addEventListener("tap", imgAnimalOne);
+
+					if animalTwoExist == 1 then
+						imgAnimalTwo:addEventListener("tap", imgAnimalTwo);
+					end
+
+					if liderExists == 1 then
+						imgHunterLider:addEventListener("tap", imgHunterLider);
+					end
+					
+				end
+
 			-- CHAMADA DOS EVENTOS:
 
 				imgHunterOne:addEventListener("tap", imgHunterOne);
 				imgHunterTwo:addEventListener("tap", imgHunterTwo);
 				imgAnimalOne:addEventListener("tap", imgAnimalOne);
+				pauseButton:addEventListener("tap", pauseGame);
+				resumeButton:addEventListener("tap", resumeGame);
 		
 		end
 
