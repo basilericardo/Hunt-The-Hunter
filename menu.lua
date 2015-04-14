@@ -105,7 +105,7 @@
 		-- CENA GAME:
 			
 			function startGame()
-				audio.stop(ambianceSoundChannel);
+				audio.stop();
 
 				display.remove(imgBackground);
 				display.remove(imgLogo);
