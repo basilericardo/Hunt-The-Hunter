@@ -25,8 +25,8 @@
             -- BACKGROUND:
                 
                 local imgBackground = display.newImageRect("Multimidia/Menu/Gameover/img_bg.png", LAR, ALT);
-                    imgBackground.x = LAR/2;
-                    imgBackground.y = ALT/2;
+                    imgBackground.x = (LAR/2);
+                    imgBackground.y = (ALT/2);
 
                 group:insert(imgBackground);
 
@@ -36,7 +36,7 @@
                     imgTitle.xScale = 0.2;
                     imgTitle.yScale = 0.2;
 
-                    imgTitle.x = LAR/2;
+                    imgTitle.x = (LAR/2);
                     imgTitle.y = 30;
 
                 group:insert(imgTitle);
@@ -45,19 +45,19 @@
 
                 scoreFinal = (scoreFinal - (hunterLost * 10));
 
-                local pontuacaoFinal = display.newText(scoreFinal, 330, 95, native.systemFont, 20);
+                local pontuacaoFinal = display.newText(scoreFinal, 360, 94, native.systemFont, 20);
                     
                 group:insert(pontuacaoFinal);
 
-                local cacadoresCacados = display.newText(hunterHunted, 330, 142, native.systemFont, 20);
+                local cacadoresCacados = display.newText(hunterHunted, 360, 141, native.systemFont, 20);
 
                 group:insert(cacadoresCacados);
                 
-                local cacadoresPerdidos = display.newText(hunterLost, 330, 187, native.systemFont, 20);
+                local cacadoresPerdidos = display.newText(hunterLost, 360, 186, native.systemFont, 20);
 
                 group:insert(cacadoresPerdidos);
 
-                local lideresCacados = display.newText(masterHunterHunted, 330, 233, native. systemFont, 20);
+                local lideresCacados = display.newText(masterHunterHunted, 360, 232, native. systemFont, 20);
                 
                 group:insert(lideresCacados);
 
@@ -67,8 +67,8 @@
                     playAgainButton.xScale = 0.7;
                     playAgainButton.yScale = 0.8;
 
-                    playAgainButton.x = (LAR/2) + 50;
-                    playAgainButton.y = (ALT/2 + 120);
+                    playAgainButton.x = ((LAR/2) + 50);
+                    playAgainButton.y = ((ALT/2) + 120);
 
                 group:insert(playAgainButton);
 
@@ -78,8 +78,8 @@
                     returnButton.xScale = 0.7;
                     returnButton.yScale = 0.8;
 
-                    returnButton.x = (LAR/2 - 50);
-                    returnButton.y = (ALT/2 + 120);
+                    returnButton.x = ((LAR/2) - 50);
+                    returnButton.y = ((ALT/2) + 120);
 
                 group:insert(returnButton);
 

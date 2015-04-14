@@ -25,15 +25,15 @@
 			-- BACKGROUND:
 				
 				local imgBackground = display.newImageRect("Multimidia/Menu/img_bg_menu.png", LAR, ALT);
-					imgBackground.x = LAR/2;
-					imgBackground.y = ALT/2;
+					imgBackground.x = (LAR/2);
+					imgBackground.y = (ALT/2);
 
 				group:insert(imgBackground);
 				
 			-- LOGO:
 
 		    	local imgLogo = display.newImageRect("Multimidia/Menu/img_logo.png", LAR, ALT);
-		    		imgLogo.x = LAR/2;
+		    		imgLogo.x = (LAR/2);
 		    		imgLogo.y = (ALT/2 - 40);
 
 		    		imgLogo.xScale = 0.4;
@@ -42,12 +42,12 @@
 		    	group:insert(imgLogo);
 
 		    		function mostrarNomeJogoUp()
-						transition.to(imgLogo, {time = 1000, alpha = 1, x = LAR/2, y = (ALT/2 - 40), xScale = 0.3, yScale = 0.5, onComplete = moveNomeJogoDown});
+						transition.to(imgLogo, {time = 1000, alpha = 1, x = (LAR/2), y = (ALT/2 - 40), xScale = 0.3, yScale = 0.5, onComplete = moveNomeJogoDown});
 					end
 
 					function moveNomeJogoDown()
 						imgLogo.alpha = 1;
-						transition.to(imgLogo, {time = 1000, alpha = 1, x = LAR/2, y = (ALT/2 - 40), xScale = 0.4, yScale = 0.6, onComplete = mostrarNomeJogoUp});
+						transition.to(imgLogo, {time = 1000, alpha = 1, x = (LAR/2), y = (ALT/2 - 40), xScale = 0.4, yScale = 0.6, onComplete = mostrarNomeJogoUp});
 					end
 
 				mostrarNomeJogoUp();		
@@ -105,7 +105,7 @@
 		-- CENA GAME:
 			
 			function startGame()
-				audio.stop();
+				audio.stop(ambianceSoundChannel);
 
 				display.remove(imgBackground);
 				display.remove(imgLogo);

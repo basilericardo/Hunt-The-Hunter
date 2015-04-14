@@ -21,8 +21,8 @@
 			-- BACKGROUND:
 				
 				local imgBackground = display.newImageRect("Multimidia/Menu/Historia/img_bg.png", LAR, ALT);
-					imgBackground.x = LAR/2;
-					imgBackground.y = ALT/2;
+					imgBackground.x = (LAR/2);
+					imgBackground.y = (ALT/2);
 
 				group:insert(imgBackground);
 
@@ -32,21 +32,10 @@
 					imgTitle.xScale = 0.2;
 					imgTitle.yScale = 0.2;
 
-					imgTitle.x = LAR/2;
+					imgTitle.x = (LAR/2);
 					imgTitle.y = 30;
 
 				group:insert(imgTitle);
-
-			-- TEXTO DESCRITIVO:
-
-				local descricao = display.newImage("Multimidia/Menu/Historia/img_descricao.png");
-					descricao.xScale = 0.2;
-					descricao.yScale = 0.3;
-
-					descricao.x = LAR/2;
-					descricao.y = ALT/2;
-
-				group:insert(descricao);
 				
 		    -- BOTÃO VOLTAR:
 
@@ -54,8 +43,8 @@
 				    returnButton.xScale = 0.7;
 				    returnButton.yScale = 0.8;
 
-				    returnButton.x = LAR/2;
-				    returnButton.y = (ALT/2 + 120);
+				    returnButton.x = (LAR/2);
+				    returnButton.y = ((ALT/2) + 120);
 
 			    group:insert(returnButton);
 
@@ -70,7 +59,6 @@
 			function returnMenu()
 				display.remove(imgBackground);
 				display.remove(imgTitle);
-				display.remove(descricao);
 				display.remove(returnButton);
 				
 				storyboard.gotoScene("menu");

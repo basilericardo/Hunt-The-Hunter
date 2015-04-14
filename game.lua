@@ -27,7 +27,7 @@
 		-- CONTROLE DE JOGABILIDADE:
 
 			local int controlePonto = 0; 	-- CONTROLE DE PONTUAÇÃO PARA UTILIZAÇÃO NA FUNÇÃO "controleVelocidade()"
-			local int controleLife = 1; 	-- CONTROLE DE VIDA
+			local int controleLife = 3; 	-- CONTROLE DE VIDA
 
 		-- PONTOS OBTIDOS:
 			scoreFinal = 0;
@@ -40,9 +40,6 @@
 
 		-- CAÇADORES LIDER PRESOS:
 			masterHunterHunted = 0;
-
-		-- VALOR DA POSIÇÃO DE 'X' DA PONTUAÇÃO:
-			scoreXPosition = 43;
 
 	-- FUNÇÃO RESPONSÁVEL POR CRIAR OS OBJETOS DA CENA:
 		function scene:createScene(event)
@@ -58,8 +55,8 @@
 				-- CÉU (1/6):
 
 					local imgBgCeu = display.newImageRect("Multimidia/Game/img_bg_ceu.png", LAR, ALT);
-						imgBgCeu.x = LAR/2;
-						imgBgCeu.y = ALT/2;
+						imgBgCeu.x = (LAR/2);
+						imgBgCeu.y = (ALT/2);
 
 					group:insert(imgBgCeu);
 
@@ -68,20 +65,20 @@
 					rolagem = 0.4; -- Velocidade da rolagem
 
 					local imgBgNuvem = display.newImageRect("Multimidia/Game/img_bg_nuvem.png", LAR, ALT);
-						imgBgNuvem.x = LAR/2;
-						imgBgNuvem.y = ALT/2;
+						imgBgNuvem.x = (LAR/2);
+						imgBgNuvem.y = (ALT/2);
 
 					group:insert(imgBgNuvem);
 
 					local imgBgNuvem2 = display.newImageRect("Multimidia/Game/img_bg_nuvem.png", LAR, ALT);
 						imgBgNuvem2.x = (imgBgNuvem.x + (LAR - 0.2));
-						imgBgNuvem2.y = ALT/2;
+						imgBgNuvem2.y = (ALT/2);
 
 					group:insert(imgBgNuvem2);
 
 					local imgBgNuvem3 = display.newImageRect("Multimidia/Game/img_bg_nuvem.png", LAR, ALT);
 						imgBgNuvem3.x = (imgBgNuvem2.x + (LAR - 0.3));
-						imgBgNuvem3.y = ALT/2;
+						imgBgNuvem3.y = (ALT/2);
 
 					group:insert(imgBgNuvem3);
 
@@ -91,30 +88,30 @@
 						imgBgNuvem3.x = (imgBgNuvem3.x - rolagem);	
 
 						if (imgBgNuvem.x + imgBgNuvem.contentWidth) < 0 then
-							imgBgNuvem:translate(LAR * 3, 0);
+							imgBgNuvem:translate((LAR * 3), 0);
 						end
 						if (imgBgNuvem2.x + imgBgNuvem2.contentWidth) < 0 then
-							imgBgNuvem2:translate(LAR * 3, 0);
+							imgBgNuvem2:translate((LAR * 3), 0);
 						end
 						if (imgBgNuvem3.x + imgBgNuvem3.contentWidth) < 0 then
-							imgBgNuvem3:translate(LAR * 3, 0);
+							imgBgNuvem3:translate((LAR * 3), 0);
 						end		
 					end
 
-					Runtime:addEventListener("enterFrame", imgBgNuvemRolagem)	
+					Runtime:addEventListener("enterFrame", imgBgNuvemRolagem);	
 
 				-- TERRA, ÁRVORES (3/6):
 
 					local imgBgTerra = display.newImageRect("Multimidia/Game/img_bg_terra.png", LAR, ALT);
-						imgBgTerra.x = LAR/2;
-						imgBgTerra.y = ALT/2;
+						imgBgTerra.x = (LAR/2);
+						imgBgTerra.y = (ALT/2);
 
 					group:insert(imgBgTerra);
 
 				-- BARRA DE STATUS (4/6):
 
 					local imgBgStatusBar = display.newImage("Multimidia/Game/img_status_bar.png", LAR, ALT);
-						imgBgStatusBar.y = 0
+						imgBgStatusBar.y = 0;
 
 					group:insert(imgBgStatusBar);
 
@@ -148,8 +145,8 @@
 				-- ARBUSTO (6/6):
 
 					local bgArbusto = display.newImageRect("Multimidia/Game/img_bg_arbustos.png", LAR, (ALT * 0.70));
-						bgArbusto.x = LAR/2;
-						bgArbusto.y = ALT;
+						bgArbusto.x = (LAR/2);
+						bgArbusto.y = (ALT);
 
 					group:insert(bgArbusto);
 
@@ -162,6 +159,26 @@
 					local scoreCount = display.newText('0', 43, 9, native.systemFont, 12);
 						
 					group:insert(scoreCount);
+
+				-- PONTOS DE VIDA:					
+					
+					local lifeOne = display.newImage("Multimidia/Game/img_life_1.png", 470, 10);
+						lifeOne.xScale = 0.1;
+						lifeOne.yScale = 0.1;
+
+					group:insert(lifeOne);
+
+					local lifeTwo = display.newImage("Multimidia/Game/img_life_2.png", 470, 10);
+						lifeTwo.xScale = 0.1;
+						lifeTwo.yScale = 0.1;
+
+					group:insert(lifeTwo);
+
+					local lifeThree = display.newImage("Multimidia/Game/img_life_3.png", 470, 10);
+						lifeThree.xScale = 0.1;
+						lifeThree.yScale = 0.1;
+
+					group:insert(lifeThree);
 
 			-------------------------------------------------------------------------------------------------------------------------------
 			-- FUNÇÕES:
@@ -188,21 +205,19 @@
 					function vilaoOneUp()
 						imgHunterOne.alpha = 1;
 
-						hunterLost = (hunterLost + 1);
-
 						imgHunterOne.x = math.random(20, 215);
 
 						transition.to(imgHunterOne, {time = timeVilaoOneUp, x = imgHunterOne.x, y = 220, onComplete = vilaoOneDown});
 					end
 
 					function vilaoOneDown()
+						hunterLost = (hunterLost + 1);
+
 						transition.to(imgHunterOne, {time = timeVilaoOneDown, x = imgHunterOne.x, y = 600, onComplete = vilaoOneUp});
 					end
 
 					function vilaoTwoUp()
 						imgHunterTwo.alpha = 1;
-
-						hunterLost = (hunterLost + 1);
 
 						imgHunterTwo.x = math.random(270, 450);
 
@@ -210,6 +225,8 @@
 					end
 
 					function vilaoTwoDown()
+						hunterLost = (hunterLost + 1);
+
 						transition.to(imgHunterTwo, {time = timeVilaoTwoDown, x = imgHunterTwo.x, y = 600, onComplete = vilaoTwoUp});
 					end
 
@@ -234,10 +251,6 @@
 						controlePonto = tonumber(scoreCount.text);
 						scoreFinal = tonumber(scoreCount.text);
 						hunterHunted = (hunterHunted + 1);
-
-						if controlePonto > 999999 then
-							scoreCount.x = 61;
-						end
 
 						if hunterLost > 0 then
 							hunterLost = (hunterLost - 1);
@@ -267,6 +280,10 @@
 
 							if controlePonto > 99999 and controlePonto < 1000000 then
 								scoreCount.x = 59;
+							end
+
+							if controlePonto > 999999 then
+								scoreCount.x = 61;
 							end
 
 						controleVelocidade();
@@ -312,6 +329,10 @@
 								scoreCount.x = 59;
 							end
 
+							if controlePonto > 999999 then
+								scoreCount.x = 61;
+							end
+
 						controleVelocidade();
 					end
 
@@ -351,6 +372,10 @@
 								scoreCount.x = 59;
 							end
 
+							if controlePonto > 999999 then
+								scoreCount.x = 61;
+							end
+
 						controleVelocidade();
 					end
 
@@ -376,7 +401,17 @@
 
 						controleLife = (controleLife - 1);
 
+						if controleLife == 2 then
+							display.remove(lifeThree);
+						end
+
+						if controleLife == 1 then
+							display.remove(lifeTwo);
+						end
+
 						if controleLife == 0 then
+							display.remove(lifeOne);
+
 							imgHunterOne:removeEventListener("tap", imgHunterOne);
 							imgHunterTwo:removeEventListener("tap", imgHunterTwo);
 							imgHunterLider:removeEventListener("tap", imgHunterLider);
@@ -414,12 +449,21 @@
 
 						controleLife = (controleLife - 1);
 
+						if controleLife == 2 then
+							display.remove(lifeThree);
+						end
+
+						if controleLife == 1 then
+							display.remove(lifeTwo);
+						end
+
 						if controleLife == 0 then
+							display.remove(lifeOne);
+
 							imgHunterOne:removeEventListener("tap", imgHunterOne);
 							imgHunterTwo:removeEventListener("tap", imgHunterTwo);
 							imgHunterLider:removeEventListener("tap", imgHunterLider);
 							imgAnimalOne:removeEventListener("tap", imgAnimalOne);
-							imgAnimalTwo:removeEventListener("tap", imgAnimalTwo);
 														
 							transition.cancel(imgHunterOne);
 							transition.cancel(imgHunterTwo);
@@ -428,9 +472,9 @@
 							transition.cancel(imgAnimalTwo);
 
 							Runtime:removeEventListener("enterFrame", imgBgNuvemRolagem);
-
+							
 							storyboard.gotoScene("gameover");
-						end						
+						end			
 					end
 
 				-- CONTROLE DA VELOCIDADE DE TRANSIÇÃO:
@@ -672,7 +716,7 @@
 		function scene:exitScene(event)
 			local group = self.view;
 
-			audio.stop();
+			audio.stop(ambianceSoundChannel);
 		end
 
 		scene:addEventListener("exitScene", scene);

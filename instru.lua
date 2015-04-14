@@ -21,8 +21,8 @@
 			-- BACKGROUND:
 				
 				local imgBackground = display.newImageRect("Multimidia/Menu/Instruções/img_bg.png", LAR, ALT);
-					imgBackground.x = LAR/2;
-					imgBackground.y = ALT/2;
+					imgBackground.x = (LAR/2);
+					imgBackground.y = (ALT/2);
 
 				group:insert(imgBackground);
 
@@ -32,7 +32,7 @@
 					imgTitle.xScale = 0.2;
 					imgTitle.yScale = 0.2;
 
-					imgTitle.x = LAR/2;
+					imgTitle.x = (LAR/2);
 					imgTitle.y = 30;
 
 				group:insert(imgTitle);
@@ -46,8 +46,8 @@
 				    returnButton.xScale = 0.7;
 				    returnButton.yScale = 0.8;
 
-				    returnButton.x = LAR/2;
-				    returnButton.y = (ALT/2 + 120);
+				    returnButton.x = (LAR/2);
+				    returnButton.y = ((ALT/2) + 120);
 
 			    group:insert(returnButton);
 
