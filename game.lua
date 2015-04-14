@@ -22,10 +22,27 @@
 		LAR = display.contentWidth; 	-- ALTURA
 		ALT = display.contentHeight;	-- LARGURA
 
-	-- VARIÁVEIS DE CONTROLE DE JOGABILIDADE:
+	-- VARIÁVEIS:
 
-		local int controlePonto = 0; 	-- CONTROLE DE PONTUAÇÃO PARA UTILIZAÇÃO NA FUNÇÃO "controleVelocidade()"
-		local int controleLife = 1; 	-- CONTROLE DE VIDA
+		-- CONTROLE DE JOGABILIDADE:
+
+			local int controlePonto = 0; 	-- CONTROLE DE PONTUAÇÃO PARA UTILIZAÇÃO NA FUNÇÃO "controleVelocidade()"
+			local int controleLife = 1; 	-- CONTROLE DE VIDA
+
+		-- PONTOS OBTIDOS:
+			scoreFinal = 0;
+
+		-- CAÇADORES PRESOS:
+			hunterHunted = 0;
+
+		-- CAÇADORES PERDIDOS:
+			hunterLost = 0;
+
+		-- CAÇADORES LIDER PRESOS:
+			masterHunterHunted = 0;
+
+		-- VALOR DA POSIÇÃO DE 'X' DA PONTUAÇÃO:
+			scoreXPosition = 43;
 
 	-- FUNÇÃO RESPONSÁVEL POR CRIAR OS OBJETOS DA CENA:
 		function scene:createScene(event)
@@ -142,7 +159,7 @@
 					
 					group:insert(scoreName);
 
-					local scoreCount = display.newText('0', 55, 9, native.systemFont, 12);
+					local scoreCount = display.newText('0', 43, 9, native.systemFont, 12);
 						
 					group:insert(scoreCount);
 
@@ -171,6 +188,8 @@
 					function vilaoOneUp()
 						imgHunterOne.alpha = 1;
 
+						hunterLost = (hunterLost + 1);
+
 						imgHunterOne.x = math.random(20, 215);
 
 						transition.to(imgHunterOne, {time = timeVilaoOneUp, x = imgHunterOne.x, y = 220, onComplete = vilaoOneDown});
@@ -182,6 +201,8 @@
 
 					function vilaoTwoUp()
 						imgHunterTwo.alpha = 1;
+
+						hunterLost = (hunterLost + 1);
 
 						imgHunterTwo.x = math.random(270, 450);
 
@@ -209,10 +230,44 @@
 
 						imgHunterOne.alpha = 0;
 
-						scoreCount.text = tostring(tonumber(scoreCount.text) + 50);
+						scoreCount.text = tostring(tonumber(scoreCount.text) + 30);
 						controlePonto = tonumber(scoreCount.text);
 						scoreFinal = tonumber(scoreCount.text);
 						hunterHunted = (hunterHunted + 1);
+
+						if controlePonto > 999999 then
+							scoreCount.x = 61;
+						end
+
+						if hunterLost > 0 then
+							hunterLost = (hunterLost - 1);
+						end
+
+						-- CONTROLE DE POSIÇÃO DA PONTUAÇÃO
+
+							if controlePonto >= 0 and controlePonto < 10 then
+								scoreCount.x = 43;
+							end
+
+							if controlePonto > 9 and controlePonto < 100 then
+								scoreCount.x = 46;
+							end
+
+							if controlePonto > 99 and controlePonto < 1000 then
+								scoreCount.x = 49;
+							end 
+							
+							if controlePonto > 999 and controlePonto < 10000 then
+								scoreCount.x = 52;
+							end
+
+							if controlePonto > 9999 and controlePonto < 100000 then
+								scoreCount.x = 55;
+							end
+
+							if controlePonto > 99999 and controlePonto < 1000000 then
+								scoreCount.x = 59;
+							end
 
 						controleVelocidade();
 					end
@@ -222,10 +277,40 @@
 
 						imgHunterTwo.alpha = 0;
 
-						scoreCount.text = tostring(tonumber(scoreCount.text) + 50);
+						scoreCount.text = tostring(tonumber(scoreCount.text) + 30);
 						controlePonto = tonumber(scoreCount.text);
 						scoreFinal = tonumber(scoreCount.text);
 						hunterHunted = (hunterHunted + 1);
+
+						if hunterLost > 0 then
+							hunterLost = (hunterLost - 1);
+						end
+
+						-- CONTROLE DE POSIÇÃO DA PONTUAÇÃO
+
+							if controlePonto >= 0 and controlePonto < 10 then
+								scoreCount.x = 43;
+							end
+
+							if controlePonto > 9 and controlePonto < 100 then
+								scoreCount.x = 46;
+							end
+
+							if controlePonto > 99 and controlePonto < 1000 then
+								scoreCount.x = 49;
+							end 
+							
+							if controlePonto > 999 and controlePonto < 10000 then
+								scoreCount.x = 52;
+							end
+
+							if controlePonto > 9999 and controlePonto < 100000 then
+								scoreCount.x = 55;
+							end
+
+							if controlePonto > 99999 and controlePonto < 1000000 then
+								scoreCount.x = 59;
+							end
 
 						controleVelocidade();
 					end
@@ -235,10 +320,36 @@
 
 						imgHunterLider.alpha = 0;
 
-						scoreCount.text = tostring(tonumber(scoreCount.text) + 100);
+						scoreCount.text = tostring(tonumber(scoreCount.text) + 55);
 						controlePonto = tonumber(scoreCount.text);
 						scoreFinal = tonumber(scoreCount.text);
 						masterHunterHunted = (masterHunterHunted + 1);
+
+						-- CONTROLE DE POSIÇÃO DA PONTUAÇÃO
+
+							if controlePonto >= 0 and controlePonto < 10 then
+								scoreCount.x = 43;
+							end
+
+							if controlePonto > 9 and controlePonto < 100 then
+								scoreCount.x = 46;
+							end
+
+							if controlePonto > 99 and controlePonto < 1000 then
+								scoreCount.x = 49;
+							end 
+							
+							if controlePonto > 999 and controlePonto < 10000 then
+								scoreCount.x = 52;
+							end
+
+							if controlePonto > 9999 and controlePonto < 100000 then
+								scoreCount.x = 55;
+							end
+
+							if controlePonto > 99999 and controlePonto < 1000000 then
+								scoreCount.x = 59;
+							end
 
 						controleVelocidade();
 					end
@@ -396,7 +507,7 @@
 							timeAnimalOneUp 		= 4000 - 1100;
 							timeAnimalOneDown 		= 4500 - 1100;
 
-							if controlePonto == 650 then
+							if controlePonto == 630 then
 								animalTwoUp();
 								imgAnimalTwo:addEventListener("tap", imgAnimalTwo);
 							end
@@ -419,7 +530,7 @@
 							timeAnimalOneUp 		= 4000 - 1300;
 							timeAnimalOneDown 		= 4500 - 1300;
 
-							if controlePonto == 850 then
+							if controlePonto == 840 then
 								vilaoLiderUp();
 								imgHunterLider:addEventListener("tap", imgHunterLider);
 							end

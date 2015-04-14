@@ -43,15 +43,21 @@
 
             -- RESULTADO:
 
-                local pontuacaoFinal = display.newText(scoreFinal, 350, 90, native.systemFont, 20);
+                scoreFinal = (scoreFinal - (hunterLost * 10));
+
+                local pontuacaoFinal = display.newText(scoreFinal, 330, 95, native.systemFont, 20);
                     
                 group:insert(pontuacaoFinal);
 
-                local cacadoresCacados = display.newText(hunterHunted, 350, 130, native.systemFont, 20);
+                local cacadoresCacados = display.newText(hunterHunted, 330, 142, native.systemFont, 20);
 
                 group:insert(cacadoresCacados);
                 
-                local lideresCacados = display.newText(masterHunterHunted, 350, 170, native. systemFont, 20);
+                local cacadoresPerdidos = display.newText(hunterLost, 330, 187, native.systemFont, 20);
+
+                group:insert(cacadoresPerdidos);
+
+                local lideresCacados = display.newText(masterHunterHunted, 330, 233, native. systemFont, 20);
                 
                 group:insert(lideresCacados);
 
@@ -88,12 +94,18 @@
             function returnMenu()
                 scoreFinal = 0;
                 hunterHunted = 0;
+                hunterLost = 0;
+                hunterLostPoint = 0;
                 masterHunterHunted = 0;
                 
                 display.remove(imgBackground);
                 display.remove(imgTitle);
                 display.remove(returnButton);
                 display.remove(playAgainButton);
+                display.remove(pontuacaoFinal);
+                display.remove(cacadoresCacados);
+                display.remove(cacadoresPerdidos);
+                display.remove(lideresCacados);
 
                 storyboard.gotoScene("menu");
             end
@@ -103,12 +115,18 @@
             function playAgain()
                 scoreFinal = 0;
                 hunterHunted = 0;
+                hunterLost = 0;
+                hunterLostPoint = 0;
                 masterHunterHunted = 0;
 
                 display.remove(imgBackground);
                 display.remove(imgTitle);
                 display.remove(returnButton);
                 display.remove(playAgainButton);
+                display.remove(pontuacaoFinal);
+                display.remove(cacadoresCacados);
+                display.remove(cacadoresPerdidos);
+                display.remove(lideresCacados);
 
                 storyboard.gotoScene("game");
             end
