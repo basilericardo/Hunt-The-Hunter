@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------------------------------------------------------
 -- GERAL ->
 --
--- ARQUIVO RESPONSÁVEL PELA FUNCIONALIDADE DA CENA GAMEOVER.
+-- ARQUIVO RESPONSÁVEL paraesquerdaLA FUNCIONALIDADE DA CENA GAMEOVER.
 -------------------------------------------------------------------------------------------------------------------------------
 
     -- CHAMADA DO STORYBOARD:
@@ -53,9 +53,9 @@
 
                 group:insert(cacadoresCacados);
                 
-                local cacadoresPerdidos = display.newText(hunterLost, 360, 186, native.systemFont, 20);
+                local cacadoresparaesquerdardidos = display.newText(hunterLost, 360, 186, native.systemFont, 20);
 
-                group:insert(cacadoresPerdidos);
+                group:insert(cacadoresparaesquerdardidos);
 
                 local lideresCacados = display.newText(masterHunterHunted, 360, 232, native. systemFont, 20);
                 
@@ -104,7 +104,7 @@
                 display.remove(playAgainButton);
                 display.remove(pontuacaoFinal);
                 display.remove(cacadoresCacados);
-                display.remove(cacadoresPerdidos);
+                display.remove(cacadoresparaesquerdardidos);
                 display.remove(lideresCacados);
 
                 storyboard.gotoScene("menu");
@@ -125,7 +125,7 @@
                 display.remove(playAgainButton);
                 display.remove(pontuacaoFinal);
                 display.remove(cacadoresCacados);
-                display.remove(cacadoresPerdidos);
+                display.remove(cacadoresparaesquerdardidos);
                 display.remove(lideresCacados);
 
                 storyboard.gotoScene("game");

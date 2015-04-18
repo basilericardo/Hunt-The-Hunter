@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------------------------------------------------------
 -- GERAL ->
 --
--- ARQUIVO RESPONSÁVEL PELA FUNCIONALIDADE DO JOGO.
+-- ARQUIVO RESPONSÁVEL peLA FUNCIONALIDADE DO JOGO.
 -------------------------------------------------------------------------------------------------------------------------------
 
 	-- CHAMADA DO STORYBOARD:
@@ -35,7 +35,7 @@
 		-- CAÇADORES PRESOS:
 			hunterHunted = 0;
 
-		-- CAÇADORES PERDIDOS:
+		-- CAÇADORES peRDIDOS:
 			hunterLost = 0;
 
 		-- CAÇADORES LIDER PRESOS:
@@ -55,7 +55,7 @@
 			-- BACKGROUND ->
 			--
 			-- Composto de 5 camadas, na qual a ordem é: 
-			-- (1. Céu), (2. Nuvem), (3.Terra/Árvores), (4. Barra de Status), (5. Personagens), (6. Arbustos).
+			-- (1. Céu), (2. Nuvem), (3.Terra/Árvores), (4. Barra de Status), (5. personagens), (6. Arbustos).
 			-------------------------------------------------------------------------------------------------------------------------------
 
 				-- CÉU (1/6):
@@ -114,13 +114,6 @@
 
 					group:insert(imgBgTerra);
 
-				-- BARRA DE STATUS (4/6):
-
-					local imgBgStatusBar = display.newImage("Multimidia/Game/img_status_bar.png", LAR, ALT);
-						imgBgStatusBar.y = 0;
-
-					group:insert(imgBgStatusBar);
-
 				-- PERSONAGENS (5/6):
 
 					local imgHunterOne = display.newImage("Multimidia/Game/img_person_vilao.png");
@@ -168,27 +161,27 @@
 
 				-- PONTOS DE VIDA:					
 					
-					local lifeOne = display.newImage("Multimidia/Game/img_life_1.png", 470, 10);
-						lifeOne.xScale = 0.1;
-						lifeOne.yScale = 0.1;
+					local lifeOne = display.newImage("Multimidia/Game/img_life_1.png", 445, 10);
+						lifeOne.xScale = 0.3;
+						lifeOne.yScale = 0.3;
 
 					group:insert(lifeOne);
 
-					local lifeTwo = display.newImage("Multimidia/Game/img_life_2.png", 470, 10);
-						lifeTwo.xScale = 0.1;
-						lifeTwo.yScale = 0.1;
+					local lifeTwo = display.newImage("Multimidia/Game/img_life_2.png", 445, 10);
+						lifeTwo.xScale = 0.3;
+						lifeTwo.yScale = 0.3;
 
 					group:insert(lifeTwo);
 
-					local lifeThree = display.newImage("Multimidia/Game/img_life_3.png", 470, 10);
-						lifeThree.xScale = 0.1;
-						lifeThree.yScale = 0.1;
+					local lifeThree = display.newImage("Multimidia/Game/img_life_3.png", 445, 10);
+						lifeThree.xScale = 0.3;
+						lifeThree.yScale = 0.3;
 
 					group:insert(lifeThree);
 
 				-- BOTÃO DE PAUSE E RESUME:
 
-					local resumeButton = display.newImage("Multimidia/Game/img_resume_button.png", 450, 10);
+					local resumeButton = display.newImage("Multimidia/Game/img_resume_button.png", 465, 33);
 						resumeButton.xScale = 0.1;
 						resumeButton.yScale = 0.1;
 
@@ -196,7 +189,7 @@
 
 					group:insert(resumeButton);
 
-					local pauseButton = display.newImage("Multimidia/Game/img_pause_button.png", 450, 10);
+					local pauseButton = display.newImage("Multimidia/Game/img_pause_button.png", 465, 33);
 						pauseButton.xScale = 0.1;
 						pauseButton.yScale = 0.1;
 

@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------------------------------------------------------
 -- GERAL ->
 --
--- ARQUIVO RESPONSÁVEL PELA FUNCIONALIDADE DO MENU E DE TODOS OS OBJETOS E FUNÇÕES NECESSÁRIAS.
+-- ARQUIVO RESPONSÁVEL peLA FUNCIONALIDADE DO MENU E DE TODOS OS OBJETOS E FUNÇÕES NECESSÁRIAS.
 -------------------------------------------------------------------------------------------------------------------------------
 
 	-- CHAMADA DO STORYBOARD:
