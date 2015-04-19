@@ -15,7 +15,7 @@
 
 		local hitCat = audio.loadSound('Multimidia/Game/song_hit_cat.mp3');
 
-		local ambianceSound = audio.loadStream('Multimidia/Game/song_game.mp3');
+		--local ambianceSound = audio.loadStream('Multimidia/Game/song_game.mp3');
 		
 	-- CONFIGURAÇÕES DA TELA:
 

@@ -9,6 +9,10 @@
 		local storyboard = require("storyboard");
 		local scene = storyboard.newScene();
 
+	-- ARQUIVOS DE ÁUDIO:
+
+		local touchButton = audio.loadSound("Multimidia/Menu/Historia/song_touch_button.mp3");
+
 	-- CONFIGURAÇÕES DA TELA:
 
 		LAR = display.contentWidth; 	-- ALTURA
@@ -57,6 +61,8 @@
 		-- CENA MENU:
 			
 			function returnMenu()
+				audio.play(touchButton);
+				
 				display.remove(imgBackground);
 				display.remove(imgTitle);
 				display.remove(returnButton);

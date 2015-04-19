@@ -11,7 +11,9 @@
 
 	-- ARQUIVOS DE ÁUDIO:
 
-		local ambianceSound = audio.loadStream('Multimidia/Menu/song_menu.mp3');
+		local ambianceSound = audio.loadStream('Multimidia/Menu/song_menu.wav');
+
+		local touchButton = audio.loadSound("Multimidia/Menu/song_touch_button.mp3");
 		
 	-- CONFIGURAÇÕES DA TELA:
 
@@ -120,6 +122,8 @@
 		-- CENA INFO:
 
 			function startInfo()
+				audio.play(touchButton);
+
 				display.remove(imgBackground);
 				display.remove(imgLogo);
 				transition.cancel(imgLogo);
@@ -133,6 +137,8 @@
 		-- CENA INSTRUÇÕES:
 
 			function startInstru()
+				audio.play(touchButton);
+
 				display.remove(imgBackground);
 				display.remove(imgLogo);
 				transition.cancel(imgLogo);
@@ -146,6 +152,8 @@
 		-- CENA HISTÓRIA:
 
 			function startHistoria()
+				audio.play(touchButton);
+
 				display.remove(imgBackground);
 				display.remove(imgLogo);
 				transition.cancel(imgLogo);

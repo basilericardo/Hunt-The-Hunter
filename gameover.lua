@@ -11,6 +11,9 @@
 
     -- ARQUIVOS DE ÁUDIO:
 
+        local gameoverSound = audio.loadSound('Multimidia/Menu/Gameover/song_gameover.mp3');
+
+        local touchButton = audio.loadSound("Multimidia/Menu/Gameover/song_touch_button.mp3");
         
     -- CONFIGURAÇÕES DA TELA:
 
@@ -92,6 +95,8 @@
         -- CENA MENU:
             
             function returnMenu()
+                audio.play(touchButton);
+
                 scoreFinal = 0;
                 hunterHunted = 0;
                 hunterLost = 0;
@@ -113,6 +118,8 @@
         -- CENA GAME:
 
             function playAgain()
+                audio.play(touchButton);
+
                 scoreFinal = 0;
                 hunterHunted = 0;
                 hunterLost = 0;
@@ -136,10 +143,13 @@
         function scene:enterScene(event)
             local group = self.view;
 
+            audio.play(gameoverSound);
+
             storyboard.removeScene("game");
 
             returnButton:addEventListener("tap", returnMenu);
             playAgainButton:addEventListener("tap", playAgain);
+
         end
 
         scene:addEventListener("enterScene", scene);
@@ -149,8 +159,11 @@
         function scene:exitScene(event)
             local group = self.view;
 
+            audio.stop();
+
             returnButton:removeEventListener("tap", returnMenu);
             playAgainButton:removeEventListener("tap", playAgain);
+
         end
 
         scene:addEventListener("exitScene", scene);
