@@ -68,7 +68,7 @@
 
 				-- NUVENS (2/6):
 
-					rolagem = 0.4; -- Velocidade da rolagem
+					local rolagem = 0.4; -- Velocidade da rolagem
 
 					local imgBgNuvem = display.newImageRect("Multimidia/Game/img_bg_nuvem.png", LAR, ALT);
 						imgBgNuvem.x = (LAR/2);
@@ -431,16 +431,21 @@
 							imgHunterTwo:removeEventListener("tap", imgHunterTwo);
 							imgHunterLider:removeEventListener("tap", imgHunterLider);
 							imgAnimalOne:removeEventListener("tap", imgAnimalOne);
+							imgAnimalTwo:removeEventListener("tap", imgAnimalTwo);
 														
 							transition.cancel(imgHunterOne);
 							transition.cancel(imgHunterTwo);
-							transition.cancel(imgHunterLider);
 							transition.cancel(imgAnimalOne);
-							transition.cancel(imgAnimalTwo);
+							if liderExists == 1 then
+								transition.cancel(imgHunterLider);
+							end
+							if animalTwoExist == 1 then
+								transition.cancel(imgAnimalTwo);
+							end
 
 							Runtime:removeEventListener("enterFrame", imgBgNuvemRolagem);
 							
-							storyboard.gotoScene("gameover", transicaoGameOver);
+							storyboard.gotoScene("gameover", transicaoCena);
 						end
 					end
 
@@ -479,16 +484,21 @@
 							imgHunterTwo:removeEventListener("tap", imgHunterTwo);
 							imgHunterLider:removeEventListener("tap", imgHunterLider);
 							imgAnimalOne:removeEventListener("tap", imgAnimalOne);
+							imgAnimalTwo:removeEventListener("tap", imgAnimalTwo);
 														
 							transition.cancel(imgHunterOne);
 							transition.cancel(imgHunterTwo);
-							transition.cancel(imgHunterLider);
 							transition.cancel(imgAnimalOne);
-							transition.cancel(imgAnimalTwo);
+							if liderExists == 1 then
+								transition.cancel(imgHunterLider);
+							end
+							if animalTwoExist == 1 then
+								transition.cancel(imgAnimalTwo);
+							end
 
 							Runtime:removeEventListener("enterFrame", imgBgNuvemRolagem);
 							
-							storyboard.gotoScene("gameover", transicaoGameOver);
+							storyboard.gotoScene("gameover", transicaoCena);
 						end			
 					end
 
@@ -686,7 +696,6 @@
 							timeAnimalOneUp 		= 4000 - 2300;
 							timeAnimalOneDown 		= 4500 - 2300;
 						end
-
 					end
 
 			-- FUNÇÕES PARA PAUSE/RESUME DO JOGO:
@@ -709,7 +718,6 @@
 					if liderExists == 1 then
 						imgHunterLider:removeEventListener("tap", imgHunterLider);
 					end
-
 				end
 
 				function resumeGame()
@@ -730,7 +738,6 @@
 					if liderExists == 1 then
 						imgHunterLider:addEventListener("tap", imgHunterLider);
 					end
-					
 				end
 
 			-- CHAMADA DOS EVENTOS:
@@ -740,7 +747,6 @@
 				imgAnimalOne:addEventListener("tap", imgAnimalOne);
 				pauseButton:addEventListener("tap", pauseGame);
 				resumeButton:addEventListener("tap", resumeGame);
-		
 		end
 
 		scene:addEventListener("createScene", scene);
@@ -779,6 +785,29 @@
 			local group = self.view;
 
 			audio.stop(ambianceSoundChannel);
+
+			display.remove(imgBgCeu);
+			display.remove(imgBgNuvem);
+			display.remove(imgBgNuvem2);
+			display.remove(imgBgNuvem3);
+			display.remove(imgBgTerra);
+			display.remove(imgHunterOne);
+			display.remove(imgHunterTwo);
+			display.remove(imgAnimalOne);
+			display.remove(bgArbusto);
+			display.remove(scoreName);
+			display.remove(scoreCount);
+			display.remove(lifeOne);
+			display.remove(lifeTwo);
+			display.remove(lifeThree);
+			display.remove(resumeButton);
+			display.remove(pauseButton);
+			if liderExists == 1 then
+			    display.remove(imgHunterLider);
+			end
+			if animalTwoExist == 1 then
+			    display.remove(imgAnimalTwo);
+			end
 		end
 
 		scene:addEventListener("exitScene", scene);

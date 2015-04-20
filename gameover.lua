@@ -85,7 +85,6 @@
                     returnButton.y = ((ALT/2) + 120);
 
                 group:insert(returnButton);
-
         end
 
         scene:addEventListener("createScene", scene);
@@ -149,7 +148,6 @@
 
             returnButton:addEventListener("tap", returnMenu);
             playAgainButton:addEventListener("tap", playAgain);
-
         end
 
         scene:addEventListener("enterScene", scene);
@@ -163,7 +161,6 @@
 
             returnButton:removeEventListener("tap", returnMenu);
             playAgainButton:removeEventListener("tap", playAgain);
-
         end
 
         scene:addEventListener("exitScene", scene);

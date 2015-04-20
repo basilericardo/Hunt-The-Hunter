@@ -97,7 +97,6 @@
 				    playButton.y = (ALT/2 + 120);
 
 				group:insert(playButton);
-
 		end
 
 		scene:addEventListener("createScene", scene);
@@ -115,6 +114,7 @@
 				display.remove(playButton);
 				display.remove(infoButton);
 				display.remove(instruButton);
+				display.remove(historyButton);
 				
 				storyboard.gotoScene("game", transicaoCena);
 			end
