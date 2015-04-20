@@ -26,8 +26,8 @@
 
 		-- CONTROLE DE JOGABILIDADE:
 
-			local int controlePonto = 0; 	-- CONTROLE DE PONTUAÇÃO PARA UTILIZAÇÃO NA FUNÇÃO "controleVelocidade()"
-			local int controleLife = 3; 	-- CONTROLE DE VIDA
+			local controlePonto = 0; 	-- CONTROLE DE PONTUAÇÃO PARA UTILIZAÇÃO NA FUNÇÃO "controleVelocidade()"
+			local controleLife = 3; 	-- CONTROLE DE VIDA
 
 		-- PONTOS OBTIDOS:
 			scoreFinal = 0;
@@ -42,10 +42,10 @@
 			masterHunterHunted = 0;
 
 		-- IDENTIFICADOR DE EXISTÊNCIA DO LÍDER:
-			liderExists = 0;
+			local liderExists = 0;
 
 		-- IDENTIFICADOR DE EXISTÊNCIA DO SEGUNDO ANIMAL:
-			animalTwoExist = 0;
+			local animalTwoExist = 0;
 
 	-- FUNÇÃO RESPONSÁVEL POR CRIAR OS OBJETOS DA CENA:
 		function scene:createScene(event)
@@ -688,13 +688,31 @@
 							timeAnimalOneDown 		= 4500 - 2100;
 						end
 
-						if controlePonto > 2700 then
+						if controlePonto > 2700 and controlePonto < 2900 then
+							timeVilaoOneUp 			= 4500 - 2200;
+							timeVilaoOneDown 		= 4500 - 2200;
+							timeVilaoTwoUp 			= 4000 - 2200;
+							timeVilaoTwoDown 		= 3500 - 2200;
+							timeAnimalOneUp 		= 4000 - 2200;
+							timeAnimalOneDown 		= 4500 - 2200;
+						end
+
+						if controlePonto > 2900 and controlePonto < 3100 then
 							timeVilaoOneUp 			= 4500 - 2300;
 							timeVilaoOneDown 		= 4500 - 2300;
 							timeVilaoTwoUp 			= 4000 - 2300;
 							timeVilaoTwoDown 		= 3500 - 2300;
 							timeAnimalOneUp 		= 4000 - 2300;
 							timeAnimalOneDown 		= 4500 - 2300;
+						end
+
+						if controlePonto > 3100 and controlePonto < 3300 then
+							timeVilaoOneUp 			= 4500 - 2400;
+							timeVilaoOneDown 		= 4500 - 2400;
+							timeVilaoTwoUp 			= 4000 - 2400;
+							timeVilaoTwoDown 		= 3500 - 2400;
+							timeAnimalOneUp 		= 4000 - 2400;
+							timeAnimalOneDown 		= 4500 - 2400;
 						end
 					end
 
