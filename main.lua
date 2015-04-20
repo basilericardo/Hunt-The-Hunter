@@ -2,7 +2,9 @@
 	local storyboard = require "storyboard";
 	storyboard.gotoScene("menu");
 
+-- TRANSIÇÃO DE CENAS:
 	
+	-- TRANSIÇÃO PADRÃO:
 
 		transicaoCena = {
 			effect = "crossFade",

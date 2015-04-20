@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------------------------------------------------------
 -- GERAL ->
 --
--- ARQUIVO RESPONSÁVEL peLA FUNCIONALIDADE DO JOGO.
+-- ARQUIVO RESPONSÁVEL PELA FUNCIONALIDADE DO JOGO.
 -------------------------------------------------------------------------------------------------------------------------------
 
 	-- CHAMADA DO STORYBOARD:
@@ -35,7 +35,7 @@
 		-- CAÇADORES PRESOS:
 			hunterHunted = 0;
 
-		-- CAÇADORES peRDIDOS:
+		-- CAÇADORES PERDIDOS:
 			hunterLost = 0;
 
 		-- CAÇADORES LIDER PRESOS:
@@ -55,7 +55,7 @@
 			-- BACKGROUND ->
 			--
 			-- Composto de 5 camadas, na qual a ordem é: 
-			-- (1. Céu), (2. Nuvem), (3.Terra/Árvores), (4. Barra de Status), (5. personagens), (6. Arbustos).
+			-- (1. Céu), (2. Nuvem), (3. Terra/Árvores), (4. Barra de Status), (5. personagens), (6. Arbustos).
 			-------------------------------------------------------------------------------------------------------------------------------
 
 				-- CÉU (1/6):
@@ -425,7 +425,7 @@
 						end
 
 						if controleLife == 0 then
-							display.remove(lifeOne);
+							audio.stop();
 
 							imgHunterOne:removeEventListener("tap", imgHunterOne);
 							imgHunterTwo:removeEventListener("tap", imgHunterTwo);
@@ -440,7 +440,7 @@
 
 							Runtime:removeEventListener("enterFrame", imgBgNuvemRolagem);
 							
-							storyboard.gotoScene("gameover");
+							storyboard.gotoScene("gameover", transicaoGameOver);
 						end
 					end
 
@@ -473,7 +473,7 @@
 						end
 
 						if controleLife == 0 then
-							display.remove(lifeOne);
+							audio.stop();
 
 							imgHunterOne:removeEventListener("tap", imgHunterOne);
 							imgHunterTwo:removeEventListener("tap", imgHunterTwo);
@@ -488,7 +488,7 @@
 
 							Runtime:removeEventListener("enterFrame", imgBgNuvemRolagem);
 							
-							storyboard.gotoScene("gameover");
+							storyboard.gotoScene("gameover", transicaoGameOver);
 						end			
 					end
 
@@ -750,6 +750,8 @@
 		function scene:enterScene(event)
 			local group = self.view;
 
+			ambianceSoundChannel = audio.play(ambianceSound, {channel = 4, loops = -1});
+
 			storyboard.removeScene("menu");
 			storyboard.removeScene("gameover");
 
@@ -767,9 +769,6 @@
 			vilaoOneUp();
 			vilaoTwoUp();
 			animalOneUp();
-
-			ambianceSoundChannel = audio.play(ambianceSound, {channel = 4, loops = -1});
-
 		end
 
 		scene:addEventListener("enterScene", scene);
