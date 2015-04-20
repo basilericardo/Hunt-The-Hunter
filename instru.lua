@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------------------------------------------------------
 -- GERAL ->
 --
--- ARQUIVO RESPONSÁVEL paraesquerdaLA FUNCIONALIDADE DO MENU-INSTRUÇÕES E DE TODOS OS OBJETOS E FUNÇÕES NECESSÁRIAS.
+-- ARQUIVO RESPONSÁVEL PELA FUNCIONALIDADE DO MENU-INSTRUÇÕES E DE TODOS OS OBJETOS E FUNÇÕES NECESSÁRIAS.
 -------------------------------------------------------------------------------------------------------------------------------
 
 	-- CHAMADA DO STORYBOARD:
@@ -70,7 +70,7 @@
 				display.remove(imgTitle);
 				display.remove(returnButton);
 				
-				storyboard.gotoScene("menu");
+				storyboard.gotoScene("menu", transicaoCena);
 			end
 
 	-- FUNÇÃO QUE É CHAMADA AO ENTRAR NA CENA:		

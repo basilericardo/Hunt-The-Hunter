@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------------------------------------------------------
 -- GERAL ->
 --
--- ARQUIVO RESPONSÁVEL peLA FUNCIONALIDADE DO MENU E DE TODOS OS OBJETOS E FUNÇÕES NECESSÁRIAS.
+-- ARQUIVO RESPONSÁVEL PELA FUNCIONALIDADE DO MENU E DE TODOS OS OBJETOS E FUNÇÕES NECESSÁRIAS.
 -------------------------------------------------------------------------------------------------------------------------------
 
 	-- CHAMADA DO STORYBOARD:
@@ -52,7 +52,7 @@
 						transition.to(imgLogo, {time = 1000, alpha = 1, x = (LAR/2), y = (ALT/2 - 40), xScale = 0.4, yScale = 0.6, onComplete = mostrarNomeJogoUp});
 					end
 
-				mostrarNomeJogoUp();		
+				mostrarNomeJogoUp();
 
 		    -- BOTÃO HISTORIA:
 
@@ -116,7 +116,7 @@
 				display.remove(infoButton);
 				display.remove(instruButton);
 				
-				storyboard.gotoScene("game");
+				storyboard.gotoScene("game", transicaoCena);
 			end
 
 		-- CENA INFO:
@@ -130,8 +130,9 @@
 				display.remove(playButton);
 				display.remove(infoButton);
 				display.remove(instruButton);
+				display.remove(historyButton);
 
-				storyboard.gotoScene("info");
+				storyboard.gotoScene("info", transicaoCena);
 			end
 
 		-- CENA INSTRUÇÕES:
@@ -145,8 +146,9 @@
 				display.remove(playButton);
 				display.remove(infoButton);
 				display.remove(instruButton);
+				display.remove(historyButton);
 
-				storyboard.gotoScene("instru");
+				storyboard.gotoScene("instru", transicaoCena);
 			end
 
 		-- CENA HISTÓRIA:
@@ -160,8 +162,9 @@
 				display.remove(playButton);
 				display.remove(infoButton);
 				display.remove(instruButton);
+				display.remove(historyButton);
 
-				storyboard.gotoScene("historia");
+				storyboard.gotoScene("historia", transicaoCena);
 			end
 		
 	-- FUNÇÃO QUE É CHAMADA AO ENTRAR NA CENA:
