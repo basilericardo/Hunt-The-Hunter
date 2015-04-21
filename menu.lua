@@ -115,8 +115,8 @@
 				display.remove(infoButton);
 				display.remove(instruButton);
 				display.remove(historyButton);
-				
-				storyboard.gotoScene("game", transicaoCena);
+
+				storyboard.gotoScene("game");
 			end
 
 		-- CENA INFO:
@@ -132,7 +132,7 @@
 				display.remove(instruButton);
 				display.remove(historyButton);
 
-				storyboard.gotoScene("info", transicaoCena);
+				storyboard.gotoScene("info");
 			end
 
 		-- CENA INSTRUÇÕES:
@@ -148,7 +148,7 @@
 				display.remove(instruButton);
 				display.remove(historyButton);
 
-				storyboard.gotoScene("instru", transicaoCena);
+				storyboard.gotoScene("instru");
 			end
 
 		-- CENA HISTÓRIA:
@@ -164,7 +164,7 @@
 				display.remove(instruButton);
 				display.remove(historyButton);
 
-				storyboard.gotoScene("historia", transicaoCena);
+				storyboard.gotoScene("historia");
 			end
 		
 	-- FUNÇÃO QUE É CHAMADA AO ENTRAR NA CENA:

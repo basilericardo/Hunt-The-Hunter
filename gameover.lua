@@ -111,7 +111,7 @@
                 display.remove(cacadoresperdidos);
                 display.remove(lideresCacados);
 
-                storyboard.gotoScene("menu", transicaoCena);
+                storyboard.gotoScene("menu");
             end
 
         -- CENA GAME:
@@ -134,7 +134,7 @@
                 display.remove(cacadoresperdidos);
                 display.remove(lideresCacados);
 
-                storyboard.gotoScene("game", transicaoCena);
+                storyboard.gotoScene("game");
             end
 
     -- FUNÇÃO QUE É CHAMADA AO ENTRAR NA CENA:   

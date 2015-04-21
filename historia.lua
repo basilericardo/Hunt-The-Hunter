@@ -66,8 +66,8 @@
 				display.remove(imgBackground);
 				display.remove(imgTitle);
 				display.remove(returnButton);
-				
-				storyboard.gotoScene("menu", transicaoCena);
+
+				storyboard.gotoScene("menu");
 			end
 
 	-- FUNÇÃO QUE É CHAMADA AO ENTRAR NA CENA:		

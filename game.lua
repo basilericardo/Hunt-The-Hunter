@@ -15,7 +15,7 @@
 
 		local hitCat = audio.loadSound('Multimidia/Game/song_hit_cat.mp3');
 
-		--local ambianceSound = audio.loadStream('Multimidia/Game/song_game.mp3');
+		local ambianceSound = audio.loadStream('Multimidia/Game/song_game.wav');
 		
 	-- CONFIGURAÇÕES DA TELA:
 
@@ -444,8 +444,8 @@
 							end
 
 							Runtime:removeEventListener("enterFrame", imgBgNuvemRolagem);
-							
-							storyboard.gotoScene("gameover", transicaoCena);
+
+							storyboard.gotoScene("gameover");
 						end
 					end
 
@@ -497,8 +497,8 @@
 							end
 
 							Runtime:removeEventListener("enterFrame", imgBgNuvemRolagem);
-							
-							storyboard.gotoScene("gameover", transicaoCena);
+
+							storyboard.gotoScene("gameover");
 						end			
 					end
 
