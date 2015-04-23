@@ -96,6 +96,8 @@
             function returnMenu()
                 audio.play(touchButton);
 
+                storyboard.gotoScene("menu", transicaoCena);
+
                 scoreFinal = 0;
                 hunterHunted = 0;
                 hunterLost = 0;
@@ -110,14 +112,14 @@
                 display.remove(cacadoresCacados);
                 display.remove(cacadoresperdidos);
                 display.remove(lideresCacados);
-
-                storyboard.gotoScene("menu");
             end
 
         -- CENA GAME:
 
             function playAgain()
                 audio.play(touchButton);
+
+                storyboard.gotoScene("game", transicaoCena);
 
                 scoreFinal = 0;
                 hunterHunted = 0;
@@ -133,8 +135,6 @@
                 display.remove(cacadoresCacados);
                 display.remove(cacadoresperdidos);
                 display.remove(lideresCacados);
-
-                storyboard.gotoScene("game");
             end
 
     -- FUNÇÃO QUE É CHAMADA AO ENTRAR NA CENA:   
@@ -144,10 +144,10 @@
 
             audio.play(gameoverSound);
 
-            storyboard.removeScene("game");
-
             returnButton:addEventListener("tap", returnMenu);
             playAgainButton:addEventListener("tap", playAgain);
+
+            storyboard.removeScene("game");
         end
 
         scene:addEventListener("enterScene", scene);

@@ -220,7 +220,7 @@
 					function vilaoOneUp()
 						imgHunterOne.alpha = 1;
 
-						imgHunterOne.x = math.random(20, 215);
+						imgHunterOne.x = math.random(20, 450);
 
 						transition.to(imgHunterOne, {time = timeVilaoOneUp, x = imgHunterOne.x, y = 220, onComplete = vilaoOneDown});
 					end
@@ -234,7 +234,7 @@
 					function vilaoTwoUp()
 						imgHunterTwo.alpha = 1;
 
-						imgHunterTwo.x = math.random(270, 450);
+						imgHunterTwo.x = math.random(20, 450);
 
 						transition.to(imgHunterTwo, {time = timeVilaoTwoUp, x = imgHunterTwo.x, y = 220, onComplete = vilaoTwoDown});
 					end
@@ -445,7 +445,7 @@
 
 							Runtime:removeEventListener("enterFrame", imgBgNuvemRolagem);
 
-							storyboard.gotoScene("gameover");
+							storyboard.gotoScene("gameover", transicaoCena);
 						end
 					end
 
@@ -498,7 +498,7 @@
 
 							Runtime:removeEventListener("enterFrame", imgBgNuvemRolagem);
 
-							storyboard.gotoScene("gameover");
+							storyboard.gotoScene("gameover", transicaoCena);
 						end			
 					end
 

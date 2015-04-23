@@ -65,12 +65,12 @@
 			
 			function returnMenu()
 				audio.play(touchButton);
+
+				storyboard.gotoScene("menu", transicaoCena);
 				
 				display.remove(imgBackground);
 				display.remove(imgTitle);
 				display.remove(returnButton);
-
-				storyboard.gotoScene("menu");
 			end
 
 	-- FUNÇÃO QUE É CHAMADA AO ENTRAR NA CENA:		
@@ -78,9 +78,9 @@
 		function scene:enterScene(event)
 			local group = self.view;
 
-			storyboard.removeScene("menu");
-
 			returnButton:addEventListener("tap", returnMenu);
+
+			storyboard.removeScene("menu");
 		end
 
 		scene:addEventListener("enterScene", scene);
