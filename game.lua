@@ -41,6 +41,9 @@
 		-- CAÇADORES LIDER PRESOS:
 			masterHunterHunted = 0;
 
+		-- IDENTIFICADOR DE EXISTÊNCIA DO TERCEIRO CAÇADOR
+			local hunterThreeExist = 0;
+
 		-- IDENTIFICADOR DE EXISTÊNCIA DO LÍDER:
 			local liderExists = 0;
 
@@ -125,6 +128,11 @@
 						imgHunterTwo.y = 600;
 
 					group:insert(imgHunterTwo);
+
+					local imgHunterThree = display.newImage("Multimidia/Game/img_person_vilao_3.png");
+						imgHunterThree.y = 600;
+
+					group:insert(imgHunterThree);
 
 					local imgHunterLider = display.newImage("Multimidia/Game/img_person_vilao_lider.png");
 						imgHunterLider.y = 600;
@@ -245,6 +253,20 @@
 						transition.to(imgHunterTwo, {time = timeVilaoTwoDown, x = imgHunterTwo.x, y = 600, onComplete = vilaoTwoUp});
 					end
 
+					function vilaoThreeUp()
+						imgHunterThree.alpha = 1;
+
+						imgHunterThree.x = math.random(20, 450);
+
+						transition.to(imgHunterThree, {time = timeVilaoTwoUp, x = imgHunterThree.x, y = 220, onComplete = vilaoThreeDown});
+					end
+
+					function vilaoThreeDown()
+						hunterLost = (hunterLost + 1);
+
+						transition.to(imgHunterThree, {time = timeVilaoTwoDown, x = imgHunterThree.x, y = 600, onComplete = vilaoThreeUp});
+					end
+
 					function vilaoLiderUp()
 						imgHunterLider.alpha = 1;
 
@@ -308,6 +330,53 @@
 						audio.play(hit);
 
 						imgHunterTwo.alpha = 0;
+
+						scoreCount.text = tostring(tonumber(scoreCount.text) + 30);
+						controlePonto = tonumber(scoreCount.text);
+						scoreFinal = tonumber(scoreCount.text);
+						hunterHunted = (hunterHunted + 1);
+
+						if hunterLost > 0 then
+							hunterLost = (hunterLost - 1);
+						end
+
+						-- CONTROLE DE POSIÇÃO DA PONTUAÇÃO
+
+							if controlePonto >= 0 and controlePonto < 10 then
+								scoreCount.x = 43;
+							end
+
+							if controlePonto > 9 and controlePonto < 100 then
+								scoreCount.x = 46;
+							end
+
+							if controlePonto > 99 and controlePonto < 1000 then
+								scoreCount.x = 49;
+							end 
+							
+							if controlePonto > 999 and controlePonto < 10000 then
+								scoreCount.x = 52;
+							end
+
+							if controlePonto > 9999 and controlePonto < 100000 then
+								scoreCount.x = 55;
+							end
+
+							if controlePonto > 99999 and controlePonto < 1000000 then
+								scoreCount.x = 59;
+							end
+
+							if controlePonto > 999999 then
+								scoreCount.x = 61;
+							end
+
+						controleVelocidade();
+					end
+
+					function imgHunterThree:tap(event)
+						audio.play(hit);
+
+						imgHunterThree.alpha = 0;
 
 						scoreCount.text = tostring(tonumber(scoreCount.text) + 30);
 						controlePonto = tonumber(scoreCount.text);
@@ -429,6 +498,7 @@
 
 							imgHunterOne:removeEventListener("tap", imgHunterOne);
 							imgHunterTwo:removeEventListener("tap", imgHunterTwo);
+							imgHunterThree:removeEventListener("tap", imgHunterThree);
 							imgHunterLider:removeEventListener("tap", imgHunterLider);
 							imgAnimalOne:removeEventListener("tap", imgAnimalOne);
 							imgAnimalTwo:removeEventListener("tap", imgAnimalTwo);
@@ -436,6 +506,9 @@
 							transition.cancel(imgHunterOne);
 							transition.cancel(imgHunterTwo);
 							transition.cancel(imgAnimalOne);
+							if hunterThreeExist == 1 then
+								transition.cancel(imgHunterThree);
+							end
 							if liderExists == 1 then
 								transition.cancel(imgHunterLider);
 							end
@@ -482,6 +555,7 @@
 
 							imgHunterOne:removeEventListener("tap", imgHunterOne);
 							imgHunterTwo:removeEventListener("tap", imgHunterTwo);
+							imgHunterThree:removeEventListener("tap", imgHunterThree);
 							imgHunterLider:removeEventListener("tap", imgHunterLider);
 							imgAnimalOne:removeEventListener("tap", imgAnimalOne);
 							imgAnimalTwo:removeEventListener("tap", imgAnimalTwo);
@@ -489,6 +563,9 @@
 							transition.cancel(imgHunterOne);
 							transition.cancel(imgHunterTwo);
 							transition.cancel(imgAnimalOne);
+							if hunterThreeExist == 1 then
+								transition.cancel(imgHunterThree);
+							end
 							if liderExists == 1 then
 								transition.cancel(imgHunterLider);
 							end
@@ -524,6 +601,11 @@
 						end
 
 						if controlePonto > 100 and controlePonto < 200 then
+							if controlePonto == 180 then
+								hunterThreeExist = 1;
+								vilaoThreeUp();
+								imgHunterThree:addEventListener("tap", imgHunterThree);
+							end
 							timeVilaoOneUp 			= 4500 - 600;
 							timeVilaoOneDown 		= 4500 - 600;
 							timeVilaoTwoUp 			= 4000 - 600;
@@ -555,6 +637,8 @@
 							timeVilaoOneDown 		= 4500 - 900;
 							timeVilaoTwoUp 			= 4000 - 900;
 							timeVilaoTwoDown 		= 3500 - 900;
+							timeVilaoThreeUp 		= 2000 - 500;
+							timeVilaoThreeDown 		= 3000 - 1500;
 							timeAnimalOneUp 		= 4000 - 900;
 							timeAnimalOneDown 		= 4500 - 900;
 						end
@@ -728,11 +812,12 @@
 					imgHunterOne:removeEventListener("tap", imgHunterOne);
 					imgHunterTwo:removeEventListener("tap", imgHunterTwo);
 					imgAnimalOne:removeEventListener("tap", imgAnimalOne);
-
+					if hunterThreeExist == 1 then
+						imgHunterThree:removeEventListener("tap", imgHunterThree);
+					end
 					if animalTwoExist == 1 then
 						imgAnimalTwo:removeEventListener("tap", imgAnimalTwo);
 					end
-
 					if liderExists == 1 then
 						imgHunterLider:removeEventListener("tap", imgHunterLider);
 					end
@@ -748,11 +833,12 @@
 					imgHunterOne:addEventListener("tap", imgHunterOne);
 					imgHunterTwo:addEventListener("tap", imgHunterTwo);
 					imgAnimalOne:addEventListener("tap", imgAnimalOne);
-
+					if hunterThreeExist == 1 then
+						imgHunterThree:addEventListener("tap", imgHunterThree);
+					end
 					if animalTwoExist == 1 then
 						imgAnimalTwo:addEventListener("tap", imgAnimalTwo);
 					end
-
 					if liderExists == 1 then
 						imgHunterLider:addEventListener("tap", imgHunterLider);
 					end
@@ -783,6 +869,8 @@
 			local int timeVilaoOneDown = 4500;
 			local int timeVilaoTwoUp = 4000;
 			local int timeVilaoTwoDown = 3500;
+			local int timeVilaoThreeUp = 2000;
+			local int timeVilaoThreeDown = 3000;
 			local int timeVilaoLiderUp = 1000;
 			local int timeVilaoLiderDown = 1500;
 			local int timeAnimalOneUp = 3500;
@@ -820,6 +908,9 @@
 			display.remove(lifeThree);
 			display.remove(resumeButton);
 			display.remove(pauseButton);
+			if hunterThreeExist == 1 then
+				display.remove(imgHunterThree);
+			end
 			if liderExists == 1 then
 			    display.remove(imgHunterLider);
 			end
