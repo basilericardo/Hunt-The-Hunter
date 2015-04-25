@@ -187,21 +187,40 @@
 
 					group:insert(lifeThree);
 
-				-- BOTÃO DE PAUSE E RESUME:
-
-					local resumeButton = display.newImage("Multimidia/Game/img_resume_button.png", 465, 33);
-						resumeButton.xScale = 0.1;
-						resumeButton.yScale = 0.1;
-
-						resumeButton.alpha = 0;
-
-					group:insert(resumeButton);
+				-- BOTÃO DE MENU:
 
 					local pauseButton = display.newImage("Multimidia/Game/img_pause_button.png", 465, 33);
 						pauseButton.xScale = 0.1;
 						pauseButton.yScale = 0.1;
 
-					group:insert(pauseButton);					
+					group:insert(pauseButton);
+
+					local resumeButton = display.newImage("Multimidia/Game/img_resume_button.png");
+						resumeButton.alpha = 0;
+						resumeButton.x = (LAR/2);
+						resumeButton.y = ((ALT/2) - 50);
+						resumeButton.xScale = 0.5;
+						resumeButton.yScale = 0.5;
+
+					group:insert(resumeButton);
+
+					local restartButton = display.newImage("Multimidia/Game/img_restart_button.png");
+						restartButton.alpha = 0;
+						restartButton.x = (LAR/2);
+						restartButton.y = (ALT/2);
+						restartButton.xScale = 0.5;
+						restartButton.yScale = 0.5;
+
+					group:insert(restartButton);
+
+					local returnMenuButton = display.newImage("Multimidia/Game/img_returnMenu_button.png");
+						returnMenuButton.alpha = 0;
+						returnMenuButton.x = (LAR/2);
+						returnMenuButton.y = ((ALT/2) + 50);
+						returnMenuButton.xScale = 0.5;
+						returnMenuButton.yScale = 0.5;
+
+					group:insert(returnMenuButton);					
 
 			-------------------------------------------------------------------------------------------------------------------------------
 			-- FUNÇÕES:
@@ -800,14 +819,22 @@
 						end
 					end
 
-			-- FUNÇÕES PARA PAUSE/RESUME DO JOGO:
+			-- FUNÇÕES PARA MENU DO JOGO:
 
 				function pauseGame()
 					pauseButton.alpha = 0;
 					resumeButton.alpha = 1;
+					restartButton.alpha = 1;
+					returnMenuButton.alpha = 1;
 
 					audio.pause(ambianceSoundChannel);
 					transition.pause();
+
+					pauseButton:removeEventListener("tap", pauseGame);
+					
+					resumeButton:addEventListener("tap", resumeGame);
+					restartButton:addEventListener("tap", restartGame);
+					returnMenuButton:addEventListener("tap", returnGame);
 
 					imgHunterOne:removeEventListener("tap", imgHunterOne);
 					imgHunterTwo:removeEventListener("tap", imgHunterTwo);
@@ -825,10 +852,18 @@
 
 				function resumeGame()
 					resumeButton.alpha = 0;
+					restartButton.alpha = 0;
+					returnMenuButton.alpha = 0;
 					pauseButton.alpha = 1;
 
 					audio.resume(ambianceSoundChannel);
 					transition.resume();
+
+					resumeButton:removeEventListener("tap", resumeGame);
+					restartButton:removeEventListener("tap", restartGame);
+					returnMenuButton:removeEventListener("tap", returnGame);
+
+					pauseButton:addEventListener("tap", pauseGame);
 
 					imgHunterOne:addEventListener("tap", imgHunterOne);
 					imgHunterTwo:addEventListener("tap", imgHunterTwo);
@@ -844,13 +879,68 @@
 					end
 				end
 
+				function restartGame()
+					audio.stop();
+
+					imgHunterOne:removeEventListener("tap", imgHunterOne);
+					imgHunterTwo:removeEventListener("tap", imgHunterTwo);
+					imgHunterThree:removeEventListener("tap", imgHunterThree);
+					imgHunterLider:removeEventListener("tap", imgHunterLider);
+					imgAnimalOne:removeEventListener("tap", imgAnimalOne);
+					imgAnimalTwo:removeEventListener("tap", imgAnimalTwo);
+												
+					transition.cancel(imgHunterOne);
+					transition.cancel(imgHunterTwo);
+					transition.cancel(imgAnimalOne);
+					if hunterThreeExist == 1 then
+						transition.cancel(imgHunterThree);
+					end
+					if liderExists == 1 then
+						transition.cancel(imgHunterLider);
+					end
+					if animalTwoExist == 1 then
+						transition.cancel(imgAnimalTwo);
+					end
+
+					Runtime:removeEventListener("enterFrame", imgBgNuvemRolagem);
+
+					storyboard.gotoScene("gameover", transicaoCena);					
+				end
+
+				function returnGame()
+					audio.stop();
+
+					imgHunterOne:removeEventListener("tap", imgHunterOne);
+					imgHunterTwo:removeEventListener("tap", imgHunterTwo);
+					imgHunterThree:removeEventListener("tap", imgHunterThree);
+					imgHunterLider:removeEventListener("tap", imgHunterLider);
+					imgAnimalOne:removeEventListener("tap", imgAnimalOne);
+					imgAnimalTwo:removeEventListener("tap", imgAnimalTwo);
+												
+					transition.cancel(imgHunterOne);
+					transition.cancel(imgHunterTwo);
+					transition.cancel(imgAnimalOne);
+					if hunterThreeExist == 1 then
+						transition.cancel(imgHunterThree);
+					end
+					if liderExists == 1 then
+						transition.cancel(imgHunterLider);
+					end
+					if animalTwoExist == 1 then
+						transition.cancel(imgAnimalTwo);
+					end
+
+					Runtime:removeEventListener("enterFrame", imgBgNuvemRolagem);
+
+					storyboard.gotoScene("menu", transicaoCena);
+				end
+
 			-- CHAMADA DOS EVENTOS:
 
 				imgHunterOne:addEventListener("tap", imgHunterOne);
 				imgHunterTwo:addEventListener("tap", imgHunterTwo);
 				imgAnimalOne:addEventListener("tap", imgAnimalOne);
 				pauseButton:addEventListener("tap", pauseGame);
-				resumeButton:addEventListener("tap", resumeGame);
 		end
 
 		scene:addEventListener("createScene", scene);
@@ -906,8 +996,10 @@
 			display.remove(lifeOne);
 			display.remove(lifeTwo);
 			display.remove(lifeThree);
-			display.remove(resumeButton);
 			display.remove(pauseButton);
+			display.remove(resumeButton);
+			display.remove(restartButton);
+			display.remove(returnMenuButton);
 			if hunterThreeExist == 1 then
 				display.remove(imgHunterThree);
 			end

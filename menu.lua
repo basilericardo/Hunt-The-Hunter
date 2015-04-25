@@ -178,6 +178,7 @@
 			storyboard.removeScene("info");
 			storyboard.removeScene("historia");
 			storyboard.removeScene("gameover");
+			storyboard.removeScene("game");
 
 			playButton:addEventListener("tap", startGame);
 			infoButton:addEventListener("tap", startInfo);
