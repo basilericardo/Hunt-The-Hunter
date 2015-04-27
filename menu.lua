@@ -13,7 +13,7 @@
 
 		local ambianceSound = audio.loadStream('Multimidia/Menu/song_menu.wav');
 
-		local touchButton = audio.loadSound("Multimidia/Menu/song_touch_button.mp3");
+		touchButton = audio.loadSound("Multimidia/Menu/song_touch_button.mp3");
 		
 	-- CONFIGURAÇÕES DA TELA:
 
@@ -57,44 +57,44 @@
 		    -- BOTÃO HISTORIA:
 
 			    historyButton = display.newImage("Multimidia/Menu/img_history_button.png");
-				    historyButton.xScale = 0.7;
-				    historyButton.yScale = 0.8;
+				    historyButton.xScale = 0.6;
+				    historyButton.yScale = 0.6;
 
 				    historyButton.x = (LAR/2 - 150);
-				    historyButton.y = (ALT/2 + 120);
+				    historyButton.y = (ALT/2 + 130);
 
 			    group:insert(historyButton);
 
 		    -- BOTÃO INSTRUÇÕES:
 
 			    instruButton = display.newImage("Multimidia/Menu/img_instru_button.png");
-				    instruButton.xScale = 0.7;
-				    instruButton.yScale = 0.8;
+				    instruButton.xScale = 0.6;
+				    instruButton.yScale = 0.6;
 
 				    instruButton.x = (LAR/2 - 50);
-				    instruButton.y = (ALT/2 + 120);
+				    instruButton.y = (ALT/2 + 130)
 
 			    group:insert(instruButton);
 
 			-- BOTÃO INFORMAÇÕES:
 
 			    infoButton = display.newImage("Multimidia/Menu/img_info_button.png");
-				    infoButton.xScale = 0.7;
-				    infoButton.yScale = 0.8;
+				    infoButton.xScale = 0.6;
+				    infoButton.yScale = 0.6;
 
 				    infoButton.x = (LAR/2 + 50);
-				    infoButton.y = (ALT/2 + 120);
+				    infoButton.y = (ALT/2 + 130);
 
 				group:insert(infoButton);
 
 			-- BOTÃO JOGAR:
 
 			    playButton = display.newImage("Multimidia/Menu/img_play_button.png");
-				    playButton.xScale = 0.7;
-				    playButton.yScale = 0.8;
+				    playButton.xScale = 0.6;
+				    playButton.yScale = 0.6;
 
 				    playButton.x = (LAR/2 + 150);
-				    playButton.y = (ALT/2 + 120);
+				    playButton.y = (ALT/2 + 130);
 
 				group:insert(playButton);
 		end
@@ -172,7 +172,7 @@
 		function scene:enterScene(event)
 			local group = self.view;
 
-			ambianceSoundChannel = audio.play(ambianceSound, {channel = 1, loops = -1});
+			ambianceSoundChannelMenu = audio.play(ambianceSound, {channel = 1, loops = -1});
 
 			storyboard.removeScene("instru");
 			storyboard.removeScene("info");

@@ -12,8 +12,6 @@
     -- ARQUIVOS DE ÁUDIO:
 
         local gameoverSound = audio.loadSound('Multimidia/Menu/Gameover/song_gameover.mp3');
-
-        local touchButton = audio.loadSound("Multimidia/Menu/Gameover/song_touch_button.mp3");
         
     -- CONFIGURAÇÕES DA TELA:
 
@@ -67,22 +65,22 @@
             -- BOTÃO JOGAR NOVAMENTE:
 
                 playAgainButton = display.newImage("Multimidia/Menu/Gameover/img_play_again_button.png");
-                    playAgainButton.xScale = 0.7;
-                    playAgainButton.yScale = 0.8;
+                    playAgainButton.xScale = 0.6;
+                    playAgainButton.yScale = 0.6;
 
                     playAgainButton.x = ((LAR/2) + 50);
-                    playAgainButton.y = ((ALT/2) + 120);
+                    playAgainButton.y = ((ALT/2) + 130);
 
                 group:insert(playAgainButton);
 
             -- BOTÃO VOLTAR:
 
                 returnButton = display.newImage("Multimidia/Menu/Gameover/img_menu_button.png");
-                    returnButton.xScale = 0.7;
-                    returnButton.yScale = 0.8;
+                    returnButton.xScale = 0.6;
+                    returnButton.yScale = 0.6;
 
                     returnButton.x = ((LAR/2) - 50);
-                    returnButton.y = ((ALT/2) + 120);
+                    returnButton.y = ((ALT/2) + 130);
 
                 group:insert(returnButton);
         end

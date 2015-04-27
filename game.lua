@@ -822,12 +822,14 @@
 			-- FUNÇÕES PARA MENU DO JOGO:
 
 				function pauseGame()
+					audio.play(touchButton);
+					audio.pause(ambianceSoundChannelGame);
+					
 					pauseButton.alpha = 0;
 					resumeButton.alpha = 1;
 					restartButton.alpha = 1;
 					returnMenuButton.alpha = 1;
 
-					audio.pause(ambianceSoundChannel);
 					transition.pause();
 
 					pauseButton:removeEventListener("tap", pauseGame);
@@ -851,12 +853,14 @@
 				end
 
 				function resumeGame()
+					audio.play(touchButton);
+
 					resumeButton.alpha = 0;
 					restartButton.alpha = 0;
 					returnMenuButton.alpha = 0;
 					pauseButton.alpha = 1;
 
-					audio.resume(ambianceSoundChannel);
+					audio.resume(ambianceSoundChannelGame);
 					transition.resume();
 
 					resumeButton:removeEventListener("tap", resumeGame);
@@ -880,7 +884,8 @@
 				end
 
 				function restartGame()
-					audio.stop();
+					audio.play(touchButton);
+					audio.stop(ambianceSoundChannelGame);
 
 					imgHunterOne:removeEventListener("tap", imgHunterOne);
 					imgHunterTwo:removeEventListener("tap", imgHunterTwo);
@@ -908,7 +913,8 @@
 				end
 
 				function returnGame()
-					audio.stop();
+					audio.play(touchButton);
+					audio.stop(ambianceSoundChannelGame);
 
 					imgHunterOne:removeEventListener("tap", imgHunterOne);
 					imgHunterTwo:removeEventListener("tap", imgHunterTwo);
@@ -950,7 +956,7 @@
 		function scene:enterScene(event)
 			local group = self.view;
 
-			ambianceSoundChannel = audio.play(ambianceSound, {channel = 4, loops = -1});
+			ambianceSoundChannelGame = audio.play(ambianceSound, {channel = 4, loops = -1});
 
 			storyboard.removeScene("menu");
 			storyboard.removeScene("gameover");

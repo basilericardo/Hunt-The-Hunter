@@ -9,10 +9,6 @@
 		local storyboard = require("storyboard");
 		local scene = storyboard.newScene();
 
-	-- ARQUIVOS DE ÁUDIO:
-
-		local touchButton = audio.loadSound("Multimidia/Menu/Instruções/song_touch_button.mp3");
-
 	-- CONFIGURAÇÕES DA TELA:
 
 		LAR = display.contentWidth; 	-- ALTURA
@@ -47,11 +43,11 @@
 		    -- BOTÃO VOLTAR:
 
 			    returnButton = display.newImage("Multimidia/Menu/Instruções/img_return_button.png");
-				    returnButton.xScale = 0.7;
-				    returnButton.yScale = 0.8;
+				    returnButton.xScale = 0.6;
+				    returnButton.yScale = 0.6;
 
 				    returnButton.x = (LAR/2);
-				    returnButton.y = ((ALT/2) + 120);
+				    returnButton.y = ((ALT/2) + 130);
 
 			    group:insert(returnButton);
 
