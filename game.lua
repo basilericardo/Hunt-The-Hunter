@@ -159,11 +159,11 @@
 
 				-- PONTUAÇÃO:
 
-					local scoreName = display.newText('Score:', 20, 9, native.systemFont, 12);
+					local scoreName = display.newText('Score:', 25, 9, "Paljain jaloin", 15);
 					
 					group:insert(scoreName);
 
-					local scoreCount = display.newText('0', 43, 9, native.systemFont, 12);
+					local scoreCount = display.newText('0', 52, 9, "Paljain jaloin", 15);
 						
 					group:insert(scoreCount);
 
@@ -315,31 +315,31 @@
 						-- CONTROLE DE POSIÇÃO DA PONTUAÇÃO
 
 							if controlePonto >= 0 and controlePonto < 10 then
-								scoreCount.x = 43;
-							end
-
-							if controlePonto > 9 and controlePonto < 100 then
-								scoreCount.x = 46;
-							end
-
-							if controlePonto > 99 and controlePonto < 1000 then
-								scoreCount.x = 49;
-							end 
-							
-							if controlePonto > 999 and controlePonto < 10000 then
 								scoreCount.x = 52;
 							end
 
-							if controlePonto > 9999 and controlePonto < 100000 then
+							if controlePonto > 9 and controlePonto < 100 then
 								scoreCount.x = 55;
 							end
 
+							if controlePonto > 99 and controlePonto < 1000 then
+								scoreCount.x = 58;
+							end 
+							
+							if controlePonto > 999 and controlePonto < 10000 then
+								scoreCount.x = 61;
+							end
+
+							if controlePonto > 9999 and controlePonto < 100000 then
+								scoreCount.x = 64;
+							end
+
 							if controlePonto > 99999 and controlePonto < 1000000 then
-								scoreCount.x = 59;
+								scoreCount.x = 68;
 							end
 
 							if controlePonto > 999999 then
-								scoreCount.x = 61;
+								scoreCount.x = 70;
 							end
 
 						controleVelocidade();
@@ -362,31 +362,31 @@
 						-- CONTROLE DE POSIÇÃO DA PONTUAÇÃO
 
 							if controlePonto >= 0 and controlePonto < 10 then
-								scoreCount.x = 43;
-							end
-
-							if controlePonto > 9 and controlePonto < 100 then
-								scoreCount.x = 46;
-							end
-
-							if controlePonto > 99 and controlePonto < 1000 then
-								scoreCount.x = 49;
-							end 
-							
-							if controlePonto > 999 and controlePonto < 10000 then
 								scoreCount.x = 52;
 							end
 
-							if controlePonto > 9999 and controlePonto < 100000 then
+							if controlePonto > 9 and controlePonto < 100 then
 								scoreCount.x = 55;
 							end
 
+							if controlePonto > 99 and controlePonto < 1000 then
+								scoreCount.x = 58;
+							end 
+							
+							if controlePonto > 999 and controlePonto < 10000 then
+								scoreCount.x = 61;
+							end
+
+							if controlePonto > 9999 and controlePonto < 100000 then
+								scoreCount.x = 64;
+							end
+
 							if controlePonto > 99999 and controlePonto < 1000000 then
-								scoreCount.x = 59;
+								scoreCount.x = 68;
 							end
 
 							if controlePonto > 999999 then
-								scoreCount.x = 61;
+								scoreCount.x = 70;
 							end
 
 						controleVelocidade();
@@ -409,31 +409,31 @@
 						-- CONTROLE DE POSIÇÃO DA PONTUAÇÃO
 
 							if controlePonto >= 0 and controlePonto < 10 then
-								scoreCount.x = 43;
-							end
-
-							if controlePonto > 9 and controlePonto < 100 then
-								scoreCount.x = 46;
-							end
-
-							if controlePonto > 99 and controlePonto < 1000 then
-								scoreCount.x = 49;
-							end 
-							
-							if controlePonto > 999 and controlePonto < 10000 then
 								scoreCount.x = 52;
 							end
 
-							if controlePonto > 9999 and controlePonto < 100000 then
+							if controlePonto > 9 and controlePonto < 100 then
 								scoreCount.x = 55;
 							end
 
+							if controlePonto > 99 and controlePonto < 1000 then
+								scoreCount.x = 58;
+							end 
+							
+							if controlePonto > 999 and controlePonto < 10000 then
+								scoreCount.x = 61;
+							end
+
+							if controlePonto > 9999 and controlePonto < 100000 then
+								scoreCount.x = 64;
+							end
+
 							if controlePonto > 99999 and controlePonto < 1000000 then
-								scoreCount.x = 59;
+								scoreCount.x = 68;
 							end
 
 							if controlePonto > 999999 then
-								scoreCount.x = 61;
+								scoreCount.x = 70;
 							end
 
 						controleVelocidade();
