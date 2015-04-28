@@ -50,6 +50,9 @@
 		-- IDENTIFICADOR DE EXISTÊNCIA DO SEGUNDO ANIMAL:
 			local animalTwoExist = 0;
 
+		-- IDENTIFICADOR SE O SOM FOI PARADO PELO USUÁRIO:
+			local soundPaused = 0;
+
 	-- FUNÇÃO RESPONSÁVEL POR CRIAR OS OBJETOS DA CENA:
 		function scene:createScene(event)
 			local group = self.view;
@@ -159,29 +162,30 @@
 
 				-- PONTUAÇÃO:
 
-					local scoreName = display.newText('Score:', 25, 9, "Paljain jaloin", 15);
-					
-					group:insert(scoreName);
+					local scoreCountContorno = display.newText('0', (LAR/2), 53, "Paljain jaloin", 35);
+						scoreCountContorno:setFillColor(0, 1, 0);
 
-					local scoreCount = display.newText('0', 52, 9, "Paljain jaloin", 15);
-						
+					group:insert(scoreCountContorno);
+
+					local scoreCount = display.newText('0', (LAR/2), 53, "Paljain jaloin", 31);
+										
 					group:insert(scoreCount);
 
 				-- PONTOS DE VIDA:					
 					
-					local lifeOne = display.newImage("Multimidia/Game/img_life_1.png", 445, 10);
+					local lifeOne = display.newImage("Multimidia/Game/img_life_1.png", 445, 15);
 						lifeOne.xScale = 0.3;
 						lifeOne.yScale = 0.3;
 
 					group:insert(lifeOne);
 
-					local lifeTwo = display.newImage("Multimidia/Game/img_life_2.png", 445, 10);
+					local lifeTwo = display.newImage("Multimidia/Game/img_life_2.png", 445, 15);
 						lifeTwo.xScale = 0.3;
 						lifeTwo.yScale = 0.3;
 
 					group:insert(lifeTwo);
 
-					local lifeThree = display.newImage("Multimidia/Game/img_life_3.png", 445, 10);
+					local lifeThree = display.newImage("Multimidia/Game/img_life_3.png", 445, 15);
 						lifeThree.xScale = 0.3;
 						lifeThree.yScale = 0.3;
 
@@ -189,11 +193,27 @@
 
 				-- BOTÃO DE MENU:
 
-					local pauseButton = display.newImage("Multimidia/Game/img_pause_button.png", 465, 33);
+					local pauseButton = display.newImage("Multimidia/Game/img_pause_button.png", 468, 45);
 						pauseButton.xScale = 0.1;
 						pauseButton.yScale = 0.1;
 
 					group:insert(pauseButton);
+
+					local soundOnButton = display.newImage("Multimidia/Game/img_soundOn_button.png", 468, 68);
+						soundOnButton.xScale = 0.1;
+						soundOnButton.yScale = 0.1;
+
+						soundOnButton.alpha = 0;
+
+					group:insert(soundOnButton);
+
+					local soundOffButton = display.newImage("Multimidia/Game/img_soundOff_button.png", 468, 68);
+						soundOffButton.xScale = 0.1;
+						soundOffButton.yScale = 0.1;
+
+						soundOffButton.alpha = 1;
+
+					group:insert(soundOffButton);
 
 					local resumeButton = display.newImage("Multimidia/Game/img_resume_button.png");
 						resumeButton.alpha = 0;
@@ -304,6 +324,7 @@
 						imgHunterOne.alpha = 0;
 
 						scoreCount.text = tostring(tonumber(scoreCount.text) + 30);
+						scoreCountContorno.text = tostring(tonumber(scoreCountContorno.text) + 30);
 						controlePonto = tonumber(scoreCount.text);
 						scoreFinal = tonumber(scoreCount.text);
 						hunterHunted = (hunterHunted + 1);
@@ -311,36 +332,6 @@
 						if hunterLost > 0 then
 							hunterLost = (hunterLost - 1);
 						end
-
-						-- CONTROLE DE POSIÇÃO DA PONTUAÇÃO
-
-							if controlePonto >= 0 and controlePonto < 10 then
-								scoreCount.x = 52;
-							end
-
-							if controlePonto > 9 and controlePonto < 100 then
-								scoreCount.x = 55;
-							end
-
-							if controlePonto > 99 and controlePonto < 1000 then
-								scoreCount.x = 58;
-							end 
-							
-							if controlePonto > 999 and controlePonto < 10000 then
-								scoreCount.x = 61;
-							end
-
-							if controlePonto > 9999 and controlePonto < 100000 then
-								scoreCount.x = 64;
-							end
-
-							if controlePonto > 99999 and controlePonto < 1000000 then
-								scoreCount.x = 68;
-							end
-
-							if controlePonto > 999999 then
-								scoreCount.x = 70;
-							end
 
 						controleVelocidade();
 					end
@@ -351,6 +342,7 @@
 						imgHunterTwo.alpha = 0;
 
 						scoreCount.text = tostring(tonumber(scoreCount.text) + 30);
+						scoreCountContorno.text = tostring(tonumber(scoreCountContorno.text) + 30);
 						controlePonto = tonumber(scoreCount.text);
 						scoreFinal = tonumber(scoreCount.text);
 						hunterHunted = (hunterHunted + 1);
@@ -358,36 +350,6 @@
 						if hunterLost > 0 then
 							hunterLost = (hunterLost - 1);
 						end
-
-						-- CONTROLE DE POSIÇÃO DA PONTUAÇÃO
-
-							if controlePonto >= 0 and controlePonto < 10 then
-								scoreCount.x = 52;
-							end
-
-							if controlePonto > 9 and controlePonto < 100 then
-								scoreCount.x = 55;
-							end
-
-							if controlePonto > 99 and controlePonto < 1000 then
-								scoreCount.x = 58;
-							end 
-							
-							if controlePonto > 999 and controlePonto < 10000 then
-								scoreCount.x = 61;
-							end
-
-							if controlePonto > 9999 and controlePonto < 100000 then
-								scoreCount.x = 64;
-							end
-
-							if controlePonto > 99999 and controlePonto < 1000000 then
-								scoreCount.x = 68;
-							end
-
-							if controlePonto > 999999 then
-								scoreCount.x = 70;
-							end
 
 						controleVelocidade();
 					end
@@ -398,6 +360,7 @@
 						imgHunterThree.alpha = 0;
 
 						scoreCount.text = tostring(tonumber(scoreCount.text) + 30);
+						scoreCountContorno.text = tostring(tonumber(scoreCountContorno.text) + 30);
 						controlePonto = tonumber(scoreCount.text);
 						scoreFinal = tonumber(scoreCount.text);
 						hunterHunted = (hunterHunted + 1);
@@ -405,36 +368,6 @@
 						if hunterLost > 0 then
 							hunterLost = (hunterLost - 1);
 						end
-
-						-- CONTROLE DE POSIÇÃO DA PONTUAÇÃO
-
-							if controlePonto >= 0 and controlePonto < 10 then
-								scoreCount.x = 52;
-							end
-
-							if controlePonto > 9 and controlePonto < 100 then
-								scoreCount.x = 55;
-							end
-
-							if controlePonto > 99 and controlePonto < 1000 then
-								scoreCount.x = 58;
-							end 
-							
-							if controlePonto > 999 and controlePonto < 10000 then
-								scoreCount.x = 61;
-							end
-
-							if controlePonto > 9999 and controlePonto < 100000 then
-								scoreCount.x = 64;
-							end
-
-							if controlePonto > 99999 and controlePonto < 1000000 then
-								scoreCount.x = 68;
-							end
-
-							if controlePonto > 999999 then
-								scoreCount.x = 70;
-							end
 
 						controleVelocidade();
 					end
@@ -445,39 +378,14 @@
 						imgHunterLider.alpha = 0;
 
 						scoreCount.text = tostring(tonumber(scoreCount.text) + 55);
+						scoreCountContorno.text = tostring(tonumber(scoreCountContorno.text) + 55);
 						controlePonto = tonumber(scoreCount.text);
 						scoreFinal = tonumber(scoreCount.text);
 						masterHunterHunted = (masterHunterHunted + 1);
 
-						-- CONTROLE DE POSIÇÃO DA PONTUAÇÃO
-
-							if controlePonto >= 0 and controlePonto < 10 then
-								scoreCount.x = 43;
-							end
-
-							if controlePonto > 9 and controlePonto < 100 then
-								scoreCount.x = 46;
-							end
-
-							if controlePonto > 99 and controlePonto < 1000 then
-								scoreCount.x = 49;
-							end 
-							
-							if controlePonto > 999 and controlePonto < 10000 then
-								scoreCount.x = 52;
-							end
-
-							if controlePonto > 9999 and controlePonto < 100000 then
-								scoreCount.x = 55;
-							end
-
-							if controlePonto > 99999 and controlePonto < 1000000 then
-								scoreCount.x = 59;
-							end
-
-							if controlePonto > 999999 then
-								scoreCount.x = 61;
-							end
+						if hunterLost > 0 then
+							hunterLost = (hunterLost - 1);
+						end
 
 						controleVelocidade();
 					end
@@ -521,6 +429,12 @@
 							imgHunterLider:removeEventListener("tap", imgHunterLider);
 							imgAnimalOne:removeEventListener("tap", imgAnimalOne);
 							imgAnimalTwo:removeEventListener("tap", imgAnimalTwo);
+							if soundPaused == 1 then
+								soundOnButton:removeEventListener("tap", resumeSound);
+							end
+							if soundPaused == 0 then
+								soundOffButton:removeEventListener("tap", pauseSound);
+							end
 														
 							transition.cancel(imgHunterOne);
 							transition.cancel(imgHunterTwo);
@@ -578,6 +492,13 @@
 							imgHunterLider:removeEventListener("tap", imgHunterLider);
 							imgAnimalOne:removeEventListener("tap", imgAnimalOne);
 							imgAnimalTwo:removeEventListener("tap", imgAnimalTwo);
+							pauseButton:removeEventListener("tap", pauseGame);
+							if soundPaused == 1 then
+								soundOnButton:removeEventListener("tap", resumeSound);
+							end
+							if soundPaused == 0 then
+								soundOffButton:removeEventListener("tap", pauseSound);
+							end
 														
 							transition.cancel(imgHunterOne);
 							transition.cancel(imgHunterTwo);
@@ -819,13 +740,12 @@
 						end
 					end
 
-			-- FUNÇÕES PARA MENU DO JOGO:
+			-- FUNÇÕES PARA MENU E BOTÕES DO JOGO:
 
 				function pauseGame()
 					audio.play(touchButton);
 					audio.pause(ambianceSoundChannelGame);
 					
-					pauseButton.alpha = 0;
 					resumeButton.alpha = 1;
 					restartButton.alpha = 1;
 					returnMenuButton.alpha = 1;
@@ -858,9 +778,11 @@
 					resumeButton.alpha = 0;
 					restartButton.alpha = 0;
 					returnMenuButton.alpha = 0;
-					pauseButton.alpha = 1;
 
-					audio.resume(ambianceSoundChannelGame);
+					if soundPaused == 0 then
+						audio.resume(ambianceSoundChannelGame);
+					end
+					
 					transition.resume();
 
 					resumeButton:removeEventListener("tap", resumeGame);
@@ -893,6 +815,12 @@
 					imgHunterLider:removeEventListener("tap", imgHunterLider);
 					imgAnimalOne:removeEventListener("tap", imgAnimalOne);
 					imgAnimalTwo:removeEventListener("tap", imgAnimalTwo);
+					if soundPaused == 1 then
+						soundOnButton:removeEventListener("tap", resumeSound);
+					end
+					if soundPaused == 0 then
+						soundOffButton:removeEventListener("tap", pauseSound);
+					end
 												
 					transition.cancel(imgHunterOne);
 					transition.cancel(imgHunterTwo);
@@ -922,6 +850,12 @@
 					imgHunterLider:removeEventListener("tap", imgHunterLider);
 					imgAnimalOne:removeEventListener("tap", imgAnimalOne);
 					imgAnimalTwo:removeEventListener("tap", imgAnimalTwo);
+					if soundPaused == 1 then
+						soundOnButton:removeEventListener("tap", resumeSound);
+					end
+					if soundPaused == 0 then
+						soundOffButton:removeEventListener("tap", pauseSound);
+					end
 												
 					transition.cancel(imgHunterOne);
 					transition.cancel(imgHunterTwo);
@@ -941,12 +875,39 @@
 					storyboard.gotoScene("menu", transicaoCena);
 				end
 
+				function pauseSound()
+					audio.play(touchButton);
+					audio.pause(ambianceSoundChannelGame);
+					
+					soundOffButton.alpha = 0;
+					soundOnButton.alpha = 1;
+
+					soundOffButton:removeEventListener("tap", pauseSound);
+					soundOnButton:addEventListener("tap", resumeSound);
+
+					soundPaused = 1;
+				end
+
+				function resumeSound()
+					audio.play(touchButton);
+					audio.resume(ambianceSoundChannelGame);
+
+					soundOffButton.alpha = 1;
+					soundOnButton.alpha = 0;
+					
+					soundOnButton:removeEventListener("tap", resumeSound);
+					soundOffButton:addEventListener("tap", pauseSound);
+
+					soundPaused = 0;
+				end
+
 			-- CHAMADA DOS EVENTOS:
 
 				imgHunterOne:addEventListener("tap", imgHunterOne);
 				imgHunterTwo:addEventListener("tap", imgHunterTwo);
 				imgAnimalOne:addEventListener("tap", imgAnimalOne);
 				pauseButton:addEventListener("tap", pauseGame);
+				soundOffButton:addEventListener("tap", pauseSound);
 		end
 
 		scene:addEventListener("createScene", scene);
@@ -997,12 +958,14 @@
 			display.remove(imgHunterTwo);
 			display.remove(imgAnimalOne);
 			display.remove(bgArbusto);
-			display.remove(scoreName);
 			display.remove(scoreCount);
+			display.remove(scoreCountContorno);
 			display.remove(lifeOne);
 			display.remove(lifeTwo);
 			display.remove(lifeThree);
 			display.remove(pauseButton);
+			display.remove(soundOnButton);
+			display.remove(soundOffButton);
 			display.remove(resumeButton);
 			display.remove(restartButton);
 			display.remove(returnMenuButton);
