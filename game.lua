@@ -162,12 +162,12 @@
 
 				-- PONTUAÇÃO:
 
-					local scoreCountContorno = display.newText('0', (LAR/2), 53, "Paljain jaloin", 35);
+					local scoreCountContorno = display.newText('0', (LAR/2), 48, "Paljain jaloin", 35);
 						scoreCountContorno:setFillColor(0, 1, 0);
 
 					group:insert(scoreCountContorno);
 
-					local scoreCount = display.newText('0', (LAR/2), 53, "Paljain jaloin", 31);
+					local scoreCount = display.newText('0', (LAR/2), 48, "Paljain jaloin", 31);
 										
 					group:insert(scoreCount);
 
@@ -199,7 +199,7 @@
 
 					group:insert(pauseButton);
 
-					local soundOnButton = display.newImage("Multimidia/Game/img_soundOn_button.png", 468, 68);
+					local soundOnButton = display.newImage("Multimidia/Game/img_soundOn_button.png", 468, 70);
 						soundOnButton.xScale = 0.1;
 						soundOnButton.yScale = 0.1;
 
@@ -207,7 +207,7 @@
 
 					group:insert(soundOnButton);
 
-					local soundOffButton = display.newImage("Multimidia/Game/img_soundOff_button.png", 468, 68);
+					local soundOffButton = display.newImage("Multimidia/Game/img_soundOff_button.png", 468, 70);
 						soundOffButton.xScale = 0.1;
 						soundOffButton.yScale = 0.1;
 
@@ -752,6 +752,7 @@
 
 					transition.pause();
 
+					soundOffButton:removeEventListener("tap", pauseSound);
 					pauseButton:removeEventListener("tap", pauseGame);
 					
 					resumeButton:addEventListener("tap", resumeGame);
@@ -791,6 +792,7 @@
 
 					pauseButton:addEventListener("tap", pauseGame);
 
+					soundOffButton:addEventListener("tap", pauseSound);
 					imgHunterOne:addEventListener("tap", imgHunterOne);
 					imgHunterTwo:addEventListener("tap", imgHunterTwo);
 					imgAnimalOne:addEventListener("tap", imgAnimalOne);
