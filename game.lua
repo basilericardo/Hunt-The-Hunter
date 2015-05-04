@@ -160,12 +160,6 @@
 
 					group:insert(bgArbusto);
 
-				-- PONTUAÇÃO:
-
-					local scoreCount = display.newText('0', 468, 20, "Paljain jaloin", 20);
-										
-					group:insert(scoreCount);
-
 				-- VISOR DE VELOCIDADE DOS PERSONAGENS:
 
 					local velocidadeZero = display.newImage("Multimidia/Game/img_velocidade_0.png", 70, 20);
@@ -349,15 +343,26 @@
 
 					group:insert(lifeThree);
 
+				-- PONTUAÇÃO:
+
+					local scoreContorno = display.newText('0', 469, 10, "Paljain jaloin", 20);
+						scoreContorno:setTextColor(0, 0, 0);
+										
+					group:insert(scoreContorno);
+
+					local scoreCount = display.newText('0', 468, 10, "Paljain jaloin", 20);
+										
+					group:insert(scoreCount);
+
 				-- BOTÃO DE MENU:
 
-					local pauseButton = display.newImage("Multimidia/Game/img_pause_button.png", 468, 55);
+					local pauseButton = display.newImage("Multimidia/Game/img_pause_button.png", 468, 50);
 						pauseButton.xScale = 0.1;
 						pauseButton.yScale = 0.1;
 
 					group:insert(pauseButton);
 
-					local pauseButton2 = display.newImage("Multimidia/Game/img_pause_button2.png", 468, 55);
+					local pauseButton2 = display.newImage("Multimidia/Game/img_pause_button2.png", 468, 50);
 						pauseButton2.xScale = 0.1;
 						pauseButton2.yScale = 0.1;
 
@@ -365,7 +370,7 @@
 
 					group:insert(pauseButton2);
 
-					local soundOnButton = display.newImage("Multimidia/Game/img_soundOn_button.png", 468, 80);
+					local soundOnButton = display.newImage("Multimidia/Game/img_soundOn_button.png", 468, 75);
 						soundOnButton.xScale = 0.1;
 						soundOnButton.yScale = 0.1;
 
@@ -373,7 +378,7 @@
 
 					group:insert(soundOnButton);
 
-					local soundOffButton = display.newImage("Multimidia/Game/img_soundOff_button.png", 468, 80);
+					local soundOffButton = display.newImage("Multimidia/Game/img_soundOff_button.png", 468, 75);
 						soundOffButton.xScale = 0.1;
 						soundOffButton.yScale = 0.1;
 
@@ -490,6 +495,7 @@
 						imgHunterOne.alpha = 0;
 
 						scoreCount.text = tostring(tonumber(scoreCount.text) + 30);
+						scoreContorno.text = scoreCount.text;
 						controlePonto = tonumber(scoreCount.text);
 						scoreFinal = tonumber(scoreCount.text);
 						hunterHunted = (hunterHunted + 1);
@@ -498,7 +504,7 @@
 							hunterLost = (hunterLost - 1);
 						end
 
-						-- CONTROLE DE POSIÇÃO DA PONTUAÇÃO DEFAULT 468
+						-- CONTROLE DE POSIÇÃO DA PONTUAÇÃO:
 
 							if controlePonto >= 0 and controlePonto < 10 then
 								scoreCount.x = 468;
@@ -527,6 +533,8 @@
 							if controlePonto > 999999 then
 								scoreCount.x = 650;
 							end
+
+							scoreContorno.x = (scoreCount.x + 1);
 
 						controleVelocidade();
 					end
@@ -537,6 +545,7 @@
 						imgHunterTwo.alpha = 0;
 
 						scoreCount.text = tostring(tonumber(scoreCount.text) + 30);
+						scoreContorno.text = scoreCount.text;
 						controlePonto = tonumber(scoreCount.text);
 						scoreFinal = tonumber(scoreCount.text);
 						hunterHunted = (hunterHunted + 1);
@@ -545,7 +554,7 @@
 							hunterLost = (hunterLost - 1);
 						end
 
-						-- CONTROLE DE POSIÇÃO DA PONTUAÇÃO DEFAULT 468
+						-- CONTROLE DE POSIÇÃO DA PONTUAÇÃO:
 
 							if controlePonto >= 0 and controlePonto < 10 then
 								scoreCount.x = 468;
@@ -574,6 +583,8 @@
 							if controlePonto > 999999 then
 								scoreCount.x = 650;
 							end
+
+							scoreContorno.x = (scoreCount.x + 1);
 
 						controleVelocidade();
 					end
@@ -584,6 +595,7 @@
 						imgHunterThree.alpha = 0;
 
 						scoreCount.text = tostring(tonumber(scoreCount.text) + 30);
+						scoreContorno.text = scoreCount.text;
 						controlePonto = tonumber(scoreCount.text);
 						scoreFinal = tonumber(scoreCount.text);
 						hunterHunted = (hunterHunted + 1);
@@ -592,7 +604,7 @@
 							hunterLost = (hunterLost - 1);
 						end
 
-						-- CONTROLE DE POSIÇÃO DA PONTUAÇÃO DEFAULT 468
+						-- CONTROLE DE POSIÇÃO DA PONTUAÇÃO:
 
 							if controlePonto >= 0 and controlePonto < 10 then
 								scoreCount.x = 468;
@@ -621,6 +633,8 @@
 							if controlePonto > 999999 then
 								scoreCount.x = 650;
 							end
+
+							scoreContorno.x = (scoreCount.x + 1);
 
 						controleVelocidade();
 					end
@@ -631,6 +645,7 @@
 						imgHunterLider.alpha = 0;
 
 						scoreCount.text = tostring(tonumber(scoreCount.text) + 55);
+						scoreContorno.text = scoreCount.text;
 						controlePonto = tonumber(scoreCount.text);
 						scoreFinal = tonumber(scoreCount.text);
 						masterHunterHunted = (masterHunterHunted + 1);
@@ -639,7 +654,7 @@
 							hunterLost = (hunterLost - 1);
 						end
 
-						-- CONTROLE DE POSIÇÃO DA PONTUAÇÃO DEFAULT 468
+						-- CONTROLE DE POSIÇÃO DA PONTUAÇÃO:
 
 							if controlePonto >= 0 and controlePonto < 10 then
 								scoreCount.x = 468;
@@ -668,6 +683,8 @@
 							if controlePonto > 999999 then
 								scoreCount.x = 650;
 							end
+
+							scoreContorno.x = (scoreCount.x + 1);
 
 						controleVelocidade();
 					end
@@ -1831,6 +1848,7 @@
 			display.remove(velocidadeVinteUm);
 			display.remove(velocidadeVinteDois);
 			display.remove(scoreCount);
+			display.remove(scoreContorno);
 			display.remove(lifeOne);
 			display.remove(lifeTwo);
 			display.remove(lifeThree);
