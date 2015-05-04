@@ -162,12 +162,12 @@
 
 				-- PONTUAÇÃO:
 
-					local scoreCountContorno = display.newText('0', (LAR/2), 48, "Paljain jaloin", 35);
-						scoreCountContorno:setFillColor(0, 1, 0);
+					local scoreCountContorno = display.newText('0', (LAR/2), 45, "Paljain jaloin", 35);
+						scoreCountContorno:setFillColor(0, 0, 0);
 
 					group:insert(scoreCountContorno);
 
-					local scoreCount = display.newText('0', (LAR/2), 48, "Paljain jaloin", 31);
+					local scoreCount = display.newText('0', (LAR/2), 45, "Paljain jaloin", 38);
 										
 					group:insert(scoreCount);
 
@@ -198,6 +198,14 @@
 						pauseButton.yScale = 0.1;
 
 					group:insert(pauseButton);
+
+					local pauseButton2 = display.newImage("Multimidia/Game/img_pause_button2.png", 468, 45);
+						pauseButton2.xScale = 0.1;
+						pauseButton2.yScale = 0.1;
+
+						pauseButton2.alpha = 0;
+
+					group:insert(pauseButton2);
 
 					local soundOnButton = display.newImage("Multimidia/Game/img_soundOn_button.png", 468, 70);
 						soundOnButton.xScale = 0.1;
@@ -746,6 +754,8 @@
 					audio.play(touchButton);
 					audio.pause(ambianceSoundChannelGame);
 					
+					pauseButton.alpha = 0;
+					pauseButton2.alpha = 1;
 					resumeButton.alpha = 1;
 					restartButton.alpha = 1;
 					returnMenuButton.alpha = 1;
@@ -776,6 +786,8 @@
 				function resumeGame()
 					audio.play(touchButton);
 
+					pauseButton.alpha = 1;
+					pauseButton2.alpha = 0;
 					resumeButton.alpha = 0;
 					restartButton.alpha = 0;
 					returnMenuButton.alpha = 0;
@@ -966,6 +978,7 @@
 			display.remove(lifeTwo);
 			display.remove(lifeThree);
 			display.remove(pauseButton);
+			display.remove(pauseButton2);
 			display.remove(soundOnButton);
 			display.remove(soundOffButton);
 			display.remove(resumeButton);

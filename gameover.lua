@@ -46,19 +46,19 @@
 
                 scoreFinal = (scoreFinal - (hunterLost * 10));
 
-                local pontuacaoFinal = display.newText(scoreFinal, 360, 94, native.systemFont, 20);
+                local pontuacaoFinal = display.newText(scoreFinal, 360, 92, "Paljain jaloin", 20);
                     
                 group:insert(pontuacaoFinal);
 
-                local cacadoresCacados = display.newText(hunterHunted, 360, 141, native.systemFont, 20);
+                local cacadoresCacados = display.newText(hunterHunted, 360, 139, "Paljain jaloin", 20);
 
                 group:insert(cacadoresCacados);
                 
-                local cacadoresperdidos = display.newText(hunterLost, 360, 186, native.systemFont, 20);
+                local cacadoresperdidos = display.newText(hunterLost, 360, 185, "Paljain jaloin", 20);
 
                 group:insert(cacadoresperdidos);
 
-                local lideresCacados = display.newText(masterHunterHunted, 360, 232, native. systemFont, 20);
+                local lideresCacados = display.newText(masterHunterHunted, 360, 231, "Paljain jaloin", 20);
                 
                 group:insert(lideresCacados);
 
