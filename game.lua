@@ -162,30 +162,188 @@
 
 				-- PONTUAÇÃO:
 
-					local scoreCountContorno = display.newText('0', (LAR/2), 45, "Paljain jaloin", 35);
-						scoreCountContorno:setFillColor(0, 0, 0);
-
-					group:insert(scoreCountContorno);
-
-					local scoreCount = display.newText('0', (LAR/2), 45, "Paljain jaloin", 38);
+					local scoreCount = display.newText('0', 468, 20, "Paljain jaloin", 20);
 										
 					group:insert(scoreCount);
 
+				-- VISOR DE VELOCIDADE DOS PERSONAGENS:
+
+					local velocidadeZero = display.newImage("Multimidia/Game/img_velocidade_0.png", 70, 20);
+						velocidadeZero.xScale = 0.7;
+						velocidadeZero.yScale = 0.7;
+						velocidadeZero.alpha =1;
+
+					group:insert(velocidadeZero);
+
+					local velocidadeUm = display.newImage("Multimidia/Game/img_velocidade_1.png", 70, 20);
+						velocidadeUm.xScale = 0.7;
+						velocidadeUm.yScale = 0.7;
+						velocidadeUm.alpha =0;
+
+					group:insert(velocidadeUm);
+
+					local velocidadeDois = display.newImage("Multimidia/Game/img_velocidade_2.png", 70, 20);
+						velocidadeDois.xScale = 0.7;
+						velocidadeDois.yScale = 0.7;
+						velocidadeDois.alpha =0;
+
+					group:insert(velocidadeDois);
+
+					local velocidadeTres = display.newImage("Multimidia/Game/img_velocidade_3.png", 70, 20);
+						velocidadeTres.xScale = 0.7;
+						velocidadeTres.yScale = 0.7;
+						velocidadeTres.alpha =0;
+
+					group:insert(velocidadeTres);
+
+					local velocidadeQuatro = display.newImage("Multimidia/Game/img_velocidade_4.png", 70, 20);
+						velocidadeQuatro.xScale = 0.7;
+						velocidadeQuatro.yScale = 0.7;
+						velocidadeQuatro.alpha =0;
+
+					group:insert(velocidadeQuatro);
+
+					local velocidadeCinco = display.newImage("Multimidia/Game/img_velocidade_5.png", 70, 20);
+						velocidadeCinco.xScale = 0.7;
+						velocidadeCinco.yScale = 0.7;
+						velocidadeCinco.alpha =0;
+
+					group:insert(velocidadeCinco);
+
+					local velocidadeSeis = display.newImage("Multimidia/Game/img_velocidade_6.png", 70, 20);
+						velocidadeSeis.xScale = 0.7;
+						velocidadeSeis.yScale = 0.7;
+						velocidadeSeis.alpha =0;
+
+					group:insert(velocidadeSeis);
+
+					local velocidadeSete = display.newImage("Multimidia/Game/img_velocidade_7.png", 70, 20);
+						velocidadeSete.xScale = 0.7;
+						velocidadeSete.yScale = 0.7;
+						velocidadeSete.alpha =0;
+
+					group:insert(velocidadeSete);
+
+					local velocidadeOito = display.newImage("Multimidia/Game/img_velocidade_8.png", 70, 20);
+						velocidadeOito.xScale = 0.7;
+						velocidadeOito.yScale = 0.7;
+						velocidadeOito.alpha =0;
+
+					group:insert(velocidadeOito);
+
+					local velocidadeNove = display.newImage("Multimidia/Game/img_velocidade_9.png", 70, 20);
+						velocidadeNove.xScale = 0.7;
+						velocidadeNove.yScale = 0.7;
+						velocidadeNove.alpha =0;
+
+					group:insert(velocidadeNove);
+
+					local velocidadeDez = display.newImage("Multimidia/Game/img_velocidade_10.png", 70, 20);
+						velocidadeDez.xScale = 0.7;
+						velocidadeDez.yScale = 0.7;
+						velocidadeDez.alpha =0;
+
+					group:insert(velocidadeDez);
+
+					local velocidadeOnze = display.newImage("Multimidia/Game/img_velocidade_11.png", 70, 20);
+						velocidadeOnze.xScale = 0.7;
+						velocidadeOnze.yScale = 0.7;
+						velocidadeOnze.alpha =0;
+
+					group:insert(velocidadeOnze);
+
+					local velocidadeDoze = display.newImage("Multimidia/Game/img_velocidade_12.png", 70, 20);
+						velocidadeDoze.xScale = 0.7;
+						velocidadeDoze.yScale = 0.7;
+						velocidadeDoze.alpha =0;
+
+					group:insert(velocidadeDoze);
+
+					local velocidadeTreze = display.newImage("Multimidia/Game/img_velocidade_13.png", 70, 20);
+						velocidadeTreze.xScale = 0.7;
+						velocidadeTreze.yScale = 0.7;
+						velocidadeTreze.alpha =0;
+
+					group:insert(velocidadeTreze);
+
+					local velocidadeCatorze = display.newImage("Multimidia/Game/img_velocidade_14.png", 70, 20);
+						velocidadeCatorze.xScale = 0.7;
+						velocidadeCatorze.yScale = 0.7;
+						velocidadeCatorze.alpha =0;
+
+					group:insert(velocidadeCatorze);
+
+					local velocidadeQuinze = display.newImage("Multimidia/Game/img_velocidade_15.png", 70, 20);
+						velocidadeQuinze.xScale = 0.7;
+						velocidadeQuinze.yScale = 0.7;
+						velocidadeQuinze.alpha =0;
+
+					group:insert(velocidadeQuinze);
+
+					local velocidadeDezesseis = display.newImage("Multimidia/Game/img_velocidade_16.png", 70, 20);
+						velocidadeDezesseis.xScale = 0.7;
+						velocidadeDezesseis.yScale = 0.7;
+						velocidadeDezesseis.alpha =0;
+
+					group:insert(velocidadeDezesseis);
+
+					local velocidadeDezessete = display.newImage("Multimidia/Game/img_velocidade_17.png", 70, 20);
+						velocidadeDezessete.xScale = 0.7;
+						velocidadeDezessete.yScale = 0.7;
+						velocidadeDezessete.alpha =0;
+
+					group:insert(velocidadeDezessete);
+
+					local velocidadeDezoito = display.newImage("Multimidia/Game/img_velocidade_18.png", 70, 20);
+						velocidadeDezoito.xScale = 0.7;
+						velocidadeDezoito.yScale = 0.7;
+						velocidadeDezoito.alpha =0;
+
+					group:insert(velocidadeDezoito);
+
+					local velocidadeDezenove = display.newImage("Multimidia/Game/img_velocidade_19.png", 70, 20);
+						velocidadeDezenove.xScale = 0.7;
+						velocidadeDezenove.yScale = 0.7;
+						velocidadeDezenove.alpha =0;
+
+					group:insert(velocidadeDezenove);
+
+					local velocidadeVinte = display.newImage("Multimidia/Game/img_velocidade_20.png", 70, 20);
+						velocidadeVinte.xScale = 0.7;
+						velocidadeVinte.yScale = 0.7;
+						velocidadeVinte.alpha =0;
+
+					group:insert(velocidadeVinte);
+
+					local velocidadeVinteUm = display.newImage("Multimidia/Game/img_velocidade_21.png", 70, 20);
+						velocidadeVinteUm.xScale = 0.7;
+						velocidadeVinteUm.yScale = 0.7;
+						velocidadeVinteUm.alpha =0;
+
+					group:insert(velocidadeVinteUm);
+
+					local velocidadeVinteDois = display.newImage("Multimidia/Game/img_velocidade_22.png", 70, 20);
+						velocidadeVinteDois.xScale = 0.7;
+						velocidadeVinteDois.yScale = 0.7;
+						velocidadeVinteDois.alpha =0;
+
+					group:insert(velocidadeVinteDois);
+
 				-- PONTOS DE VIDA:					
 					
-					local lifeOne = display.newImage("Multimidia/Game/img_life_1.png", 445, 15);
+					local lifeOne = display.newImage("Multimidia/Game/img_life_1.png", 101, 36);
 						lifeOne.xScale = 0.3;
 						lifeOne.yScale = 0.3;
 
 					group:insert(lifeOne);
 
-					local lifeTwo = display.newImage("Multimidia/Game/img_life_2.png", 445, 15);
+					local lifeTwo = display.newImage("Multimidia/Game/img_life_2.png", 101, 36);
 						lifeTwo.xScale = 0.3;
 						lifeTwo.yScale = 0.3;
 
 					group:insert(lifeTwo);
 
-					local lifeThree = display.newImage("Multimidia/Game/img_life_3.png", 445, 15);
+					local lifeThree = display.newImage("Multimidia/Game/img_life_3.png", 101, 36);
 						lifeThree.xScale = 0.3;
 						lifeThree.yScale = 0.3;
 
@@ -193,13 +351,13 @@
 
 				-- BOTÃO DE MENU:
 
-					local pauseButton = display.newImage("Multimidia/Game/img_pause_button.png", 468, 45);
+					local pauseButton = display.newImage("Multimidia/Game/img_pause_button.png", 468, 55);
 						pauseButton.xScale = 0.1;
 						pauseButton.yScale = 0.1;
 
 					group:insert(pauseButton);
 
-					local pauseButton2 = display.newImage("Multimidia/Game/img_pause_button2.png", 468, 45);
+					local pauseButton2 = display.newImage("Multimidia/Game/img_pause_button2.png", 468, 55);
 						pauseButton2.xScale = 0.1;
 						pauseButton2.yScale = 0.1;
 
@@ -207,7 +365,7 @@
 
 					group:insert(pauseButton2);
 
-					local soundOnButton = display.newImage("Multimidia/Game/img_soundOn_button.png", 468, 70);
+					local soundOnButton = display.newImage("Multimidia/Game/img_soundOn_button.png", 468, 80);
 						soundOnButton.xScale = 0.1;
 						soundOnButton.yScale = 0.1;
 
@@ -215,7 +373,7 @@
 
 					group:insert(soundOnButton);
 
-					local soundOffButton = display.newImage("Multimidia/Game/img_soundOff_button.png", 468, 70);
+					local soundOffButton = display.newImage("Multimidia/Game/img_soundOff_button.png", 468, 80);
 						soundOffButton.xScale = 0.1;
 						soundOffButton.yScale = 0.1;
 
@@ -332,7 +490,6 @@
 						imgHunterOne.alpha = 0;
 
 						scoreCount.text = tostring(tonumber(scoreCount.text) + 30);
-						scoreCountContorno.text = tostring(tonumber(scoreCountContorno.text) + 30);
 						controlePonto = tonumber(scoreCount.text);
 						scoreFinal = tonumber(scoreCount.text);
 						hunterHunted = (hunterHunted + 1);
@@ -340,6 +497,36 @@
 						if hunterLost > 0 then
 							hunterLost = (hunterLost - 1);
 						end
+
+						-- CONTROLE DE POSIÇÃO DA PONTUAÇÃO DEFAULT 468
+
+							if controlePonto >= 0 and controlePonto < 10 then
+								scoreCount.x = 468;
+							end
+
+							if controlePonto > 9 and controlePonto < 100 then
+								scoreCount.x = 465;
+							end
+
+							if controlePonto > 99 and controlePonto < 1000 then
+								scoreCount.x = 462;
+							end 
+							
+							if controlePonto > 999 and controlePonto < 10000 then
+								scoreCount.x = 459;
+							end
+
+							if controlePonto > 9999 and controlePonto < 100000 then
+								scoreCount.x = 456;
+							end
+
+							if controlePonto > 99999 and controlePonto < 1000000 then
+								scoreCount.x = 452;
+							end
+
+							if controlePonto > 999999 then
+								scoreCount.x = 650;
+							end
 
 						controleVelocidade();
 					end
@@ -350,7 +537,6 @@
 						imgHunterTwo.alpha = 0;
 
 						scoreCount.text = tostring(tonumber(scoreCount.text) + 30);
-						scoreCountContorno.text = tostring(tonumber(scoreCountContorno.text) + 30);
 						controlePonto = tonumber(scoreCount.text);
 						scoreFinal = tonumber(scoreCount.text);
 						hunterHunted = (hunterHunted + 1);
@@ -358,6 +544,36 @@
 						if hunterLost > 0 then
 							hunterLost = (hunterLost - 1);
 						end
+
+						-- CONTROLE DE POSIÇÃO DA PONTUAÇÃO DEFAULT 468
+
+							if controlePonto >= 0 and controlePonto < 10 then
+								scoreCount.x = 468;
+							end
+
+							if controlePonto > 9 and controlePonto < 100 then
+								scoreCount.x = 465;
+							end
+
+							if controlePonto > 99 and controlePonto < 1000 then
+								scoreCount.x = 462;
+							end 
+							
+							if controlePonto > 999 and controlePonto < 10000 then
+								scoreCount.x = 459;
+							end
+
+							if controlePonto > 9999 and controlePonto < 100000 then
+								scoreCount.x = 456;
+							end
+
+							if controlePonto > 99999 and controlePonto < 1000000 then
+								scoreCount.x = 452;
+							end
+
+							if controlePonto > 999999 then
+								scoreCount.x = 650;
+							end
 
 						controleVelocidade();
 					end
@@ -368,7 +584,6 @@
 						imgHunterThree.alpha = 0;
 
 						scoreCount.text = tostring(tonumber(scoreCount.text) + 30);
-						scoreCountContorno.text = tostring(tonumber(scoreCountContorno.text) + 30);
 						controlePonto = tonumber(scoreCount.text);
 						scoreFinal = tonumber(scoreCount.text);
 						hunterHunted = (hunterHunted + 1);
@@ -376,6 +591,36 @@
 						if hunterLost > 0 then
 							hunterLost = (hunterLost - 1);
 						end
+
+						-- CONTROLE DE POSIÇÃO DA PONTUAÇÃO DEFAULT 468
+
+							if controlePonto >= 0 and controlePonto < 10 then
+								scoreCount.x = 468;
+							end
+
+							if controlePonto > 9 and controlePonto < 100 then
+								scoreCount.x = 465;
+							end
+
+							if controlePonto > 99 and controlePonto < 1000 then
+								scoreCount.x = 462;
+							end 
+							
+							if controlePonto > 999 and controlePonto < 10000 then
+								scoreCount.x = 459;
+							end
+
+							if controlePonto > 9999 and controlePonto < 100000 then
+								scoreCount.x = 456;
+							end
+
+							if controlePonto > 99999 and controlePonto < 1000000 then
+								scoreCount.x = 452;
+							end
+
+							if controlePonto > 999999 then
+								scoreCount.x = 650;
+							end
 
 						controleVelocidade();
 					end
@@ -386,7 +631,6 @@
 						imgHunterLider.alpha = 0;
 
 						scoreCount.text = tostring(tonumber(scoreCount.text) + 55);
-						scoreCountContorno.text = tostring(tonumber(scoreCountContorno.text) + 55);
 						controlePonto = tonumber(scoreCount.text);
 						scoreFinal = tonumber(scoreCount.text);
 						masterHunterHunted = (masterHunterHunted + 1);
@@ -394,6 +638,36 @@
 						if hunterLost > 0 then
 							hunterLost = (hunterLost - 1);
 						end
+
+						-- CONTROLE DE POSIÇÃO DA PONTUAÇÃO DEFAULT 468
+
+							if controlePonto >= 0 and controlePonto < 10 then
+								scoreCount.x = 468;
+							end
+
+							if controlePonto > 9 and controlePonto < 100 then
+								scoreCount.x = 465;
+							end
+
+							if controlePonto > 99 and controlePonto < 1000 then
+								scoreCount.x = 462;
+							end 
+							
+							if controlePonto > 999 and controlePonto < 10000 then
+								scoreCount.x = 459;
+							end
+
+							if controlePonto > 9999 and controlePonto < 100000 then
+								scoreCount.x = 456;
+							end
+
+							if controlePonto > 99999 and controlePonto < 1000000 then
+								scoreCount.x = 452;
+							end
+
+							if controlePonto > 999999 then
+								scoreCount.x = 650;
+							end
 
 						controleVelocidade();
 					end
@@ -537,6 +811,30 @@
 							timeVilaoTwoDown 		= 3500;
 							timeAnimalOneUp 		= 4000;
 							timeAnimalOneDown 		= 4500;
+
+							velocidadeZero.alpha = 1;
+							velocidadeUm.alpha = 0;
+							velocidadeDois.alpha = 0;
+							velocidadeTres.alpha = 0;
+							velocidadeQuatro.alpha = 0;
+							velocidadeCinco.alpha = 0;
+							velocidadeSeis.alpha = 0;
+							velocidadeSete.alpha = 0;
+							velocidadeOito.alpha = 0;
+							velocidadeNove.alpha = 0;
+							velocidadeDez.alpha = 0;
+							velocidadeOnze.alpha = 0;
+							velocidadeDoze.alpha = 0;
+							velocidadeTreze.alpha = 0;
+							velocidadeCatorze.alpha = 0;
+							velocidadeQuinze.alpha = 0;
+							velocidadeDezesseis.alpha = 0;
+							velocidadeDezessete.alpha = 0;
+							velocidadeDezoito.alpha = 0;
+							velocidadeDezenove.alpha = 0;
+							velocidadeVinte.alpha = 0;
+							velocidadeVinteUm.alpha = 0;
+							velocidadeVinteDois.alpha = 0;
 						end
 
 						if controlePonto > 50 and controlePonto < 100 then
@@ -546,6 +844,30 @@
 							timeVilaoTwoDown 		= 3500 - 500;
 							timeAnimalOneUp 		= 4000 - 500;
 							timeAnimalOneDown 		= 4500 - 500;
+
+							velocidadeZero.alpha = 0;
+							velocidadeUm.alpha = 1;
+							velocidadeDois.alpha = 0;
+							velocidadeTres.alpha = 0;
+							velocidadeQuatro.alpha = 0;
+							velocidadeCinco.alpha = 0;
+							velocidadeSeis.alpha = 0;
+							velocidadeSete.alpha = 0;
+							velocidadeOito.alpha = 0;
+							velocidadeNove.alpha = 0;
+							velocidadeDez.alpha = 0;
+							velocidadeOnze.alpha = 0;
+							velocidadeDoze.alpha = 0;
+							velocidadeTreze.alpha = 0;
+							velocidadeCatorze.alpha = 0;
+							velocidadeQuinze.alpha = 0;
+							velocidadeDezesseis.alpha = 0;
+							velocidadeDezessete.alpha = 0;
+							velocidadeDezoito.alpha = 0;
+							velocidadeDezenove.alpha = 0;
+							velocidadeVinte.alpha = 0;
+							velocidadeVinteUm.alpha = 0;
+							velocidadeVinteDois.alpha = 0;
 						end
 
 						if controlePonto > 100 and controlePonto < 200 then
@@ -560,6 +882,30 @@
 							timeVilaoTwoDown 		= 3500 - 600;
 							timeAnimalOneUp 		= 4000 - 600;
 							timeAnimalOneDown 		= 4500 - 600;
+
+							velocidadeZero.alpha = 0;
+							velocidadeUm.alpha = 0;
+							velocidadeDois.alpha = 1;
+							velocidadeTres.alpha = 0;
+							velocidadeQuatro.alpha = 0;
+							velocidadeCinco.alpha = 0;
+							velocidadeSeis.alpha = 0;
+							velocidadeSete.alpha = 0;
+							velocidadeOito.alpha = 0;
+							velocidadeNove.alpha = 0;
+							velocidadeDez.alpha = 0;
+							velocidadeOnze.alpha = 0;
+							velocidadeDoze.alpha = 0;
+							velocidadeTreze.alpha = 0;
+							velocidadeCatorze.alpha = 0;
+							velocidadeQuinze.alpha = 0;
+							velocidadeDezesseis.alpha = 0;
+							velocidadeDezessete.alpha = 0;
+							velocidadeDezoito.alpha = 0;
+							velocidadeDezenove.alpha = 0;
+							velocidadeVinte.alpha = 0;
+							velocidadeVinteUm.alpha = 0;
+							velocidadeVinteDois.alpha = 0;
 						end
 
 						if controlePonto > 200 and controlePonto < 300 then
@@ -569,6 +915,30 @@
 							timeVilaoTwoDown 		= 3500 - 700;
 							timeAnimalOneUp 		= 4000 - 700;
 							timeAnimalOneDown 		= 4500 - 700;
+
+							velocidadeZero.alpha = 0;
+							velocidadeUm.alpha = 0;
+							velocidadeDois.alpha = 0;
+							velocidadeTres.alpha = 1;
+							velocidadeQuatro.alpha = 0;
+							velocidadeCinco.alpha = 0;
+							velocidadeSeis.alpha = 0;
+							velocidadeSete.alpha = 0;
+							velocidadeOito.alpha = 0;
+							velocidadeNove.alpha = 0;
+							velocidadeDez.alpha = 0;
+							velocidadeOnze.alpha = 0;
+							velocidadeDoze.alpha = 0;
+							velocidadeTreze.alpha = 0;
+							velocidadeCatorze.alpha = 0;
+							velocidadeQuinze.alpha = 0;
+							velocidadeDezesseis.alpha = 0;
+							velocidadeDezessete.alpha = 0;
+							velocidadeDezoito.alpha = 0;
+							velocidadeDezenove.alpha = 0;
+							velocidadeVinte.alpha = 0;
+							velocidadeVinteUm.alpha = 0;
+							velocidadeVinteDois.alpha = 0;
 						end
 
 						if controlePonto > 300 and controlePonto < 400 then
@@ -578,6 +948,30 @@
 							timeVilaoTwoDown 		= 3500 - 800;
 							timeAnimalOneUp 		= 4000 - 800;
 							timeAnimalOneDown 		= 4500 - 800;
+
+							velocidadeZero.alpha = 0;
+							velocidadeUm.alpha = 0;
+							velocidadeDois.alpha = 0;
+							velocidadeTres.alpha = 0;
+							velocidadeQuatro.alpha = 1;
+							velocidadeCinco.alpha = 0;
+							velocidadeSeis.alpha = 0;
+							velocidadeSete.alpha = 0;
+							velocidadeOito.alpha = 0;
+							velocidadeNove.alpha = 0;
+							velocidadeDez.alpha = 0;
+							velocidadeOnze.alpha = 0;
+							velocidadeDoze.alpha = 0;
+							velocidadeTreze.alpha = 0;
+							velocidadeCatorze.alpha = 0;
+							velocidadeQuinze.alpha = 0;
+							velocidadeDezesseis.alpha = 0;
+							velocidadeDezessete.alpha = 0;
+							velocidadeDezoito.alpha = 0;
+							velocidadeDezenove.alpha = 0;
+							velocidadeVinte.alpha = 0;
+							velocidadeVinteUm.alpha = 0;
+							velocidadeVinteDois.alpha = 0;
 						end
 
 						if controlePonto > 400 and controlePonto < 500 then
@@ -589,6 +983,30 @@
 							timeVilaoThreeDown 		= 3000 - 1500;
 							timeAnimalOneUp 		= 4000 - 900;
 							timeAnimalOneDown 		= 4500 - 900;
+
+							velocidadeZero.alpha = 0;
+							velocidadeUm.alpha = 0;
+							velocidadeDois.alpha = 0;
+							velocidadeTres.alpha = 0;
+							velocidadeQuatro.alpha = 0;
+							velocidadeCinco.alpha = 1;
+							velocidadeSeis.alpha = 0;
+							velocidadeSete.alpha = 0;
+							velocidadeOito.alpha = 0;
+							velocidadeNove.alpha = 0;
+							velocidadeDez.alpha = 0;
+							velocidadeOnze.alpha = 0;
+							velocidadeDoze.alpha = 0;
+							velocidadeTreze.alpha = 0;
+							velocidadeCatorze.alpha = 0;
+							velocidadeQuinze.alpha = 0;
+							velocidadeDezesseis.alpha = 0;
+							velocidadeDezessete.alpha = 0;
+							velocidadeDezoito.alpha = 0;
+							velocidadeDezenove.alpha = 0;
+							velocidadeVinte.alpha = 0;
+							velocidadeVinteUm.alpha = 0;
+							velocidadeVinteDois.alpha = 0;
 						end
 
 						if controlePonto > 500 and controlePonto < 600 then
@@ -598,6 +1016,30 @@
 							timeVilaoTwoDown 		= 3500 - 1000;
 							timeAnimalOneUp 		= 4000 - 1000;
 							timeAnimalOneDown 		= 4500 - 1000;
+
+							velocidadeZero.alpha = 0;
+							velocidadeUm.alpha = 0;
+							velocidadeDois.alpha = 0;
+							velocidadeTres.alpha = 0;
+							velocidadeQuatro.alpha = 0;
+							velocidadeCinco.alpha = 0;
+							velocidadeSeis.alpha = 1;
+							velocidadeSete.alpha = 0;
+							velocidadeOito.alpha = 0;
+							velocidadeNove.alpha = 0;
+							velocidadeDez.alpha = 0;
+							velocidadeOnze.alpha = 0;
+							velocidadeDoze.alpha = 0;
+							velocidadeTreze.alpha = 0;
+							velocidadeCatorze.alpha = 0;
+							velocidadeQuinze.alpha = 0;
+							velocidadeDezesseis.alpha = 0;
+							velocidadeDezessete.alpha = 0;
+							velocidadeDezoito.alpha = 0;
+							velocidadeDezenove.alpha = 0;
+							velocidadeVinte.alpha = 0;
+							velocidadeVinteUm.alpha = 0;
+							velocidadeVinteDois.alpha = 0;
 						end
 
 						if controlePonto > 600 and controlePonto < 700 then
@@ -613,6 +1055,30 @@
 								animalTwoUp();
 								imgAnimalTwo:addEventListener("tap", imgAnimalTwo);
 							end
+
+							velocidadeZero.alpha = 0;
+							velocidadeUm.alpha = 0;
+							velocidadeDois.alpha = 0;
+							velocidadeTres.alpha = 0;
+							velocidadeQuatro.alpha = 0;
+							velocidadeCinco.alpha = 0;
+							velocidadeSeis.alpha = 0;
+							velocidadeSete.alpha = 1;
+							velocidadeOito.alpha = 0;
+							velocidadeNove.alpha = 0;
+							velocidadeDez.alpha = 0;
+							velocidadeOnze.alpha = 0;
+							velocidadeDoze.alpha = 0;
+							velocidadeTreze.alpha = 0;
+							velocidadeCatorze.alpha = 0;
+							velocidadeQuinze.alpha = 0;
+							velocidadeDezesseis.alpha = 0;
+							velocidadeDezessete.alpha = 0;
+							velocidadeDezoito.alpha = 0;
+							velocidadeDezenove.alpha = 0;
+							velocidadeVinte.alpha = 0;
+							velocidadeVinteUm.alpha = 0;
+							velocidadeVinteDois.alpha = 0;
 						end
 
 						if controlePonto > 700 and controlePonto < 800 then
@@ -622,6 +1088,30 @@
 							timeVilaoTwoDown 		= 3500 - 1200;
 							timeAnimalOneUp 		= 4000 - 1200;
 							timeAnimalOneDown 		= 4500 - 1200;
+
+							velocidadeZero.alpha = 0;
+							velocidadeUm.alpha = 0;
+							velocidadeDois.alpha = 0;
+							velocidadeTres.alpha = 0;
+							velocidadeQuatro.alpha = 0;
+							velocidadeCinco.alpha = 0;
+							velocidadeSeis.alpha = 0;
+							velocidadeSete.alpha = 0;
+							velocidadeOito.alpha = 1;
+							velocidadeNove.alpha = 0;
+							velocidadeDez.alpha = 0;
+							velocidadeOnze.alpha = 0;
+							velocidadeDoze.alpha = 0;
+							velocidadeTreze.alpha = 0;
+							velocidadeCatorze.alpha = 0;
+							velocidadeQuinze.alpha = 0;
+							velocidadeDezesseis.alpha = 0;
+							velocidadeDezessete.alpha = 0;
+							velocidadeDezoito.alpha = 0;
+							velocidadeDezenove.alpha = 0;
+							velocidadeVinte.alpha = 0;
+							velocidadeVinteUm.alpha = 0;
+							velocidadeVinteDois.alpha = 0;
 						end
 
 						if controlePonto > 800 and controlePonto < 900 then
@@ -637,6 +1127,30 @@
 								vilaoLiderUp();
 								imgHunterLider:addEventListener("tap", imgHunterLider);
 							end
+
+							velocidadeZero.alpha = 0;
+							velocidadeUm.alpha = 0;
+							velocidadeDois.alpha = 0;
+							velocidadeTres.alpha = 0;
+							velocidadeQuatro.alpha = 0;
+							velocidadeCinco.alpha = 0;
+							velocidadeSeis.alpha = 0;
+							velocidadeSete.alpha = 0;
+							velocidadeOito.alpha = 0;
+							velocidadeNove.alpha = 1;
+							velocidadeDez.alpha = 0;
+							velocidadeOnze.alpha = 0;
+							velocidadeDoze.alpha = 0;
+							velocidadeTreze.alpha = 0;
+							velocidadeCatorze.alpha = 0;
+							velocidadeQuinze.alpha = 0;
+							velocidadeDezesseis.alpha = 0;
+							velocidadeDezessete.alpha = 0;
+							velocidadeDezoito.alpha = 0;
+							velocidadeDezenove.alpha = 0;
+							velocidadeVinte.alpha = 0;
+							velocidadeVinteUm.alpha = 0;
+							velocidadeVinteDois.alpha = 0;
 						end
 
 						if controlePonto > 900 and controlePonto < 1100 then
@@ -646,6 +1160,30 @@
 							timeVilaoTwoDown 		= 3500 - 1300;
 							timeAnimalOneUp 		= 4000 - 1300;
 							timeAnimalOneDown 		= 4500 - 1300;
+
+							velocidadeZero.alpha = 0;
+							velocidadeUm.alpha = 0;
+							velocidadeDois.alpha = 0;
+							velocidadeTres.alpha = 0;
+							velocidadeQuatro.alpha = 0;
+							velocidadeCinco.alpha = 0;
+							velocidadeSeis.alpha = 0;
+							velocidadeSete.alpha = 0;
+							velocidadeOito.alpha = 0;
+							velocidadeNove.alpha = 0;
+							velocidadeDez.alpha = 1;
+							velocidadeOnze.alpha = 0;
+							velocidadeDoze.alpha = 0;
+							velocidadeTreze.alpha = 0;
+							velocidadeCatorze.alpha = 0;
+							velocidadeQuinze.alpha = 0;
+							velocidadeDezesseis.alpha = 0;
+							velocidadeDezessete.alpha = 0;
+							velocidadeDezoito.alpha = 0;
+							velocidadeDezenove.alpha = 0;
+							velocidadeVinte.alpha = 0;
+							velocidadeVinteUm.alpha = 0;
+							velocidadeVinteDois.alpha = 0;
 						end
 
 						if controlePonto > 1100 and controlePonto < 1300 then
@@ -655,6 +1193,30 @@
 							timeVilaoTwoDown 		= 3500 - 1400;
 							timeAnimalOneUp 		= 4000 - 1400;
 							timeAnimalOneDown 		= 4500 - 1400;
+
+							velocidadeZero.alpha = 0;
+							velocidadeUm.alpha = 0;
+							velocidadeDois.alpha = 0;
+							velocidadeTres.alpha = 0;
+							velocidadeQuatro.alpha = 0;
+							velocidadeCinco.alpha = 0;
+							velocidadeSeis.alpha = 0;
+							velocidadeSete.alpha = 0;
+							velocidadeOito.alpha = 0;
+							velocidadeNove.alpha = 0;
+							velocidadeDez.alpha = 0;
+							velocidadeOnze.alpha = 1;
+							velocidadeDoze.alpha = 0;
+							velocidadeTreze.alpha = 0;
+							velocidadeCatorze.alpha = 0;
+							velocidadeQuinze.alpha = 0;
+							velocidadeDezesseis.alpha = 0;
+							velocidadeDezessete.alpha = 0;
+							velocidadeDezoito.alpha = 0;
+							velocidadeDezenove.alpha = 0;
+							velocidadeVinte.alpha = 0;
+							velocidadeVinteUm.alpha = 0;
+							velocidadeVinteDois.alpha = 0;
 						end
 
 						if controlePonto > 1300 and controlePonto < 1500 then
@@ -664,6 +1226,30 @@
 							timeVilaoTwoDown 		= 3500 - 1500;
 							timeAnimalOneUp 		= 4000 - 1500;
 							timeAnimalOneDown 		= 4500 - 1500;
+
+							velocidadeZero.alpha = 0;
+							velocidadeUm.alpha = 0;
+							velocidadeDois.alpha = 0;
+							velocidadeTres.alpha = 0;
+							velocidadeQuatro.alpha = 0;
+							velocidadeCinco.alpha = 0;
+							velocidadeSeis.alpha = 0;
+							velocidadeSete.alpha = 0;
+							velocidadeOito.alpha = 0;
+							velocidadeNove.alpha = 0;
+							velocidadeDez.alpha = 0;
+							velocidadeOnze.alpha = 0;
+							velocidadeDoze.alpha = 1;
+							velocidadeTreze.alpha = 0;
+							velocidadeCatorze.alpha = 0;
+							velocidadeQuinze.alpha = 0;
+							velocidadeDezesseis.alpha = 0;
+							velocidadeDezessete.alpha = 0;
+							velocidadeDezoito.alpha = 0;
+							velocidadeDezenove.alpha = 0;
+							velocidadeVinte.alpha = 0;
+							velocidadeVinteUm.alpha = 0;
+							velocidadeVinteDois.alpha = 0;
 						end
 
 						if controlePonto > 1500 and controlePonto < 1700 then
@@ -673,6 +1259,30 @@
 							timeVilaoTwoDown 		= 3500 - 1600;
 							timeAnimalOneUp 		= 4000 - 1600;
 							timeAnimalOneDown 		= 4500 - 1600;
+
+							velocidadeZero.alpha = 0;
+							velocidadeUm.alpha = 0;
+							velocidadeDois.alpha = 0;
+							velocidadeTres.alpha = 0;
+							velocidadeQuatro.alpha = 0;
+							velocidadeCinco.alpha = 0;
+							velocidadeSeis.alpha = 0;
+							velocidadeSete.alpha = 0;
+							velocidadeOito.alpha = 0;
+							velocidadeNove.alpha = 0;
+							velocidadeDez.alpha = 0;
+							velocidadeOnze.alpha = 0;
+							velocidadeDoze.alpha = 0;
+							velocidadeTreze.alpha = 1;
+							velocidadeCatorze.alpha = 0;
+							velocidadeQuinze.alpha = 0;
+							velocidadeDezesseis.alpha = 0;
+							velocidadeDezessete.alpha = 0;
+							velocidadeDezoito.alpha = 0;
+							velocidadeDezenove.alpha = 0;
+							velocidadeVinte.alpha = 0;
+							velocidadeVinteUm.alpha = 0;
+							velocidadeVinteDois.alpha = 0;
 						end
 
 						if controlePonto > 1700 and controlePonto < 1900 then
@@ -682,6 +1292,30 @@
 							timeVilaoTwoDown 		= 3500 - 1700;
 							timeAnimalOneUp 		= 4000 - 1700;
 							timeAnimalOneDown 		= 4500 - 1700;
+
+							velocidadeZero.alpha = 0;
+							velocidadeUm.alpha = 0;
+							velocidadeDois.alpha = 0;
+							velocidadeTres.alpha = 0;
+							velocidadeQuatro.alpha = 0;
+							velocidadeCinco.alpha = 0;
+							velocidadeSeis.alpha = 0;
+							velocidadeSete.alpha = 0;
+							velocidadeOito.alpha = 0;
+							velocidadeNove.alpha = 0;
+							velocidadeDez.alpha = 0;
+							velocidadeOnze.alpha = 0;
+							velocidadeDoze.alpha = 0;
+							velocidadeTreze.alpha = 0;
+							velocidadeCatorze.alpha = 1;
+							velocidadeQuinze.alpha = 0;
+							velocidadeDezesseis.alpha = 0;
+							velocidadeDezessete.alpha = 0;
+							velocidadeDezoito.alpha = 0;
+							velocidadeDezenove.alpha = 0;
+							velocidadeVinte.alpha = 0;
+							velocidadeVinteUm.alpha = 0;
+							velocidadeVinteDois.alpha = 0;
 						end
 
 						if controlePonto > 1900 and controlePonto < 2100 then
@@ -691,6 +1325,30 @@
 							timeVilaoTwoDown 		= 3500 - 1800;
 							timeAnimalOneUp 		= 4000 - 1800;
 							timeAnimalOneDown 		= 4500 - 1800;
+
+							velocidadeZero.alpha = 0;
+							velocidadeUm.alpha = 0;
+							velocidadeDois.alpha = 0;
+							velocidadeTres.alpha = 0;
+							velocidadeQuatro.alpha = 0;
+							velocidadeCinco.alpha = 0;
+							velocidadeSeis.alpha = 0;
+							velocidadeSete.alpha = 0;
+							velocidadeOito.alpha = 0;
+							velocidadeNove.alpha = 0;
+							velocidadeDez.alpha = 0;
+							velocidadeOnze.alpha = 0;
+							velocidadeDoze.alpha = 0;
+							velocidadeTreze.alpha = 0;
+							velocidadeCatorze.alpha = 0;
+							velocidadeQuinze.alpha = 1;
+							velocidadeDezesseis.alpha = 0;
+							velocidadeDezessete.alpha = 0;
+							velocidadeDezoito.alpha = 0;
+							velocidadeDezenove.alpha = 0;
+							velocidadeVinte.alpha = 0;
+							velocidadeVinteUm.alpha = 0;
+							velocidadeVinteDois.alpha = 0;
 						end
 
 						if controlePonto > 2100 and controlePonto < 2300 then
@@ -700,6 +1358,30 @@
 							timeVilaoTwoDown 		= 3500 - 1900;
 							timeAnimalOneUp 		= 4000 - 1900;
 							timeAnimalOneDown 		= 4500 - 1900;
+
+							velocidadeZero.alpha = 0;
+							velocidadeUm.alpha = 0;
+							velocidadeDois.alpha = 0;
+							velocidadeTres.alpha = 0;
+							velocidadeQuatro.alpha = 0;
+							velocidadeCinco.alpha = 0;
+							velocidadeSeis.alpha = 0;
+							velocidadeSete.alpha = 0;
+							velocidadeOito.alpha = 0;
+							velocidadeNove.alpha = 0;
+							velocidadeDez.alpha = 0;
+							velocidadeOnze.alpha = 0;
+							velocidadeDoze.alpha = 0;
+							velocidadeTreze.alpha = 0;
+							velocidadeCatorze.alpha = 0;
+							velocidadeQuinze.alpha = 0;
+							velocidadeDezesseis.alpha = 1;
+							velocidadeDezessete.alpha = 0;
+							velocidadeDezoito.alpha = 0;
+							velocidadeDezenove.alpha = 0;
+							velocidadeVinte.alpha = 0;
+							velocidadeVinteUm.alpha = 0;
+							velocidadeVinteDois.alpha = 0;
 						end
 
 						if controlePonto > 2300 and controlePonto < 2500 then
@@ -709,6 +1391,30 @@
 							timeVilaoTwoDown 		= 3500 - 2000;
 							timeAnimalOneUp 		= 4000 - 2000;
 							timeAnimalOneDown 		= 4500 - 2000;
+
+							velocidadeZero.alpha = 0;
+							velocidadeUm.alpha = 0;
+							velocidadeDois.alpha = 0;
+							velocidadeTres.alpha = 0;
+							velocidadeQuatro.alpha = 0;
+							velocidadeCinco.alpha = 0;
+							velocidadeSeis.alpha = 0;
+							velocidadeSete.alpha = 0;
+							velocidadeOito.alpha = 0;
+							velocidadeNove.alpha = 0;
+							velocidadeDez.alpha = 0;
+							velocidadeOnze.alpha = 0;
+							velocidadeDoze.alpha = 0;
+							velocidadeTreze.alpha = 0;
+							velocidadeCatorze.alpha = 0;
+							velocidadeQuinze.alpha = 0;
+							velocidadeDezesseis.alpha = 0;
+							velocidadeDezessete.alpha = 1;
+							velocidadeDezoito.alpha = 0;
+							velocidadeDezenove.alpha = 0;
+							velocidadeVinte.alpha = 0;
+							velocidadeVinteUm.alpha = 0;
+							velocidadeVinteDois.alpha = 0;
 						end
 
 						if controlePonto > 2500 and controlePonto < 2700 then
@@ -718,6 +1424,30 @@
 							timeVilaoTwoDown 		= 3500 - 2100;
 							timeAnimalOneUp 		= 4000 - 2100;
 							timeAnimalOneDown 		= 4500 - 2100;
+
+							velocidadeZero.alpha = 0;
+							velocidadeUm.alpha = 0;
+							velocidadeDois.alpha = 0;
+							velocidadeTres.alpha = 0;
+							velocidadeQuatro.alpha = 0;
+							velocidadeCinco.alpha = 0;
+							velocidadeSeis.alpha = 0;
+							velocidadeSete.alpha = 0;
+							velocidadeOito.alpha = 0;
+							velocidadeNove.alpha = 0;
+							velocidadeDez.alpha = 0;
+							velocidadeOnze.alpha = 0;
+							velocidadeDoze.alpha = 0;
+							velocidadeTreze.alpha = 0;
+							velocidadeCatorze.alpha = 0;
+							velocidadeQuinze.alpha = 0;
+							velocidadeDezesseis.alpha = 0;
+							velocidadeDezessete.alpha = 0;
+							velocidadeDezoito.alpha = 1;
+							velocidadeDezenove.alpha = 0;
+							velocidadeVinte.alpha = 0;
+							velocidadeVinteUm.alpha = 0;
+							velocidadeVinteDois.alpha = 0;
 						end
 
 						if controlePonto > 2700 and controlePonto < 2900 then
@@ -727,6 +1457,30 @@
 							timeVilaoTwoDown 		= 3500 - 2200;
 							timeAnimalOneUp 		= 4000 - 2200;
 							timeAnimalOneDown 		= 4500 - 2200;
+
+							velocidadeZero.alpha = 0;
+							velocidadeUm.alpha = 0;
+							velocidadeDois.alpha = 0;
+							velocidadeTres.alpha = 0;
+							velocidadeQuatro.alpha = 0;
+							velocidadeCinco.alpha = 0;
+							velocidadeSeis.alpha = 0;
+							velocidadeSete.alpha = 0;
+							velocidadeOito.alpha = 0;
+							velocidadeNove.alpha = 0;
+							velocidadeDez.alpha = 0;
+							velocidadeOnze.alpha = 0;
+							velocidadeDoze.alpha = 0;
+							velocidadeTreze.alpha = 0;
+							velocidadeCatorze.alpha = 0;
+							velocidadeQuinze.alpha = 0;
+							velocidadeDezesseis.alpha = 0;
+							velocidadeDezessete.alpha = 0;
+							velocidadeDezoito.alpha = 0;
+							velocidadeDezenove.alpha = 1;
+							velocidadeVinte.alpha = 0;
+							velocidadeVinteUm.alpha = 0;
+							velocidadeVinteDois.alpha = 0;
 						end
 
 						if controlePonto > 2900 and controlePonto < 3100 then
@@ -736,6 +1490,30 @@
 							timeVilaoTwoDown 		= 3500 - 2300;
 							timeAnimalOneUp 		= 4000 - 2300;
 							timeAnimalOneDown 		= 4500 - 2300;
+
+							velocidadeZero.alpha = 0;
+							velocidadeUm.alpha = 0;
+							velocidadeDois.alpha = 0;
+							velocidadeTres.alpha = 0;
+							velocidadeQuatro.alpha = 0;
+							velocidadeCinco.alpha = 0;
+							velocidadeSeis.alpha = 0;
+							velocidadeSete.alpha = 0;
+							velocidadeOito.alpha = 0;
+							velocidadeNove.alpha = 0;
+							velocidadeDez.alpha = 0;
+							velocidadeOnze.alpha = 0;
+							velocidadeDoze.alpha = 0;
+							velocidadeTreze.alpha = 0;
+							velocidadeCatorze.alpha = 0;
+							velocidadeQuinze.alpha = 0;
+							velocidadeDezesseis.alpha = 0;
+							velocidadeDezessete.alpha = 0;
+							velocidadeDezoito.alpha = 0;
+							velocidadeDezenove.alpha = 0;
+							velocidadeVinte.alpha = 1;
+							velocidadeVinteUm.alpha = 0;
+							velocidadeVinteDois.alpha = 0;
 						end
 
 						if controlePonto > 3100 and controlePonto < 3300 then
@@ -745,6 +1523,63 @@
 							timeVilaoTwoDown 		= 3500 - 2400;
 							timeAnimalOneUp 		= 4000 - 2400;
 							timeAnimalOneDown 		= 4500 - 2400;
+
+							velocidadeZero.alpha = 0;
+							velocidadeUm.alpha = 0;
+							velocidadeDois.alpha = 0;
+							velocidadeTres.alpha = 0;
+							velocidadeQuatro.alpha = 0;
+							velocidadeCinco.alpha = 0;
+							velocidadeSeis.alpha = 0;
+							velocidadeSete.alpha = 0;
+							velocidadeOito.alpha = 0;
+							velocidadeNove.alpha = 0;
+							velocidadeDez.alpha = 0;
+							velocidadeOnze.alpha = 0;
+							velocidadeDoze.alpha = 0;
+							velocidadeTreze.alpha = 0;
+							velocidadeCatorze.alpha = 0;
+							velocidadeQuinze.alpha = 0;
+							velocidadeDezesseis.alpha = 0;
+							velocidadeDezessete.alpha = 0;
+							velocidadeDezoito.alpha = 0;
+							velocidadeDezenove.alpha = 0;
+							velocidadeVinte.alpha = 0;
+							velocidadeVinteUm.alpha = 1;
+							velocidadeVinteDois.alpha = 0;
+						end
+
+						if controlePonto > 3300 then
+							timeVilaoOneUp 			= 4500 - 2500;
+							timeVilaoOneDown 		= 4500 - 2500;
+							timeVilaoTwoUp 			= 4000 - 2500;
+							timeVilaoTwoDown 		= 3500 - 2500;
+							timeAnimalOneUp 		= 4000 - 2500;
+							timeAnimalOneDown 		= 4500 - 2500;
+
+							velocidadeZero.alpha = 0;
+							velocidadeUm.alpha = 0;
+							velocidadeDois.alpha = 0;
+							velocidadeTres.alpha = 0;
+							velocidadeQuatro.alpha = 0;
+							velocidadeCinco.alpha = 0;
+							velocidadeSeis.alpha = 0;
+							velocidadeSete.alpha = 0;
+							velocidadeOito.alpha = 0;
+							velocidadeNove.alpha = 0;
+							velocidadeDez.alpha = 0;
+							velocidadeOnze.alpha = 0;
+							velocidadeDoze.alpha = 0;
+							velocidadeTreze.alpha = 0;
+							velocidadeCatorze.alpha = 0;
+							velocidadeQuinze.alpha = 0;
+							velocidadeDezesseis.alpha = 0;
+							velocidadeDezessete.alpha = 0;
+							velocidadeDezoito.alpha = 0;
+							velocidadeDezenove.alpha = 0;
+							velocidadeVinte.alpha = 0;
+							velocidadeVinteUm.alpha = 0;
+							velocidadeVinteDois.alpha = 1;
 						end
 					end
 
@@ -972,8 +1807,30 @@
 			display.remove(imgHunterTwo);
 			display.remove(imgAnimalOne);
 			display.remove(bgArbusto);
+			display.remove(velocidadeZero);
+			display.remove(velocidadeUm);
+			display.remove(velocidadeDois);
+			display.remove(velocidadeTres);
+			display.remove(velocidadeQuatro);
+			display.remove(velocidadeCinco);
+			display.remove(velocidadeSeis);
+			display.remove(velocidadeSete);
+			display.remove(velocidadeOito);
+			display.remove(velocidadeNove);
+			display.remove(velocidadeDez);
+			display.remove(velocidadeOnze);
+			display.remove(velocidadeDoze);
+			display.remove(velocidadeTreze);
+			display.remove(velocidadeCatorze);
+			display.remove(velocidadeQuinze);
+			display.remove(velocidadeDezesseis);
+			display.remove(velocidadeDezessete);
+			display.remove(velocidadeDezoito);
+			display.remove(velocidadeDezenove);
+			display.remove(velocidadeVinte);
+			display.remove(velocidadeVinteUm);
+			display.remove(velocidadeVinteDois);
 			display.remove(scoreCount);
-			display.remove(scoreCountContorno);
 			display.remove(lifeOne);
 			display.remove(lifeTwo);
 			display.remove(lifeThree);
