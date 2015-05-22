@@ -492,7 +492,9 @@
 					function imgHunterOne:tap(event)
 						audio.play(hit);
 
-						imgHunterOne.alpha = 0;
+						transition.fadeOut(imgHunterOne);
+
+						--imgHunterOne.alpha = 0;
 
 						scoreCount.text = tostring(tonumber(scoreCount.text) + 30);
 						scoreContorno.text = scoreCount.text;
@@ -542,7 +544,9 @@
 					function imgHunterTwo:tap(event)
 						audio.play(hit);
 
-						imgHunterTwo.alpha = 0;
+						transition.fadeOut(imgHunterTwo);
+
+						--imgHunterTwo.alpha = 0;
 
 						scoreCount.text = tostring(tonumber(scoreCount.text) + 30);
 						scoreContorno.text = scoreCount.text;
@@ -592,7 +596,9 @@
 					function imgHunterThree:tap(event)
 						audio.play(hit);
 
-						imgHunterThree.alpha = 0;
+						transition.fadeOut(imgHunterThree);
+
+						--imgHunterThree.alpha = 0;
 
 						scoreCount.text = tostring(tonumber(scoreCount.text) + 30);
 						scoreContorno.text = scoreCount.text;
@@ -642,7 +648,9 @@
 					function imgHunterLider:tap(event)
 						audio.play(hit);
 
-						imgHunterLider.alpha = 0;
+						transition.fadeOut(imgHunterLider);
+						
+						--imgHunterLider.alpha = 0;
 
 						scoreCount.text = tostring(tonumber(scoreCount.text) + 55);
 						scoreContorno.text = scoreCount.text;
@@ -707,7 +715,9 @@
 						audio.play(hit);
 						audio.play(hitCat);
 
-						imgAnimalOne.alpha = 0;
+						transition.fadeOut(imgAnimalOne);	
+
+						--imgAnimalOne.alpha = 0;
 
 						controleLife = (controleLife - 1);
 
@@ -770,7 +780,9 @@
 						audio.play(hit);
 						audio.play(hitCat);
 
-						imgAnimalTwo.alpha = 0;
+						transition.fadeOut(imgAnimalTwo);
+
+						--imgAnimalTwo.alpha = 0;
 
 						controleLife = (controleLife - 1);
 
