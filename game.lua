@@ -492,9 +492,7 @@
 					function imgHunterOne:tap(event)
 						audio.play(hit);
 
-						transition.fadeOut(imgHunterOne);
-
-						--imgHunterOne.alpha = 0;
+						imgHunterOne.alpha = 0;
 
 						scoreCount.text = tostring(tonumber(scoreCount.text) + 30);
 						scoreContorno.text = scoreCount.text;
@@ -544,9 +542,7 @@
 					function imgHunterTwo:tap(event)
 						audio.play(hit);
 
-						transition.fadeOut(imgHunterTwo);
-
-						--imgHunterTwo.alpha = 0;
+						imgHunterTwo.alpha = 0;
 
 						scoreCount.text = tostring(tonumber(scoreCount.text) + 30);
 						scoreContorno.text = scoreCount.text;
@@ -596,9 +592,7 @@
 					function imgHunterThree:tap(event)
 						audio.play(hit);
 
-						transition.fadeOut(imgHunterThree);
-
-						--imgHunterThree.alpha = 0;
+						imgHunterThree.alpha = 0;
 
 						scoreCount.text = tostring(tonumber(scoreCount.text) + 30);
 						scoreContorno.text = scoreCount.text;
@@ -648,9 +642,7 @@
 					function imgHunterLider:tap(event)
 						audio.play(hit);
 
-						transition.fadeOut(imgHunterLider);
-						
-						--imgHunterLider.alpha = 0;
+						imgHunterLider.alpha = 0;
 
 						scoreCount.text = tostring(tonumber(scoreCount.text) + 55);
 						scoreContorno.text = scoreCount.text;
@@ -715,9 +707,7 @@
 						audio.play(hit);
 						audio.play(hitCat);
 
-						transition.fadeOut(imgAnimalOne);	
-
-						--imgAnimalOne.alpha = 0;
+						imgAnimalOne.alpha = 0;
 
 						controleLife = (controleLife - 1);
 
@@ -780,9 +770,7 @@
 						audio.play(hit);
 						audio.play(hitCat);
 
-						transition.fadeOut(imgAnimalTwo);
-
-						--imgAnimalTwo.alpha = 0;
+						imgAnimalTwo.alpha = 0;
 
 						controleLife = (controleLife - 1);
 
@@ -1622,7 +1610,7 @@
 					pauseButton2.alpha = 1;
 					resumeButton.alpha = 1;
 					restartButton.alpha = 1;
-					returnMenuButton.alpha = 1;
+					returnMenuButton.alpha = 1;	
 
 					transition.pause();
 
